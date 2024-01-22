@@ -2,9 +2,10 @@
 
 ### Deskripsi Aplikasi
 ### Penjelasan Mengenai Arsitektur MVC
-### LINK UML
 - Alasan
 - Tujuan
 - Teknologi
+### LINK UML
+https://drive.google.com/file/d/1SIedanXX8FDAj2kAhyjokqxxOUaTejex/view?usp=sharing
 ### LINK ERD
 ### LINK UI/UX
