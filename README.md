@@ -3,9 +3,12 @@
 > Adam Adnan - 13020200103
 
 ### Deskripsi Aplikasi
-- Alasan
-- Tujuan
+- Alasan saya memilih untuk membuat aplikasi ini adalah untuk menyederhanakan proses peminjaman ruangan dengan menyediakan platform yang mudah diakses secara online. Hal ini diharapkan dapat meningkatkan efisiensi dan mengurangi hambatan administratif dalam melakukan peminjaman. Dengan demikian, mahasiswa tidak perlu lagi datang langsung ke kepala laboratorium untuk mengajukan peminjaman ruangan dan diarahkan ke laboran untuk pengisian formulir.
+- Tujuan saya dalam pembuatan website ini adalah untuk menyederhanakan proses peminjaman ruangan di Laboratorium Terpadu Fakultas Ilmu Komputer.
 - Teknologi yang digunakan : PHP, MySQL, Bootstrap
+
+### Fitur MVP Aplikasi
+-
 
 ### Penjelasan Mengenai Arsitektur MVC
 Model View Controller atau yang dapat disingkat MVC adalah sebuah pola arsitektur dalam membuat sebuah aplikasi dengan cara memisahkan kode menjadi tiga bagian yang terdiri dari:
