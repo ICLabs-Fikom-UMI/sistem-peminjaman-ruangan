@@ -1,5 +1,10 @@
-# Sistem Peminjaman Ruangan
+# SIPIRA - Sistem Peminjaman Ruangan
 
-## LINK UML
-## LINK ERD
-## LINK UI
+### Deskripsi Aplikasi
+### Penjelasan Mengenai Arsitektur MVC
+### LINK UML
+- Alasan
+- Tujuan
+- Teknologi
+### LINK ERD
+### LINK UI/UX
