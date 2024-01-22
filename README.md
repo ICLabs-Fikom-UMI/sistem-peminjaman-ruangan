@@ -8,7 +8,10 @@
 - Teknologi yang digunakan : PHP, MySQL, Bootstrap
 
 ### Fitur MVP Aplikasi
--
+- Grafik statistik peminjaman dan pengguna per jurusan.
+- Notifikasi otomatis ke admin untuk permintaan peminjaman baru.
+- Notifikasi ke pengguna tentang status peminjaman.
+- Fitur laporan untuk mengekspor data peminjaman berdasarkan tanggal.
 
 ### Penjelasan Mengenai Arsitektur MVC
 Model View Controller atau yang dapat disingkat MVC adalah sebuah pola arsitektur dalam membuat sebuah aplikasi dengan cara memisahkan kode menjadi tiga bagian yang terdiri dari:
