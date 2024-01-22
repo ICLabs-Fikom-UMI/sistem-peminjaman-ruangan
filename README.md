@@ -5,8 +5,8 @@
 ### Deskripsi Aplikasi
 - Alasan
 - Tujuan
-- Teknologi
-- 
+- Teknologi yang digunakan : PHP, MySQL, Bootstrap
+
 ### Penjelasan Mengenai Arsitektur MVC
 Model View Controller atau yang dapat disingkat MVC adalah sebuah pola arsitektur dalam membuat sebuah aplikasi dengan cara memisahkan kode menjadi tiga bagian yang terdiri dari:
 - Model
