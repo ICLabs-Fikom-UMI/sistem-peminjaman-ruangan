@@ -32,7 +32,7 @@ Model View Controller atau yang dapat disingkat MVC adalah sebuah pola arsitektu
 
 ### LINK UML [CLICK HERE](https://drive.google.com/file/d/1SIedanXX8FDAj2kAhyjokqxxOUaTejex/view?usp=sharing)
 ### LINK ERD [CLICK HERE](https://drive.google.com/file/d/1whf-5t3ToEaB3GluxBjcu2KnPBs4T9N1/view?usp=sharing)
-### LINK UI/UX [CLICK HERE](https://www.figma.com/file/TEg3cPPMmLLneebIlB92ev/ICLabs-websites?type=design&node-id=71%3A8&mode=design&t=T2HckajX9SXMZGiP-1)
+### LINK UI/UX [CLICK HERE]([https://www.figma.com/file/TEg3cPPMmLLneebIlB92ev/ICLabs-websites?type=design&node-id=71%3A8&mode=design&t=T2HckajX9SXMZGiP-1](https://www.figma.com/file/vyak3V7twRdHzi3b7Ffgut/SIPIRA?type=design&node-id=0%3A1&mode=design&t=T2LAHHj22RZVT6ZE-1)https://www.figma.com/file/vyak3V7twRdHzi3b7Ffgut/SIPIRA?type=design&node-id=0%3A1&mode=design&t=T2LAHHj22RZVT6ZE-1)
 
 > [!CAUTION]
 > PHP VERSION 8.3.2
