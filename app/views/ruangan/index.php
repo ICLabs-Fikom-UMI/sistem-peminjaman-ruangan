@@ -51,7 +51,7 @@
     <div class="row mb-3">
         <div class="col-md-4">
             <!-- Formulir Bootstrap dengan gaya khusus -->
-            <form class="container-user">
+            <form class="container-user" id="myForm">
                 <!-- Baris 1: Nama Ruangan -->
                 <div class="form-group">
                     <label for="namaRuangan">Nama Ruangan</label>
@@ -76,8 +76,18 @@
                     <textarea class="form-control" id="deskripsi" rows="3" placeholder="Masukkan Deskripsi"></textarea>
                 </div>
 
-                <!-- Tombol Submit -->
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- Baris 4: Thumbnail -->
+                <div class="form-group">
+                    <label for="thumbnail-upload" class="custom-file-control">Pilih File</label>
+                    <input type="file" class="form-control-file" id="thumbnail-upload" accept="image/*" onchange="previewImage()">
+                    <img id="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                </div>
+
+                <!-- Tombol Submit dan Reset -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
             </form>
         </div>
         <div class="col-8">

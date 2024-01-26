@@ -27,3 +27,24 @@ $(function() {
         });
     });
 });
+
+    // Fungsi untuk menampilkan pratinjau gambar
+    function previewImage() {
+        var thumbnailInput = document.getElementById('thumbnail-upload');
+        var thumbnailPreview = document.getElementById('thumbnail-preview');
+
+        // Memeriksa apakah ada file yang dipilih
+        if (thumbnailInput.files && thumbnailInput.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                thumbnailPreview.src = e.target.result;
+            };
+
+            // Membaca file gambar sebagai URL data
+            reader.readAsDataURL(thumbnailInput.files[0]);
+
+            // Menampilkan elemen gambar pratinjau
+            thumbnailPreview.style.display = 'block';
+        }
+    }
