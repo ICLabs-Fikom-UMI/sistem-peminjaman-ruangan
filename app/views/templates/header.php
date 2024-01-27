@@ -27,4 +27,5 @@
 
 </head>
 
-<body style="background-color: #EDF1F1;">
+<body>
+<div id="wrapper">

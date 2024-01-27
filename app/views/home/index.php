@@ -1,7 +1,6 @@
-<div class="container mt-3">
     <!-- Card -->
-    <div class="row mb-3">
-        <div class="col-md-4 col-xl-3">
+    <div class="row">
+        <div class="col-md-4 col-xl-3 mb-4">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -16,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-4 col-xl-3 mb-4">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -31,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-4 col-xl-3 mb-4">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -46,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-4 col-xl-3 mb-4">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -89,5 +88,3 @@
             </div>
         </div>
     </div>
-
-</div>

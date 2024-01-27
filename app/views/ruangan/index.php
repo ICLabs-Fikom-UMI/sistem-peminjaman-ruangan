@@ -1,4 +1,3 @@
-<div class="container mt-3">
 
     <!-- Card Data Ruangan-->
     <div class="row mb-3">
@@ -130,5 +129,3 @@
         </div>
     </div>
     <!-- End Card Data Ruangan-->
-
-</div>

@@ -1,4 +1,4 @@
-<div class="container mt-3">
+
     <!-- Data user -->
     <div class="container-user rounded mb-5">
         <div class="row">
@@ -72,4 +72,3 @@
         </div>
     </div>
     <!-- End Data user -->
-</div>

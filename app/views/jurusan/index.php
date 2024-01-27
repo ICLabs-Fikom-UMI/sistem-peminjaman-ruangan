@@ -1,5 +1,3 @@
-<div class="container mt-3">
-
     <div class="row mb-3">
         <div class="col-12">
             <div class="card">
@@ -68,4 +66,3 @@
         </div>
     </div>
     <!-- End Card Data Jurusan-->
-</div>

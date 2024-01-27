@@ -9,7 +9,8 @@ class About extends Controller{
 
         $data['judul'] = 'About Me';
         $this->view('templates/header', $data);
-        $this->view('templates/navbar');
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
         $this->view('about/index', $data);
         $this->view('templates/footer');
     }

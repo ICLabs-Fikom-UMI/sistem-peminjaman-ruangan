@@ -1,4 +1,4 @@
-<div class="container mt-3 ">
+
     <div class="row mb-3">
         <div class="col-sm-3 mb-3 mb-sm-0">
             <div class="card">
@@ -171,5 +171,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
