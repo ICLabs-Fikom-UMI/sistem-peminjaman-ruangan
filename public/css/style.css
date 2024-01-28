@@ -211,7 +211,9 @@
 .sidebar-nav>.sidebar-brand {
     font-size: 18px;
     font-weight: 600;
-    height: 50px;
+    height: 55px;
+    display: flex;
+    align-items: center;
 }
 
 .sidebar-nav>.sidebar-brand a {
@@ -223,8 +225,13 @@
     font-weight: 600;
 }
 
-
-
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
 
 
 

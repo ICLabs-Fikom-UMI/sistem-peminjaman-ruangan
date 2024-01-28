@@ -1,6 +1,6 @@
 <div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-4 mt-5 mb-5 p-3">
+        <div class="col-5 mt-5 mb-5 p-3">
             <form action="" method="" class="custome-form">
                 <div class="header">
                     <h2 class="text-center mb-4">SIPIRA</h2>

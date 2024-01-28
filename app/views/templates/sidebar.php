@@ -5,7 +5,11 @@
                         SIPIRA
                     </li>
                     <li>
-                        <a href="#">Beranda</a>
+                        <a href="<?= BASEURL; ?>">
+                            <span class="material-symbols-outlined" >
+                                home
+                            </span> Beranda
+                        </a>
                     </li>
                     <li class="header">
                         Data Master

@@ -36,7 +36,7 @@
                     <div>
                         <img src="..\public\img\jurusan.svg" alt="Total jurusan" class="mb-3">
                         <h6>Total Jurusan</h6>
-                        <h2><span>0</span></h2>
+                        <h2><span><?php echo $data['jumlahJurusan'];  ?></span></h2>
                         <p>Total Jurusan saat ini</p>
                     </div>
                     <div>
