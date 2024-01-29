@@ -6,7 +6,7 @@
                     </li>
                     <li>
                         <a href="<?= BASEURL; ?>">
-                            <span class="material-symbols-outlined" >
+                            <span class="material-symbols-outlined">
                                 home
                             </span> Beranda
                         </a>
@@ -15,34 +15,67 @@
                         Data Master
                     </li>
                     <li>
-                        <a href="<?= BASEURL; ?>/jurusan">Data Jurusan</a>
+                        <a href="<?= BASEURL; ?>/jurusan">
+                            <span class="material-symbols-outlined">
+                                apartment
+                            </span>
+                            Data Jurusan</a>
                     </li>
                     <li>
-                        <a href="<?= BASEURL; ?>/ruangan">Data Ruangan</a>
+                        <a href="<?= BASEURL; ?>/ruangan">
+                            <span class="material-symbols-outlined">
+                                domain
+                            </span>
+                            Data Ruangan</a>
                     </li>
                     <li>
-                        <a href="<?= BASEURL; ?>/mahasiswa">Data Pengguna</a>
+                        <a href="<?= BASEURL; ?>/mahasiswa">
+                            <span class="material-symbols-outlined">
+                                person
+                            </span>
+                            Data Pengguna</a>
                     </li>
                     <li>
-                        <a href="<?= BASEURL; ?>/peminjaman">Data Peminjaman</a>
+                        <a href="<?= BASEURL; ?>/peminjaman">
+                            <span class="material-symbols-outlined">
+                                calendar_month
+                            </span>
+                            Data Peminjaman</a>
                     </li>
                     <li>
-                        <a href="<?= BASEURL; ?>/laporan">Laporan</a>
+                        <a href="<?= BASEURL; ?>/laporan">
+                            <span class="material-symbols-outlined">
+                                lab_profile
+                            </span>
+                            Laporan
+                        </a>
                     </li>
                     <li class="header">
                         Peminjaman
                     </li>
                     <li>
-                        <a href="<?= BASEURL; ?>/about">Pinjam Ruangan</a>
+                        <a href="<?= BASEURL; ?>/about">
+                            <span class="material-symbols-outlined">
+                                event_available
+                            </span>
+                            Pinjam Ruangan</a>
                     </li>
                     <li>
-                        <a href="">Peminjaman Saya</a>
+                        <a href="">
+                            <span class="material-symbols-outlined">
+                                user_attributes
+                            </span>
+                            Peminjaman Saya</a>
                     </li>
                     <li class="header">
                         Lainnya
                     </li>
                     <li>
-                        <a href="#">Pengaturan</a>
+                        <a href="#">
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                            Pengaturan</a>
                     </li>
 
                 </ul>
