@@ -125,20 +125,20 @@
                 <tbody>
                     <?php
                     $no = 0;
-                    foreach ($data['mhs'] as $mahasiswa) :
+                    foreach ($data['mp'] as $profile) :
                         $no++;
                     ?>
                         <tr>
                             <td><?= $no; ?></td>
-                            <td><?= $mahasiswa['nama']; ?></td>
-                            <td><?= $mahasiswa['email']; ?></td>
-                            <td>-</td>
-                            <td><?= $mahasiswa['jurusan']; ?></td>
-                            <td>-</td>
+                            <td><?= $profile['nama_profile']; ?></td>
+                            <td><?= $profile['email']; ?></td>
+                            <td><?= $profile['no_telp']; ?></td>
+                            <td><?= $profile['jurusan']; ?></td>
+                            <td><?= $profile['role']; ?></td>
                             <td class="icon-container" style="text-align: center;">
                                 <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
                                 <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
-                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>"><i class=" fa-solid fa-ellipsis-vertical"></i></a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>"><i class=" fa-solid fa-ellipsis-vertical "></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -205,30 +205,31 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="nama">Nama</label>
+                                <label for="nama" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="nama" name="nama">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="email">Email</label>
+                                <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="nim">NIM</label>
+                                <label for="nim" class="form-label">NIM</label>
                                 <input type="number" class="form-control" id="nim" name="nim">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama">
+                                <label for="no_telp" class="form-label">No.Telepon</label>
+                                <input type="text" class="form-control" id="no_telp" name="no_telp">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="jurusan">Jurusan</label>
+                                <label for="jurusan" class="form-label">Jurusan</label>
                                 <select id="jurusan" class="form-control" name="jurusan">
+                                    <option value="#">-- Pilih Jurusan --</option>
                                     <option value="Teknik Informatika">Teknik Informatika</option>
                                     <option value="Teknik Kimia">Teknik Kimia</option>
                                     <option value="Sistem Informasi">Sistem Informasi</option>
@@ -236,17 +237,23 @@
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="role">Role</label>
-                                <input type="text" class="form-control" id="role" name="role">
+                                <label for="role" class="form-label">Role</label>
+                                <select id="role" class="form-control" name="role">
+                                    <option value="#">-- Pilih Role --</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Kepala Lab">Kepala Lab</option>
+                                    <option value="Koordinator Lab">Koordinator Lab</option>
+                                    <option value="User">User</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="password">Kata Sandi</label>
+                                <label for="password" class="form-label">Kata Sandi</label>
                                 <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="password">Konfirmasi Kata Sandi</label>
+                                <label for="password" class="form-label">Konfirmasi Kata Sandi</label>
                                 <input type="password" class="form-control" id="password" name="password">
                             </div>
                         </div>

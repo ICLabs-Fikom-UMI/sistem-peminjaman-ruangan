@@ -78,17 +78,17 @@
            <tbody>
                <?php
                 $no = 0;
-                foreach ($data['mhs'] as $mahasiswa) :
+                foreach ($data['peminjaman'] as $pj) :
                     $no++;
                 ?>
                    <tr>
                        <td><?= $no; ?></td>
-                       <td>Adam Adnan</td>
-                       <td>Lab Multimedia</td>
-                       <td>2024-01-20</td>
-                       <td>15:00</td>
-                       <td>17:00</td>
-                       <td>Lomba</td>
+                       <td><?= $pj['nama_user']; ?></td>
+                       <td><?= $pj['nama_ruangan']; ?></td>
+                       <td><?= $pj['tanggal_pinjam']; ?></td>
+                       <td><?= $pj['waktu_mulai']; ?></td>
+                       <td><?= $pj['waktu_selesai']; ?></td>
+                       <td><?= $pj['keperluan']; ?></td>
                        <td>Pending</td>
                        <td>
                            <button type="submit" class="btn btn-primary">Setuju</button>

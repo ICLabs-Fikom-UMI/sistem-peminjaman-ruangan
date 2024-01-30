@@ -1,4 +1,5 @@
-<div class="container mt-5">
+<div class="row">
+
 
     <!-- <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -32,4 +33,5 @@
     </table>
 
     <a href="<?= BASEURL; ?>/mahasiswa" class="card-link">Kembali</a>
+
 </div>

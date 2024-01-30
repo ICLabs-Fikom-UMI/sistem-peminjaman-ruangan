@@ -82,7 +82,7 @@
 }
 
 .icon-container i {
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .info-box {
@@ -228,11 +228,67 @@
     font-weight: 600;
 }
 
+
+
 .material-symbols-outlined {
     font-size: 24px;
     vertical-align: middle;
     margin-right: 10px;
 }
 
+/* Ruangan */
 
+.form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 24px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.form-container-1 {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-container {
+               width: 245px;
+               height: 245px;
+               border: 2px dashed #ccc;
+               position: relative;
+               overflow: hidden;
+           }
+    
+           .upload-btn-wrapper {
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               text-align: center;
+           }
+    
+           .upload-btn-wrapper input[type=file] {
+               font-size: 100px;
+               position: absolute;
+               left: 0;
+               top: 0;
+               opacity: 0;
+           }
+    
+           .thumbnail-preview {
+               max-width: 100%;
+               max-height: 100%;
+               display: none;
+           }
+    
+           .buttons-container {
+               margin-top: 14px;
+           }
+    
+           .btn-custome {
+               background-color: #9A9A9A;
+               opacity: 0.7;
+           }

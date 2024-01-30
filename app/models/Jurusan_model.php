@@ -39,4 +39,6 @@ class Jurusan_model {
         $this->db->query('SELECT COUNT(*) as jumlah FROM ' . $this->table);
         return $this->db->single();
     } 
+
+    
 }

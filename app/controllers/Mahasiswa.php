@@ -5,7 +5,7 @@ class Mahasiswa extends Controller
     public function index()
     {
         $data['judul'] = 'Daftar Mahasiswa';
-        $data['mhs'] = $this->model('Mahasiswa_model')->getAllMahasiswa();
+        $data['mp'] = $this->model('Mahasiswa_model')->getAllMahasiswa();
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
@@ -16,8 +16,10 @@ class Mahasiswa extends Controller
     public function detail($id)
     {
         $data['judul'] = 'Detail Mahasiswa';
-        $data['mhs'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
+        $data['mp'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
         $this->view('templates/header', $data);
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
         $this->view('mahasiswa/detail', $data);
         $this->view('templates/footer');
     }
