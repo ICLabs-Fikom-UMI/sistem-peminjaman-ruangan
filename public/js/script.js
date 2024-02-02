@@ -4,6 +4,18 @@ $(function() {
         $('.modal-footer button[type=submit]').html('Submit');
     });
 
+    $('.tombolTambahJurusan').on('click', function(){
+        $('#formModalLabel').html('Tambah Jurusan');
+        $('.modal-footer button[type=submit]').html('Submit');
+    });
+
+    $('.tombolTambahRuangan').on('click', function(){
+        $('#formModalLabel').html('Tambah Ruangan');
+        $('.modal-footer button[type=submit]').html('Submit');
+    });
+
+    
+
     $('.tampilModalUbah').on('click', function(){
         $('#formModalLabel').html('Ubah Data Mahasiswa');
         $('.modal-footer button[type=submit]').html('Ubah Data');
