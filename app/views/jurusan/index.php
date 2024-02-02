@@ -55,7 +55,7 @@
                                 <td><?= $jurusan['nama_jurusan']; ?></td>
                                 <td><?= $jurusan['ketua_jurusan']; ?></td>
                                 <td class="icon-container" style="text-align: center;">
-                                    <a href="<?= BASEURL; ?>/jurusan/ubah/<?= $jurusan['id_jurusan']; ?>" class="tombolEditJurusan" data-id="<?= $jurusan['id_jurusan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
+                                    <a href="<?= BASEURL; ?>/jurusan/ubah/<?= $jurusan['id_jurusan']; ?>" class="tombolEditJurusan" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $jurusan['id_jurusan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
                                     <a href="<?= BASEURL; ?>/jurusan/hapus/<?= $jurusan['id_jurusan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tr>

@@ -148,7 +148,7 @@
                     <div class="form-group mb-3">
                         <label for="thumbnail" class="form-label">Thumbnail</label>
                         <div class="custom-upload-btn">
-                            <input type="file" id="gambar" name="gambar" accept="image/*" onchange="previewImage()">
+                            <input type="file" id="gambar" name="gambar">
                             <label for="gambar">Upload File</label>
                         </div>
                     </div>
@@ -166,6 +166,8 @@
                 </form>
             </div>
         </div>
+
+        <!-- modal ubah Data ruangan -->
 
         <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -242,22 +244,3 @@
             </div>
         </div>
         <!-- End Card Data Ruangan-->
-
-        <!-- JavaScript untuk pratinjau gambar -->
-        <script>
-            function previewImage() {
-                var input = document.getElementById('gambar');
-                var preview = document.getElementById('preview');
-
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        preview.src = e.target.result;
-                        preview.style.display = 'block';
-                    };
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-        </script>

@@ -82,8 +82,9 @@ $(function() {
     });
 
     $('.tombolEditJurusan').on('click', function(){
-        event.preventDefault();
-        $('.jurusan-body form').attr('action', 'http://localhost/peminjaman-lab/public/jurusan/ubah');
+        $('#formModalLabel').html('Ubah Data Jurusan');
+        $('.modal-footer button[type=submit]').html('Ubah Data');
+        $('.modal-body form').attr('action', 'http://localhost/peminjaman-lab/public/jurusan/ubah');
 
         const id = $(this).data('id');
         
@@ -92,15 +93,11 @@ $(function() {
             type: "post",
             url: "http://localhost/peminjaman-lab/public/jurusan/getubah",
             data: {id_jurusan : id},
-            // dataType: "json",
+            dataType: "json",
             success: function (data) {
-                console.log('Response from server:', data);
-                $('#id_jurusan').val(data.id_jurusan);
                 $('#namaJurusan').val(data.nama_jurusan);
                 $('#ketuaJurusan').val(data.ketua_jurusan);
-            },
-            error: function (xhr, status, error) {
-            console.error(xhr.responseText);
+                $('#id_jurusan').val(data.id_jurusan);
             }
         });
     });
