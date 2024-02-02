@@ -5,7 +5,9 @@ class Home extends Controller {
     {
         $data['judul'] = 'Home';
         $this->view('templates/header', $data);
-        $data['jumlahJurusan'] = $this->model('jurusan_Model')->hitungJumlahJurusan()['jumlah'];
+        $data['jumlahJurusan'] = $this->model('Jurusan_Model')->hitungJumlahJurusan()['jumlah'];
+        $data['totalPengguna'] = $this->model('Mahasiswa_Model')->getTotalUsers();
+        $data['jumlahTotalRuangan'] = $this->model('Ruangan_model')->hitungTotalRuangan();
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
         $this->view('home/index',$data);

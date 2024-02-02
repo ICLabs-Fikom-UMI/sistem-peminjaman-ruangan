@@ -14,7 +14,7 @@ class Login extends Controller {
 
         session_start();
         if($data['login'] == NULL){
-            Flasher::setFlash('Gagal', 'login', 'danger');
+            Flasher::setFlash('Gagal', 'login', 'danger', 'Mahasiswa');
             header("Location:" .BASEURL. "/login");
         }else{
             foreach($data['login'] as $row):

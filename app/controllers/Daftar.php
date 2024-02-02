@@ -6,4 +6,7 @@ class Daftar extends Controller {
         $this->view('templates/header', $data);
         $this->view('Daftar/index');
     }
+
+    
 }
+

@@ -4,6 +4,8 @@
             </div>
         </div>
 
+        <script src="..\public\js\flash.js"></script>
+
         <div class="row mb-4">
             <div class="col-12">
                 <div class="card">
@@ -23,8 +25,9 @@
 
         <!-- Card Data Jurusan-->
         <div class="row mb-3">
-            <div class="col-4">
+            <div class="col-4 jurusan-body">
                 <form action="<?= BASEURL; ?>/jurusan/tambah" method="post" class="container-user rounded">
+                    <input type="hidden" name="id_jurusan" id="id_jurusan">
                     <div class="form-group mb-3">
                         <label for="namaJurusan" class="form-label">Nama Jurusan</label>
                         <input type="text" class="form-control" id="namaJurusan" placeholder="Masukkan nama jurusan" name="namaJurusan" required>
@@ -61,8 +64,8 @@
                                     <td><?= $jurusan['nama_jurusan']; ?></td>
                                     <td><?= $jurusan['ketua_jurusan']; ?></td>
                                     <td class="icon-container" style="text-align: center;">
-                                        <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
-                                        <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="<?= BASEURL; ?>/jurusan/ubah/<?= $jurusan['id_jurusan']; ?>" class="tombolEditJurusan" data-id="<?= $jurusan['id_jurusan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
+                                        <a href="<?= BASEURL; ?>/jurusan/hapus/<?= $jurusan['id_jurusan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

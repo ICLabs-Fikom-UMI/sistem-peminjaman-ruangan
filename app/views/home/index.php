@@ -6,7 +6,7 @@
                     <div>
                         <img src="..\public\img\ruangan.svg" alt="Total ruangan" class="mb-3">
                         <h6>Total Ruangan</h6>
-                        <h2><span>0</span></h2>
+                        <h2><span><?php echo $data['jumlahTotalRuangan'];?></span></h2>
                         <p>Total Ruangan yang dimiliki</p>
                     </div>
                     <div>
@@ -21,7 +21,7 @@
                     <div>
                         <img src="..\public\img\pengguna.svg" alt="Total pengguna" class="mb-3">
                         <h6>Total Pengguna</h6>
-                        <h2><span>0</span></h2>
+                        <h2><span><?php echo $data['totalPengguna'];?></span></h2>
                         <p>Total Pengguna saat ini</p>
                     </div>
                     <div>

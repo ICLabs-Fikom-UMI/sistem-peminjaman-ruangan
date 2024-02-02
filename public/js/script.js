@@ -10,41 +10,87 @@ $(function() {
         $('.modal-body form').attr('action', 'http://localhost/peminjaman-lab/public/mahasiswa/ubah');
 
         const id = $(this).data('id');
+
         
         // Menggunakan AJAX 
         $.ajax({
             type: "post",
             url: "http://localhost/peminjaman-lab/public/mahasiswa/getubah",
-            data: {id : id},
+            data: {id_user : id},
             dataType: "json",
             success: function (data) {
-                $('#nama').val(data.nama);
+                $('#nama_lengkap').val(data.nama_lengkap);
                 $('#nim').val(data.nim);
                 $('#email').val(data.email);
-                $('#jurusan').val(data.jurusan);
-                $('#id').val(data.id);
+                $('#no_telp').val(data.no_telp);
+                $('#password').val(data.password);
+                $('#confirm_password').val(data.password);
+                $('#id_user').val(data.id_user);
+
+                            // Menampilkan jurusan berdasarkan ID
+            $.ajax({
+                type: "post",
+                url: "http://localhost/peminjaman-lab/public/mahasiswa/getJurusanById",
+                data: {id_jurusan : data.id_jurusan},  // Mengirim ID jurusan ke backend
+                dataType: "json",
+                success: function (jurusanData) {
+
+        if (jurusanData) {
+            // Jika ada data, tambahkan opsi dengan data yang diterima
+            $('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
+        } else {
+            // Jika tidak ada data, tambahkan opsi default
+            $('#nama_jurusan').append('<option value="#">-- Pilih Jurusan --</option>');
+        }
+                    // Mengisikan data jurusan ke dalam opsi select nama_jurusan
+                    //$('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
+                }
+            });
+
+                $.ajax({
+                type: "post",
+                url: "http://localhost/peminjaman-lab/public/mahasiswa/getRoleById",
+                data: {id_role : data.id_role},  // Mengirim ID jurusan ke backend
+                dataType: "json",
+                success: function (roleData) {
+
+        if (roleData) {
+            // Jika ada data, tambahkan opsi dengan data yang diterima
+            $('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
+        } else {
+            // Jika tidak ada data, tambahkan opsi default
+            $('#nama_role').append('<option value="#">-- Pilih Role --</option>');
+        }
+                    // Mengisikan data jurusan ke dalam opsi select nama_jurusan
+                    //$('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
+                }
+            });
             }
         });
     });
+
+    $('.tombolEditJurusan').on('click', function(){
+        event.preventDefault();
+        $('.jurusan-body form').attr('action', 'http://localhost/peminjaman-lab/public/jurusan/ubah');
+
+        const id = $(this).data('id');
+        
+        // Menggunakan AJAX 
+        $.ajax({
+            type: "post",
+            url: "http://localhost/peminjaman-lab/public/jurusan/getubah",
+            data: {id_jurusan : id},
+            // dataType: "json",
+            success: function (data) {
+                console.log('Response from server:', data);
+                $('#id_jurusan').val(data.id_jurusan);
+                $('#namaJurusan').val(data.nama_jurusan);
+                $('#ketuaJurusan').val(data.ketua_jurusan);
+            },
+            error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+            }
+        });
+    });
+
 });
-
-    // Fungsi untuk menampilkan pratinjau gambar
-    function previewImage() {
-        var thumbnailInput = document.getElementById('thumbnail-upload');
-        var thumbnailPreview = document.getElementById('thumbnail-preview');
-
-        // Memeriksa apakah ada file yang dipilih
-        if (thumbnailInput.files && thumbnailInput.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                thumbnailPreview.src = e.target.result;
-            };
-
-            // Membaca file gambar sebagai URL data
-            reader.readAsDataURL(thumbnailInput.files[0]);
-
-            // Menampilkan elemen gambar pratinjau
-            thumbnailPreview.style.display = 'block';
-        }
-    }

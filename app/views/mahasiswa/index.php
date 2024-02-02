@@ -4,6 +4,8 @@
         </div>
     </div>
 
+    <script src="..\public\js\flash.js"></script>
+
     <!-- <div class="row mb-3">
         <div class="col-lg-6">
             <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post">
@@ -42,7 +44,7 @@
                 <div class="card-block d-flex justify-content-between">
                     <div>
                         <h6>Mahasiwa</h6>
-                        <h2><span>0</span></h2>
+                        <h2><span><?php echo $data['jumlahUser'];  ?></span></h2>
                         <p>Total mahasiswa</p>
                     </div>
                     <div>
@@ -56,7 +58,7 @@
                 <div class="card-block d-flex justify-content-between">
                     <div>
                         <h6>Koordinator Lab</h6>
-                        <h2><span>0</span></h2>
+                        <h2><span><span><?php echo $data['jumlahKorlab'];  ?></span></h2>
                         <p>Total koordinator lab</p>
                     </div>
                     <div>
@@ -70,7 +72,7 @@
                 <div class="card-block d-flex justify-content-between">
                     <div>
                         <h6>Admin</h6>
-                        <h2><span>0</span></h2>
+                        <h2><span><?php echo $data['jumlahAdmin'];  ?></span></h2>
                         <p>Total admin</p>
                     </div>
                     <div>
@@ -84,7 +86,7 @@
                 <div class="card-block d-flex justify-content-between">
                     <div>
                         <h6>Kepala Lab</h6>
-                        <h2><span>0</span></h2>
+                        <h2><span><?php echo $data['jumlahKelab'];  ?></span></h2>
                         <p>Total kepala lab</p>
                     </div>
                     <div>
@@ -125,20 +127,20 @@
                 <tbody>
                     <?php
                     $no = 0;
-                    foreach ($data['mp'] as $profile) :
+                    foreach ($data['user'] as $user) :
                         $no++;
                     ?>
                         <tr>
                             <td><?= $no; ?></td>
-                            <td><?= $profile['nama_profile']; ?></td>
-                            <td><?= $profile['email']; ?></td>
-                            <td><?= $profile['no_telp']; ?></td>
-                            <td><?= $profile['jurusan']; ?></td>
-                            <td><?= $profile['role']; ?></td>
+                            <td><?= $user['nama_lengkap']; ?></td>
+                            <td><?= $user['email']; ?></td>
+                            <td><?= $user['no_telp']; ?></td>
+                            <td><?= $user['nama_jurusan']; ?></td>
+                            <td><?= $user['nama_role']; ?></td>
                             <td class="icon-container" style="text-align: center;">
-                                <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
-                                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
-                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>"><i class=" fa-solid fa-ellipsis-vertical "></i></a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $user['id_user']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $user['id_user']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $user['id_user']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $user['id_user']; ?>"><i class=" fa-solid fa-ellipsis-vertical "></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -201,12 +203,12 @@
                 </div>
                 <div class="modal-body">
                     <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
-                        <input type="hidden" name="id" id="id">
+                        <input type="hidden" name="id_user" id="id_user">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama">
+                                <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="email" class="form-label">Email</label>
@@ -216,34 +218,32 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="nim" class="form-label">NIM</label>
+                                <label for="nim" class="form-label">Nim</label>
                                 <input type="number" class="form-control" id="nim" name="nim">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="no_telp" class="form-label">No.Telepon</label>
-                                <input type="text" class="form-control" id="no_telp" name="no_telp">
+                                <input type="tel" class="form-control" id="no_telp" name="no_telp">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="jurusan" class="form-label">Jurusan</label>
-                                <select id="jurusan" class="form-control" name="jurusan">
+                                <label for="nama_jurusan" class="form-label">Jurusan</label>
+                                <select id="nama_jurusan" class="form-control" name="id_jurusan">
                                     <option value="#">-- Pilih Jurusan --</option>
-                                    <option value="Teknik Informatika">Teknik Informatika</option>
-                                    <option value="Teknik Kimia">Teknik Kimia</option>
-                                    <option value="Sistem Informasi">Sistem Informasi</option>
-                                    <option value="Teknik Mesin">Teknik Mesin</option>
+                                    <?php foreach ($data['dataJurusan'] as $jurusan) : ?>
+                                        <option value="<?= $jurusan['id_jurusan']; ?>"><?= $jurusan['nama_jurusan']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="role" class="form-label">Role</label>
-                                <select id="role" class="form-control" name="role">
+                                <label for="nama_role" class="form-label">Role</label>
+                                <select id="nama_role" class="form-control" name="id_role">
                                     <option value="#">-- Pilih Role --</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="Kepala Lab">Kepala Lab</option>
-                                    <option value="Koordinator Lab">Koordinator Lab</option>
-                                    <option value="User">User</option>
+                                    <?php foreach ($data['dataRole'] as $role) : ?>
+                                        <option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>
@@ -253,8 +253,8 @@
                                 <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="password" class="form-label">Konfirmasi Kata Sandi</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <label for="confirm_password" class="form-label">Konfirmasi Kata Sandi</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password">
                             </div>
                         </div>
 

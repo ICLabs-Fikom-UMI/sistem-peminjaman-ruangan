@@ -23,11 +23,11 @@
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td><?= $data['mhs']['nama']; ?></td>
+                <td><?= $data['user']['nama_lengkap']; ?></td>
                 <td>
-                    <p class="card-text"><?= $data['mhs']['email']; ?>
+                    <p class="card-text"><?= $data['user']['email']; ?>
                 </td>
-                <td><?= $data['mhs']['jurusan']; ?></td>
+                <td><?= $data['user']['nim']; ?></td>
             </tr>
         </tbody>
     </table>

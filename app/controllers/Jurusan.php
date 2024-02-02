@@ -12,14 +12,45 @@ class Jurusan extends Controller {
         $this->view('templates/footer');
     }
 
-        public function tambah()
+    public function tambah()
     {
         if ($this->model('Jurusan_model')->tambahDataJurusan($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success', 'Jurusan');
             header('Location: ' . BASEURL . '/jurusan');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('gagal', 'ditambahkan','danger', 'Jurusan');
+            header('Location: ' . BASEURL . '/jurusan');
+            exit;
+        }
+    }
+
+    public function getubah()
+    {
+        echo json_encode($this->model('Jurusan_model')->getJurusanById($_POST['id_jurusan']));
+    }
+
+    public function ubah()
+    {
+        if ($this->model('Jurusan_model')->ubahDataJurusan($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success', 'Jurusan');
+            header('Location: ' . BASEURL . '/jurusan');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah','danger', 'Jurusan');
+            header('Location: ' . BASEURL . '/jurusan');
+            exit;
+        }
+    }
+
+    public function hapus($id)
+    {
+        if ($this->model('Jurusan_model')->hapusDataJurusan($id) > 0) {
+            Flasher::setFlash('berhasil', 'dihapus','success', 'Jurusan');
+            header('Location: ' . BASEURL . '/jurusan');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus','danger', 'Jurusan');
             header('Location: ' . BASEURL . '/jurusan');
             exit;
         }

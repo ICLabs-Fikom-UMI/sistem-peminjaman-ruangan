@@ -5,7 +5,13 @@ class Mahasiswa extends Controller
     public function index()
     {
         $data['judul'] = 'Daftar Mahasiswa';
-        $data['mp'] = $this->model('Mahasiswa_model')->getAllMahasiswa();
+        $data['user'] = $this->model('Mahasiswa_model')->getAllMahasiswa();
+        $data['jumlahUser'] = $this->model('Role_model')->getCountUser();
+        $data['jumlahKorlab'] = $this->model('Role_model')->getCountKoordinatorLab();
+        $data['jumlahKelab'] = $this->model('Role_model')->getCountKepalaLab();
+        $data['jumlahAdmin'] = $this->model('Role_model')->getCountAdmin();
+        $data['dataRole']= $this->model('Role_model')->getAllRole();
+        $data['dataJurusan']= $this->model('Jurusan_model')->getAllJurusan();
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
@@ -15,8 +21,8 @@ class Mahasiswa extends Controller
 
     public function detail($id)
     {
-        $data['judul'] = 'Detail Mahasiswa';
-        $data['mp'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
+        $data['judul'] = 'Detail User';
+        $data['user'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
@@ -27,11 +33,11 @@ class Mahasiswa extends Controller
     public function tambah()
     {
         if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            Flasher::setFlash('berhasil', 'ditambahkan','success', 'Mahasiswa');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('gagal', 'ditambahkan','danger', 'Mahasiswa');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         }
@@ -40,11 +46,11 @@ class Mahasiswa extends Controller
     public function hapus($id)
     {
         if ($this->model('Mahasiswa_model')->hapusDataMahasiswa($id) > 0) {
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            Flasher::setFlash('berhasil', 'dihapus', 'success', 'Mahasiswa');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            Flasher::setFlash('gagal', 'dihapus','danger', 'Mahasiswa');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         }
@@ -52,17 +58,18 @@ class Mahasiswa extends Controller
 
     public function getubah()
     {
-        echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']));
+        echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($_POST['id_user']));
+
     }
 
     public function ubah()
     {
         if ($this->model('Mahasiswa_model')->ubahDataMahasiswa($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
+            Flasher::setFlash('berhasil', 'diubah','success', 'Mahasiswa');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            Flasher::setFlash('gagal', 'diubah','danger', 'Mahasiswa');
             header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         }
@@ -75,5 +82,19 @@ class Mahasiswa extends Controller
         $this->view('templates/header', $data);
         $this->view('mahasiswa/index', $data);
         $this->view('templates/footer');
+    }
+
+    public function getJurusanById()
+    {
+        $id_jurusan = $_POST['id_jurusan'];
+        $dataJurusan = $this->model('Jurusan_model')->getJurusanById($id_jurusan);
+        echo json_encode($dataJurusan);
+    }
+
+    public function getRoleById()
+    {
+        $id_role = $_POST['id_role'];
+        $dataRole = $this->model('Role_model')->getRoleById($id_role);
+        echo json_encode($dataRole);
     }
 }
