@@ -290,8 +290,3 @@
               z-index: 1;
               /* Letakkan di bawah input file */
           }
-
-                          #preview {
-                              max-width: 100%;
-                              height: auto;
-                          }

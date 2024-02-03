@@ -55,7 +55,7 @@
         <div class="container-user rounded mb-4">
             <div class="row mb-3">
                 <div class="col-lg-6">
-                    <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
+                    <button type="button" class="btn btn-primary tombolTambahRuangan" data-bs-toggle="modal" data-bs-target="#formModal">
                         <i class="fa-solid fa-plus"></i>
                         Tambah Ruangan
                     </button>
@@ -90,10 +90,10 @@
                                 <td><?= $ruangan['nama_ruangan']; ?></td>
                                 <td><?= $ruangan['kapasitas']; ?></td>
                                 <td><?= $ruangan['lokasi']; ?></td>
-                                <td><?= $ruangan['id_user']; ?></td>
+                                <td><?= $ruangan['nama_lengkap']; ?></td>
                                 <td><?= $ruangan['status_ruangan']; ?></td>
                                 <td class="icon-container text-center">
-                                    <a href="<?= BASEURL; ?>/ruangan/ubah/<?= $ruangan['id_ruangan']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
+                                    <a href="<?= BASEURL; ?>/ruangan/ubah/<?= $ruangan['id_ruangan']; ?>" class="tampilEditRuangan" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
                                     <a href="<?= BASEURL; ?>/ruangan/hapus/<?= $ruangan['id_ruangan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
                                     <a href="<?= BASEURL; ?>/ruangan/detail/<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-ellipsis-vertical"></i></a>
                                 </td>
@@ -104,131 +104,62 @@
             </div>
         </div>
 
-
-        <div class="col-md-4 d-flex align-items-stretch">
-            <!-- Formulir Bootstrap dengan gaya khusus -->
-            <div class="container form-container">
-                <form action="<?= BASEURL; ?>/ruangan/tambah" method="post" enctype="multipart/form-data">
-                    <!-- Baris 1 -->
-                    <div class="form-group mb-3">
-                        <label for="namaRuangan" class="form-label">Nama Ruangan</label>
-                        <input type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" placeholder="Masukkan Nama Ruangan">
-                    </div>
-
-                    <!-- Baris 2 -->
-                    <div class="form-row d-flex justify-content-between w-100">
-                        <div class="form-group mb-3 col-md-6">
-                            <label for="kapasitas" class="form-label">Kapasitas</label>
-                            <input type="text" class="form-control" id="kapasitas" name="kapasitas" placeholder="Kapasitas">
-                        </div>
-                        <div class="form-group mb-3 col-md-6">
-                            <label for="lokasi" class="form-label">Lokasi</label>
-                            <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="lokasi">
-                        </div>
-                    </div>
-
-                    <!-- Baris 3 -->
-                    <div class="form-group mb-3">
-                        <label for="korlab" class="form-label">Koordinator Lab</label>
-                        <select id="korlab" class="form-control" name="id_user">
-                            <option value="#">-- Pilih Koordinator Lab --</option>
-                            <?php foreach ($data['korlab'] as $user) : ?>
-                                <option value="<?= $user['id_user']; ?>"><?= $user['nama_lengkap']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <!-- Baris 4 -->
-                    <div class="form-group mb-3">
-                        <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi" rows="7" placeholder="Masukkan Deskripsi"></textarea>
-                    </div>
-
-                    <!-- Baris 5 -->
-                    <div class="form-group mb-3">
-                        <label for="thumbnail" class="form-label">Thumbnail</label>
-                        <div class="custom-upload-btn">
-                            <input type="file" id="gambar" name="gambar">
-                            <label for="gambar">Upload File</label>
-                        </div>
-                    </div>
-
-                    <!-- Pratinjau Gamba Baris 6 -->
-                    <div class="preview-container">
-                        <img src="#" id="preview" alt="Pratinjau Gambar" style="display: none;">
-                    </div>
-
-                    <!-- Baris 7 -->
-                    <div class="buttons-container">
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                        <button type="reset" class="btn btn-danger mt-3" style="margin-left: 5px;">Reset</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
         <!-- modal ubah Data ruangan -->
 
         <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg ">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="formModalLabel">Tambah Data Ruangan</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="<?= BASEURL; ?>/ruangan/tambah" method="post">
+                        <form action="<?= BASEURL; ?>/ruangan/tambah" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id_user" id="id_user">
 
                             <div class="row">
-                                <div class="col-md-6 mb-3">Nama</label>
-                                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email">
-                                </div>
-                            </div>
+                                <div class="col-6">
 
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="nim" class="form-label">Nim</label>
-                                    <input type="number" class="form-control" id="nim" name="nim">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="no_telp" class="form-label">No.Telepon</label>
-                                    <input type="tel" class="form-control" id="no_telp" name="no_telp">
-                                </div>
-                            </div>
+                                    <div class="form-group mb-3">
+                                        <label for="namaRuangan" class="form-label">Nama Ruangan</label>
+                                        <input type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" placeholder="Masukkan Nama Ruangan">
+                                    </div>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="nama_jurusan" class="form-label">Jurusan</label>
-                                    <select id="nama_jurusan" class="form-control" name="id_jurusan">
-                                        <option value="#">-- Pilih Jurusan --</option>
-                                        <?php foreach ($data['dataJurusan'] as $jurusan) : ?>
-                                            <option value="<?= $jurusan['id_jurusan']; ?>"><?= $jurusan['nama_jurusan']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <div class="row">
+                                        <div class="form-group mb-3 col-md-6">
+                                            <label for="kapasitas" class="form-label">Kapasitas</label>
+                                            <input type="text" class="form-control" id="kapasitas" name="kapasitas" placeholder="Kapasitas">
+                                        </div>
+                                        <div class="form-group mb-3 col-md-6">
+                                            <label for="lokasi" class="form-label">Lokasi</label>
+                                            <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="lokasi">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="korlab" class="form-label">Koordinator Lab</label>
+                                        <select id="korlab" class="form-control" name="id_user">
+                                            <option value="#">-- Pilih Koordinator Lab --</option>
+                                            <?php foreach ($data['korlab'] as $user) : ?>
+                                                <option value="<?= $user['id_user']; ?>"><?= $user['nama_lengkap']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="nama_role" class="form-label">Role</label>
-                                    <select id="nama_role" class="form-control" name="id_role">
-                                        <option value="#">-- Pilih Role --</option>
-                                        <?php foreach ($data['dataRole'] as $role) : ?>
-                                            <option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="password" class="form-label">Kata Sandi</label>
-                                    <input type="password" class="form-control" id="password" name="password">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="confirm_password" class="form-label">Konfirmasi Kata Sandi</label>
-                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                                <div class="col-6">
+                                    <div class="form-group mb-3">
+                                        <label for="thumbnail" class="form-label">Thumbnail</label>
+                                        <div class="custom-upload-btn">
+                                            <input type="file" id="thumbnail" name="thumbnail">
+                                            <label for="gambar">Upload File</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                        <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4" placeholder="Masukkan Deskripsi"></textarea>
+                                    </div>
                                 </div>
                             </div>
 

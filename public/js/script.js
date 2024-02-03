@@ -102,4 +102,28 @@ $(function() {
         });
     });
 
+    $('.tampilEditRuangan').on('click', function(){
+        $('#formModalLabel').html('Ubah Data Ruangan');
+        $('.modal-footer button[type=submit]').html('Ubah Data');
+        $('.modal-body form').attr('action', 'http://localhost/peminjaman-lab/public/ruangan/ubah');
+
+        const id = $(this).data('id');
+
+        console.log(id)
+        
+        // Menggunakan AJAX 
+        $.ajax({
+            type: "post",
+            url: "http://localhost/peminjaman-lab/public/ruangan/getubah",
+            data: {id_ruangan : id},
+            dataType: "json",
+            success: function (data) {
+                $('#nama_ruangan').val(data.nama_ruangan);
+                $('#kapasitas').val(data.kapasitas);
+                $('#lokasi').val(data.lokasi);
+                $('#id_ruangan').val(data.id_ruangan);
+            }
+        });
+    });
+
 });

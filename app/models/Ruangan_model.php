@@ -11,7 +11,10 @@ class Ruangan_model{
 
     public function getAllRuangan()
     {
-        $this->db->query('SELECT * FROM ' . $this->table);
+        $query = 'SELECT * FROM mst_ruangan mr
+        LEFT JOIN mst_user mu ON mr.id_user = mu.id_user';
+        // $this->db->query('SELECT * FROM ' . $this->table);
+        $this->db->query($query);
         return $this->db->resultSet();
     }
 
@@ -44,26 +47,26 @@ class Ruangan_model{
                 return false;
             }
 
-        //     $query = "INSERT INTO mst_ruangan (id_user, nama_ruangan, kapasitas, thumbnail, lokasi, deskripsi) 
-        //   VALUES (?, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO mst_ruangan (id_user, nama_ruangan, kapasitas, thumbnail, lokasi, deskripsi) 
+          VALUES (?, ?, ?, ?, ?, ?)";
 
-        //     $this->db->query($query);
-        //     $this->db->bind(1, $data['id_user']);
-        //     $this->db->bind(2, $data['nama_ruangan']);
-        //     $this->db->bind(3, $data['kapasitas'] ?? null);
-        //     $this->db->bind(4, $thumbnail);
-        //     $this->db->bind(5, $data['lokasi']);
-        //     $this->db->bind(6, $data['deskripsi'] ?? null);
-
-             $query = "INSERT INTO mst_ruangan (nama_ruangan, kapasitas, thumbnail, lokasi, deskripsi) 
-          VALUES (?, ?, ?, ?, ?)";
-        
             $this->db->query($query);
-            $this->db->bind(1, $data['nama_ruangan']);
-            $this->db->bind(2, $data['kapasitas'] ?? null);
-            $this->db->bind(3, $thumbnail);
-            $this->db->bind(4, $data['lokasi']);
-            $this->db->bind(5, $data['deskripsi'] ?? null);
+            $this->db->bind(1, $data['id_user']);
+            $this->db->bind(2, $data['nama_ruangan']);
+            $this->db->bind(3, $data['kapasitas'] ?? null);
+            $this->db->bind(4, $thumbnail);
+            $this->db->bind(5, $data['lokasi']);
+            $this->db->bind(6, $data['deskripsi'] ?? null);
+
+        //      $query = "INSERT INTO mst_ruangan (nama_ruangan, kapasitas, thumbnail, lokasi, deskripsi) 
+        //   VALUES (?, ?, ?, ?, ?)";
+        
+        //     $this->db->query($query);
+        //     $this->db->bind(1, $data['nama_ruangan']);
+        //     $this->db->bind(2, $data['kapasitas'] ?? null);
+        //     $this->db->bind(3, $thumbnail);
+        //     $this->db->bind(4, $data['lokasi']);
+        //     $this->db->bind(5, $data['deskripsi'] ?? null);
 
             $this->db->execute();
 
@@ -73,13 +76,21 @@ class Ruangan_model{
         }
 
         // try {
-        //     $query = "INSERT INTO mst_ruangan VALUES ('', :nama_ruangan, :kapasitas, :thumbnail, :lokasi, :deskripsi)";
+            
+        //     $thumbnail = $this->upload();
+
+        //     if(!$thumbnail){
+        //         return false;
+        //     }
+
+        //     $query = "INSERT INTO mst_ruangan VALUES ('', :id_user, :nama_ruangan, :kapasitas, :thumbnail, :lokasi,  :deskripsi)";
 
         //     $this->db->query($query);
+        //     $this->db->bind('id_user', $data['id_user']);
         //     $this->db->bind('nama_ruangan', $data['nama_ruangan']);
         //     $this->db->bind('kapasitas', $data['kapasitas']);
-        //     $this->db->bind('thumbnail', $data['thumbnail']);
         //     $this->db->bind('lokasi', $data['lokasi']);
+        //     $this->db->bind('thumbnail', $thumbnail);
         //     $this->db->bind('deskripsi', $data['deskripsi']);
 
         //     $this->db->execute();
@@ -99,9 +110,7 @@ class Ruangan_model{
 
         // cek apakah tidak ada gambar yang diupload
         if($error === 4){
-            echo "<script>
-            alert('pilih gambar terlebih dahulu!');
-            </script>";
+            echo '<div class="alert alert-danger" role="alert">Pilih gambar terlebih dahulu!</div>';
             return false;
         }
 
