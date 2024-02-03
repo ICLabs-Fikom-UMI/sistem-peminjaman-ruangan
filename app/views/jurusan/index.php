@@ -9,14 +9,14 @@
         <div class="row mb-4">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-block d-flex justify-content-between">
+                    <div class="card-block d-flex">
+                        <div>
+                            <img src="..\public\img\jurusan.svg" alt="Mahasiswa" width="100" class="me-4">
+                        </div>
                         <div>
                             <h6>Jurusan</h6>
                             <h2><span><?php echo $data['jumlahJurusan'];  ?></span></h2>
                             <p>Total Jurusan Keseluruhan</p>
-                        </div>
-                        <div>
-                            <img src="..\public\img\pinjam.svg" alt="Mahasiswa">
                         </div>
                     </div>
                 </div>

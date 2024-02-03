@@ -17,6 +17,15 @@ class Ruangan extends Controller {
         $this->view('templates/footer');
     }
 
+    public function detail(){
+        $data['judul'] = 'Detail Ruangan';
+        $this->view('templates/header', $data);
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
+        $this->view('ruangan/detail');
+        $this->view('templates/footer');
+    }
+
     public function hapus($id)
     {
         if ($this->model('Ruangan_model')->hapusDataRuangan($id) > 0) {
@@ -48,15 +57,16 @@ class Ruangan extends Controller {
         echo json_encode($this->model('Ruangan_model')->getRuanganById($_POST['id_ruangan']));
     }
 
+
     public function ubah()
     {
         if ($this->model('Ruangan_model')->ubahDataRuangan($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'diubah', 'success', 'Jurusan');
-            header('Location: ' . BASEURL . '/jurusan');
+            Flasher::setFlash('berhasil', 'diubah', 'success', 'Ruangan');
+            header('Location: ' . BASEURL . '/ruangan');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger', 'Jurusan');
-            header('Location: ' . BASEURL . '/jurusan');
+            Flasher::setFlash('gagal', 'diubah', 'danger', 'Ruangan');
+            header('Location: ' . BASEURL . '/ruangan');
             exit;
         }
     }

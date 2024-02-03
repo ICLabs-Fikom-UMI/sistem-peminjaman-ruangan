@@ -20,7 +20,7 @@ class Ruangan_model{
 
     public function getRuanganById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id_ruangan');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_ruangan=:id_ruangan');
         $this->db->bind('id_ruangan', $id);
         return $this->db->single();
     }
@@ -57,16 +57,6 @@ class Ruangan_model{
             $this->db->bind(4, $thumbnail);
             $this->db->bind(5, $data['lokasi']);
             $this->db->bind(6, $data['deskripsi'] ?? null);
-
-        //      $query = "INSERT INTO mst_ruangan (nama_ruangan, kapasitas, thumbnail, lokasi, deskripsi) 
-        //   VALUES (?, ?, ?, ?, ?)";
-        
-        //     $this->db->query($query);
-        //     $this->db->bind(1, $data['nama_ruangan']);
-        //     $this->db->bind(2, $data['kapasitas'] ?? null);
-        //     $this->db->bind(3, $thumbnail);
-        //     $this->db->bind(4, $data['lokasi']);
-        //     $this->db->bind(5, $data['deskripsi'] ?? null);
 
             $this->db->execute();
 
@@ -168,6 +158,36 @@ class Ruangan_model{
     //     $this->db->query('SELECT COUNT(*) as ruangan_tidak_tersedia FROM mst_ruangan WHERE status = "Tidak Tersedia"');
     //     return $this->db->single();
     // }
+
+    public function ubahDataRuangan($data)
+    {
+        try {
+            $query = "UPDATE mst_ruangan SET 
+        id_user = :id_user,
+        nama_ruangan = :nama_ruangan, 
+        kapasitas =:kapasitas, 
+        thumbnail =:thumbnail, 
+        lokasi =:lokasi,
+        deskripsi = :deskripsi
+        WHERE id_ruangan= :id_ruangan";
+
+            $this->db->query($query);
+            $this->db->bind('id_user', $data['id_user']);
+            $this->db->bind('nama_ruangan', $data['nama_ruangan']);
+            $this->db->bind('kapasitas', $data['kapasitas']);
+            $this->db->bind('thumbnail', $data['thumbnail']);
+            $this->db->bind('lokasi', $data['lokasi']);
+            $this->db->bind('deskripsi', $data['deskripsi']);
+            $this->db->bind('id_ruangan', $data['id_ruangan']);
+
+            $this->db->execute();
+
+            return $this->db->rowCount();
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
 
 
