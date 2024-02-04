@@ -6,7 +6,7 @@
                <div class="card-block d-flex justify-content-between">
                    <div>
                        <h6>Peminjaman</h6>
-                       <h2><span>0</span></h2>
+                       <h2><span><?php echo $data['total_peminjaman']; ?></span></h2>
                        <p>Total Peminjaman</p>
                    </div>
                    <div>
