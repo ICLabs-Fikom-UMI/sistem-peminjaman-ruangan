@@ -21,18 +21,4 @@ class Pinjam extends Controller{
 
     }
 
-
-    public function tambah()
-    {
-        if ($this->model('Peminjaman_model')->tambahDataPeminjaman($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success', 'Mahasiswa');
-            header('Location: ' . BASEURL . '/mahasiswa');
-            exit;
-        } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger', 'Mahasiswa');
-            header('Location: ' . BASEURL . '/pinjam/pinjam_ruangan');
-            exit;
-        }
-    }
-
 }

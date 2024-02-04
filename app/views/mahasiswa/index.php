@@ -111,7 +111,7 @@
 
         <div class="horizontal-line"></div>
 
-        <div class="card-body mt-3">
+        <div class="card-body mt-3 table-responsive">
             <table id="example" class="table table-bordered table-striped" style="width:100%">
                 <thead>
                     <tr>

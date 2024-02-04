@@ -7,7 +7,7 @@
                 <p style="margin: 0 10px; font-size:12px;">Data Peminjaman</p>
                 <div class="line"></div>
             </div>
-            <form action="<?= BASEURL;?>/pinjam/tambah" method="post">
+            <form action="<?= BASEURL;?>/peminjaman/tambah" method="post">
                 <div class="row mt-4">
                     <div class="form-group col-md-6 mb-3">
                         <label for="tanggal_pinjam" class="form-label">Tanggal Pinjam:</label>

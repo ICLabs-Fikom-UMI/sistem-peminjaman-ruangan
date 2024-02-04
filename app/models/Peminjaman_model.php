@@ -33,7 +33,7 @@ class Peminjaman_model
     {
 
         try {
-            $query = "INSERT INTO mst_peminjaman (tanggal_pinjam, waktu_mulai, waktu_selesai) 
+            $query = "INSERT INTO trx_peminjaman (tanggal_pinjam, waktu_mulai, waktu_selesai) 
           VALUES (?, ?, ?)";
 
             $this->db->query($query);
