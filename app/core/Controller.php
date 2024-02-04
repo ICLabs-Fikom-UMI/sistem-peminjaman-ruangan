@@ -10,7 +10,7 @@ class Controller
     public function view($view, $data = [])
     {
 
-        if (!isset($_SESSION['nama'])) {
+        if (!isset($_SESSION['login']) || empty($_SESSION['login'])) {
             require_once '../app/views/' . $view . '.php';
         } else {
             require_once '../app/views/login/index.php';

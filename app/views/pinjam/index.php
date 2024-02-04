@@ -80,26 +80,18 @@
             <div class="lab-name">Nama Lab</div>
             <div class="data-info">Data Peminjaman</div>
             <form action="" method="post">
-                <div class="form-row">
+                <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="namaFakultas" class="form-label">Nama
-                            Fakultas</label>
-                        <input type="text" class="form-control" id="namaFakultas" placeholder="Masukkan nama fakultas">
+                        <label for="tanggalPinjam" class="form-label">Tanggal Pinjam:</label>
+                        <input type="date" class="form-control" id="tanggalPinjam" name="tanggalPinjam" required>
                     </div>
-                    <div class="form-group col-md-6 mb-3">
-                        <label for="organisasi" class="form-label">Organisasi</label>
-                        <input type="text" class="form-control" id="organisasi" placeholder="Masukkan nama organisasi">
+                    <div class="form-group col-md-3 mb-3">
+                        <label for="waktuMulai" class="form-label">Waktu Mulai:</label>
+                        <input type="time" class="form-control" id="waktuMulai" name="waktuMulai" required>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6 mb-3">
-                        <label for="acaraKegiatan" class="form-label">Acara/Kegiatan</label>
-                        <input type="text" class="form-control" id="acaraKegiatan" placeholder="Masukkan nama acara/kegiatan">
-                    </div>
-                    <div class="form-group col-md-6 mb-3">
-                        <label for="jumlahPeserta" class="form-label">Jumlah
-                            Peserta</label>
-                        <input type="number" class="form-control" id="jumlahPeserta" placeholder="Masukkan jumlah peserta">
+                    <div class="form-group col-md-3 mb-3">
+                        <label for="waktuSelesai" class="form-label">Waktu Selesai:</label>
+                        <input type="time" class="form-control" id="waktuSelesai" name="waktuSelesai" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -107,10 +99,11 @@
                         <label for="acaraKegiatan" class="form-label">Acara/Kegiatan</label>
                         <input type="text" class="form-control" id="acaraKegiatan" placeholder="Masukkan nama acara/kegiatan">
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="jumlahPeserta" class="form-label">Jumlah
-                            Peserta</label>
-                        <input type="number" class="form-control" id="jumlahPeserta" placeholder="Masukkan jumlah peserta">
+                        <label for="acaraKegiatan" class="form-label">Acara/Kegiatan</label>
+                        <input type="text" class="form-control" id="acaraKegiatan" placeholder="Masukkan nama acara/kegiatan">
                     </div>
                 </div>
                 <!-- Tambahkan input tanggal, waktu mulai, waktu selesai -->

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 
     <!-- my fontawesome -->
-    <link rel="stylesheet" href="..\public\fontawesome\css\all.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/fontawesome/css/all.css">
 
     <!-- Icon Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- my style -->
-    <link rel="stylesheet" href="..\public\css\style.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css">
 
 </head>
 

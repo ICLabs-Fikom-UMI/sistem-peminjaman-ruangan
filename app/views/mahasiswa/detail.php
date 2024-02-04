@@ -1,36 +1,30 @@
-<div class="row">
+<div class="container-user shadow rounded">
 
 
-    <!-- <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title"><?= $data['mhs']['nama']; ?></h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary"><?= $data['mhs']['nim']; ?></h6>
-            <p class="card-text"><?= $data['mhs']['email']; ?></p>
-            <p class="card-text"><?= $data['mhs']['jurusan']; ?></p>
-            <a href="<?= BASEURL; ?>/mahasiswa" class="card-link">Kembali</a>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Pengguna</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Jurusan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><?= $data['user']['nama_lengkap']; ?></td>
+                        <td>
+                            <p class="card-text"><?= $data['user']['email']; ?>
+                        </td>
+                        <td><?= $data['user']['nim']; ?></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div> -->
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Pengguna</th>
-                <th scope="col">Email</th>
-                <th scope="col">Jurusan</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td><?= $data['user']['nama_lengkap']; ?></td>
-                <td>
-                    <p class="card-text"><?= $data['user']['email']; ?>
-                </td>
-                <td><?= $data['user']['nim']; ?></td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
 
     <a href="<?= BASEURL; ?>/mahasiswa" class="card-link">Kembali</a>
 

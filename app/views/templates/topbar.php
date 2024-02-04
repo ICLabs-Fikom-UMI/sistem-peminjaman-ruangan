@@ -18,7 +18,7 @@
                         <!-- Avatar -->
                         <div class="dropdown">
                             <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" data-bs-toggle="dropdown">
-                                <img src="..\public\img\profile.png" class="rounded-circle" height="35" alt="foto profile" loading="lazy" />
+                                <img src="<?= BASEURL; ?>/img/profile.png" class="rounded-circle" height="35" alt="foto profile" loading="lazy" />
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                                 <li>
@@ -29,7 +29,7 @@
                                 </li>
                                 <div class="divider dropdown-divider"></div>
                                 <li>
-                                    <a class="dropdown-item" href=" <?= BASEURL; ?>/login"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
+                                    <a class="dropdown-item" href=" <?= BASEURL; ?>/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
                                 </li>
                             </ul>
                         </div>
