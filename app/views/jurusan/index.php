@@ -35,7 +35,7 @@
 
             <div class="horizontal-line"></div>
             <div class="card-body mt-3 table-responsive">
-                <table id="example" class="table table-bordered table-striped" style="width:100%">
+                <table id="example" class="table" style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -56,7 +56,7 @@
                                 <td><?= $jurusan['ketua_jurusan']; ?></td>
                                 <td class="icon-container" style="text-align: center;">
                                     <a href="<?= BASEURL; ?>/jurusan/ubah/<?= $jurusan['id_jurusan']; ?>" class="tombolEditJurusan" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $jurusan['id_jurusan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
-                                    <a href="<?= BASEURL; ?>/jurusan/hapus/<?= $jurusan['id_jurusan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
+                                    <a href="<?= BASEURL; ?>/jurusan/hapus/<?= $jurusan['id_jurusan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can" style="color: #ff0000"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

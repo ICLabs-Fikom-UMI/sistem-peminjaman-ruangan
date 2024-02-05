@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col">
-                    <h5>Foto Ruangan</h5>
+                    <h6>Foto Ruangan</h6>
                     <hr>
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">

@@ -21,4 +21,14 @@ class Pinjam extends Controller{
 
     }
 
+    public function peminjaman_saya(){
+        $data['judul'] = 'Pinjam Ruangan';
+        $this->view('templates/header', $data);
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
+        $this->view('pinjam/peminjaman_saya',$data);
+        $this->view('templates/footer');
+
+    }
+
 }

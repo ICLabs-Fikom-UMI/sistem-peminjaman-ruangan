@@ -140,6 +140,10 @@ body{
     border-radius: 5px;
 }
 
+h5 {
+    color: #51A8B1;
+}
+
 .card-body p {
     margin :0;
     font-size: 14px;
@@ -296,5 +300,13 @@ body{
 
                 .line {
                     flex-grow: 1;
-                    border-top: 1px solid #000;
+                    border-top: 1px solid #ccc;
+                }
+
+                                th {
+                                    border-top: 1px solid #ddd;
+                                }
+
+                th, td{
+                    vertical-align: middle;
                 }

@@ -2,7 +2,7 @@
 
 class Peminjaman_model
 {
-    private $table = 'mst_peminjaman';
+    private $table = 'trx_peminjaman';
     private $db;
 
     public function __construct()
@@ -13,9 +13,9 @@ class Peminjaman_model
     public function getAllPeminjaman()
     {
         $query = 'SELECT *
-        FROM trx_peminjaman tp
-        JOIN mst_user mu ON tp.id_user = mu.id_user
-        JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan';
+                  FROM trx_peminjaman tp
+                  LEFT JOIN mst_user mu ON tp.id_user = mu.id_user
+                  LEFT JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan;';
 
         $this->db->query($query);
 
@@ -39,7 +39,7 @@ class Peminjaman_model
             $this->db->query($query);
             $this->db->bind(1, $data['tanggal_pinjam']);
             $this->db->bind(2, $data['waktu_mulai']);
-            $this->db->bind(2, $data['waktu_selesai']);
+            $this->db->bind(3, $data['waktu_selesai']);
 
             $this->db->execute();
 

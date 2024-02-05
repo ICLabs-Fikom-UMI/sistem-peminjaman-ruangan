@@ -2,17 +2,17 @@
 <div class="container-user rounded mb-5">
     <div class="row">
         <form action="<?= BASEURL; ?>/Login/login" method="post">
-            <div class="row mb-3  align-items-end">
-                <div class="col-md-4">
+            <div class="row align-items-end">
+                <div class="col-md-4 mb-3">
                     <label for="tanggalAwal" class="form-label">Tanggal Awal</label>
                     <input type="date" class="form-control" id="tanggalAwal" name="tanggalAwal">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <label for="tanggalAkhir" class="form-label">Tanggal Akhir</label>
                     <input type="date" class="form-control" id="tanggalAkhir" name="tanggalAkhir">
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3">
                     <button type="submit" class="btn btn-primary">Filter</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Bersihkan</button>
                 </div>
@@ -32,7 +32,7 @@
     <div class="horizontal-line"></div>
 
     <div class="card-body mt-3 table-responsive">
-        <table id="example" class="table table-bordered table-striped" style="width:100%">
+        <table id="example" class="table" style="width:100%">
             <thead>
                 <tr style="vertical-align: middle;">
                     <th>No</th>

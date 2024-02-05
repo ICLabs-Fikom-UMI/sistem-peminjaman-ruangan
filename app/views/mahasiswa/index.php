@@ -37,9 +37,9 @@
     </div> -->
 
     <!-- Card -->
-    <div class="row mb-3">
+    <div class="row">
 
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-4 col-xl-3 mb-3">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-4 col-xl-3 mb-3">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-4 col-xl-3 mb-3">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-4 col-xl-3 mb-3">
             <div class="card">
                 <div class="card-block d-flex justify-content-between">
                     <div>
@@ -112,7 +112,7 @@
         <div class="horizontal-line"></div>
 
         <div class="card-body mt-3 table-responsive">
-            <table id="example" class="table table-bordered table-striped" style="width:100%">
+            <table id="example" class="table" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -139,8 +139,8 @@
                             <td><?= $user['nama_role']; ?></td>
                             <td class="icon-container" style="text-align: center;">
                                 <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $user['id_user']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $user['id_user']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
-                                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $user['id_user']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
-                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $user['id_user']; ?>"><i class=" fa-solid fa-ellipsis-vertical "></i></a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $user['id_user']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i></a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $user['id_user']; ?>"><i class=" fa-solid fa-ellipsis-vertical" style="color: #000000;"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

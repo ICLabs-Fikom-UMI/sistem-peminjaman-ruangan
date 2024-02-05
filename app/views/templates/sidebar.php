@@ -62,7 +62,7 @@
                                Pinjam Ruangan</a>
                        </li>
                        <li>
-                           <a href="">
+                           <a href="<?= BASEURL ?>/pinjam/peminjaman_saya">
                                <span class="material-symbols-outlined">
                                    user_attributes
                                </span>
@@ -72,7 +72,7 @@
                            Lainnya
                        </li>
                        <li>
-                           <a href="#">
+                           <a href="<?= BASEURL; ?>/pengaturan">
                                <span class="material-symbols-outlined">
                                    settings
                                </span>

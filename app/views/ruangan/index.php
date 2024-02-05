@@ -5,8 +5,8 @@
         <script src="..\public\js\flash.js"></script>
 
         <!-- Card Data Ruangan-->
-        <div class="row mb-4">
-            <div class="col-md-4 col-xl-4">
+        <div class="row">
+            <div class="col-md-4 col-xl-4 mb-4">
                 <div class="card">
                     <div class="card-block d-flex justify-content-between">
                         <div>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xl-4">
+            <div class="col-md-4 col-xl-4 mb-4">
                 <div class="card">
                     <div class="card-block d-flex justify-content-between">
                         <div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xl-4">
+            <div class="col-md-4 col-xl-4 mb-4">
                 <div class="card">
                     <div class="card-block d-flex justify-content-between">
                         <div>
@@ -65,7 +65,7 @@
             <div class="horizontal-line"></div>
 
             <div class="card-body mt-3 table-responsive">
-                <table id="example" class="table table-bordered table-striped" style="width:100%">
+                <table id="example" class="table " style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -93,9 +93,9 @@
                                 <td><?= $ruangan['nama_lengkap']; ?></td>
                                 <td><?= $ruangan['status_ruangan']; ?></td>
                                 <td class="icon-container text-center">
-                                    <a href="<?= BASEURL; ?>/ruangan/ubah/<?= $ruangan['id_ruangan']; ?>" class="tampilEditRuangan" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-pen-to-square "></i></a>
-                                    <a href="<?= BASEURL; ?>/ruangan/hapus/<?= $ruangan['id_ruangan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
-                                    <a href="<?= BASEURL; ?>/ruangan/detail/<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-ellipsis-vertical"></i></a>
+                                    <a href="<?= BASEURL; ?>/ruangan/ubah/<?= $ruangan['id_ruangan']; ?>" class="tampilEditRuangan" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
+                                    <a href="<?= BASEURL; ?>/ruangan/hapus/<?= $ruangan['id_ruangan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i></a>
+                                    <a href="<?= BASEURL; ?>/ruangan/detail/<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-ellipsis-vertical" < class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
