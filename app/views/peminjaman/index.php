@@ -92,10 +92,9 @@
                            <td><?= $pj['waktu_selesai']; ?></td>
                            <td><?= $pj['keperluan']; ?></td>
                            <td><?= $pj['status_peminjaman']; ?></td>
-                           <td>
-                               <button type="submit" class="btn btn-primary">Setuju</button>
-
-                               <button type="reset" class="btn btn-danger">Tolak</button>
+                           <td class="icon-container text-center">
+                               <a href="<?= BASEURL; ?>/ruangan/ubah/<?= $ruangan['id_ruangan']; ?>"><i class="fa-solid fa-check" style="color: #00ff00; font-size: 24px; line-height: 50px;"></i></a>
+                               <a href="<?= BASEURL; ?>/ruangan/hapus/<?= $ruangan['id_ruangan']; ?>"><i class="fa-solid fa-x" style="color: #ff0000; font-size: 24px; line-height: 50px;"></i></a>
                            </td>
                        </tr>
                    <?php endforeach; ?>

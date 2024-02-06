@@ -196,6 +196,13 @@ h5 {
     align-items: center;
 }
 
+.sidebar-nav li a .active {
+        text-decoration: none;
+            color: #51A8B1;
+            font-weight: 600;
+            background: #E7F4EF;
+}
+
 .sidebar-nav li a {
     text-decoration: none;
     border-radius: 10px;

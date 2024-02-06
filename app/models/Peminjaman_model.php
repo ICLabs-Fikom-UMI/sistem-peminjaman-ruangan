@@ -33,13 +33,24 @@ class Peminjaman_model
     {
 
         try {
-            $query = "INSERT INTO trx_peminjaman (tanggal_pinjam, waktu_mulai, waktu_selesai) 
-          VALUES (?, ?, ?)";
+
+            $file = $this->uploadFile();
+
+            if (!$file) {
+                return false;
+            }
+
+
+            $query = "INSERT INTO trx_peminjaman (tanggal_pinjam, waktu_mulai, waktu_selesai, keperluan, jumlah_peserta, file) 
+          VALUES (?, ?, ?, ?, ?, ?)";
 
             $this->db->query($query);
             $this->db->bind(1, $data['tanggal_pinjam']);
             $this->db->bind(2, $data['waktu_mulai']);
             $this->db->bind(3, $data['waktu_selesai']);
+            $this->db->bind(4, $data['kegiatan']);
+            $this->db->bind(5, $data['jumlah_peserta']);
+            $this->db->bind(6, $file);
 
             $this->db->execute();
 
@@ -47,6 +58,51 @@ class Peminjaman_model
         } catch (Exception $e) {
             echo $e;
         }
+    }
+
+    function uploadFile()
+    {
+        // Mengambil informasi file
+        $namaFile = $_FILES['file_dokumen']['name'];
+        $tmpName = $_FILES['file_dokumen']['tmp_name'];
+        $ukuranFile = $_FILES['file_dokumen']['size'];
+        $error = $_FILES['file_dokumen']['error'];
+
+        // cek apakah tidak ada file yang diupload
+        if ($error === 4) {
+            echo '<div class="alert alert-danger" role="alert">Pilih file terlebih dahulu!</div>';
+            return false;
+        }
+
+        // cek ekstensi file
+        $ekstensiFileValid = ['pdf'];
+        $ekstensiFile = explode('.', $namaFile);
+        $ekstensiFile = strtolower(end($ekstensiFile));
+        if (!in_array($ekstensiFile, $ekstensiFileValid)) {
+            echo "<script>
+        alert('Yang anda upload bukan file PDF!');
+        </script>";
+            return false;
+        }
+
+        // cek ukuran file (maksimum 10 MB)
+        $maxFileSize = 10 * 1024 * 1024; // 10 MB dalam bytes
+        if ($ukuranFile > $maxFileSize) {
+            echo "<script>
+        alert('Ukuran file terlalu besar! Maksimum 10MB.');
+        </script>";
+            return false;
+        }
+
+        // lolos pengecekan, file siap diupload
+        // generate nama file baru
+        $namaFileBaru = uniqid();
+        $namaFileBaru .= '.';
+        $namaFileBaru .= $ekstensiFile;
+
+        move_uploaded_file($tmpName, 'pdf_files/' . $namaFileBaru);
+
+        return $namaFileBaru;
     }
 
     public function getTotalPeminjaman()
