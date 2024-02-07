@@ -13,7 +13,7 @@
     <div class="horizontal-line"></div>
 
     <div class="card-body mt-3">
-        <table id="example" class="table table-bordered table-striped" style="width:100%">
+        <table class="table " style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>
@@ -30,20 +30,20 @@
             <tbody>
                 <?php
                 $no = 0;
-                foreach ($data['mp'] as $profile) :
+                foreach ($data['peminjaman'] as $pinjam) :
                     $no++;
                 ?>
                     <tr>
                         <td><?= $no; ?></td>
-                        <td>Multimedia</td>
-                        <td>03/02/2024</td>
-                        <td>15.00</td>
-                        <td>17.00</td>
-                        <td>0:24:14</td>
-                        <td>Weekly Learning</td>
-                        <td>Disetujui</td>
+                        <td><?= $pinjam['nama_ruangan'] ?></td>
+                        <td><?= $pinjam['tanggal_pinjam'] ?></td>
+                        <td><?= $pinjam['waktu_mulai'] ?></td>
+                        <td><?= $pinjam['waktu_selesai'] ?></td>
+                        <td>-</td>
+                        <td><?= $pinjam['keperluan'] ?></td>
+                        <td><?= $pinjam['status_peminjaman'] ?></td>
                         <td class="icon-container" style="text-align: center;">
-                            <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
+                            <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="btn btn-danger">Batalkan</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

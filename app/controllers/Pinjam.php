@@ -22,7 +22,8 @@ class Pinjam extends Controller{
     }
 
     public function peminjaman_saya(){
-        $data['judul'] = 'Pinjam Ruangan';
+        $data['judul'] = 'Peminjaman Saya';
+        $data['peminjaman'] = $this->model('Peminjaman_model')->getAllPeminjaman();
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');

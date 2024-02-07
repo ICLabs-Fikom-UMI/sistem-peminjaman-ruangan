@@ -35,7 +35,7 @@
 
                         <div class="form-group col-md-6 mb-3">
                             <label for="jumlah_peserta" class="form-label">Jumlah Peserta:</label>
-                            <input type="number" class="form-control" id="jumlah_peserta" name="jumlah_peserta" min="1" required>
+                            <input type="number" class="form-control" id="jumlah_peserta" name="jumlah_peserta" min="1" placeholder="Masukkan Jumlah peserta" required>
                         </div>
                     </div>
                     <div class="form-group mb-3">

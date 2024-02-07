@@ -15,11 +15,11 @@ class Peminjaman extends Controller {
     public function tambah()
     {
         if ($this->model('Peminjaman_model')->tambahDataPeminjaman($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success', 'Mahasiswa');
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success', 'Meminjam');
             header('Location: ' . BASEURL . '/pinjam');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger', 'Mahasiswa');
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger', 'Meminjam');
             header('Location: ' . BASEURL . '/pinjam');
             exit;
         }
