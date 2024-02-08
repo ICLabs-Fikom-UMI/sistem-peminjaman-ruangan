@@ -17,12 +17,25 @@ class Ruangan extends Controller {
         $this->view('templates/footer');
     }
 
-    public function detail(){
+    public function detail($id){
         $data['judul'] = 'Detail Ruangan';
+        $data['ruangan'] = $this->model('Ruangan_model')->getRuanganById($id);
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
-        $this->view('ruangan/detail');
+        $this->view('ruangan/detail',$data);
+        $this->view('templates/footer');
+    }
+
+    public function pinjam_ruangan($id)
+    {
+        $data['judul'] = 'Pinjam Ruangan';
+        $data['user'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
+        $data['ruangan'] = $this->model('Ruangan_model')->getRuanganById($id);
+        $this->view('templates/header', $data);
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
+        $this->view('ruangan/pinjam_ruangan', $data);
         $this->view('templates/footer');
     }
 

@@ -72,5 +72,10 @@ class Database {
         return $this->stmt->rowCount();
     }
 
+    public function get_connection()
+    {
+        return $this->dbh;
+    }
+
 
 }

@@ -1,21 +1,21 @@
         <div class="container-user rounded">
             <div class="row mb-4">
                 <div class="col-md-4">
-                    <img src="<?= BASEURL; ?>/img/multimedia.jpg" alt="Thumbnail" class="img-fluid rounded" style="max-width:100%; object-fit:cover">
+                    <img src="<?= BASEURL; ?>/img/<?= $data['ruangan']['thumbnail'] ?>" alt="Thumbnail" class="img-fluid rounded" style="width:100%; height:230px; object-fit:cover">
                 </div>
 
                 <div class="col-8">
-                    <h5>Computer Vision</h5>
+                    <h5><?= $data['ruangan']['nama_ruangan'] ?></h5>
 
                     <div class="d-flex">
-                        <p class="text-success me-3">Tersedia</p>
-                        <p class="text-muted me-3">Lantai 2</p>
-                        <p class="text-info">24 Orang</p>
+                        <p class="text-success me-3"><?= $data['ruangan']['status_ruangan'] ?></p>
+                        <p class="text-muted me-3"><?= $data['ruangan']['lokasi'] ?></p>
+                        <p class="text-info"><?= $data['ruangan']['kapasitas'] ?> Orang</p>
                     </div>
 
                     <p>Koordinator Ruangan: <span>Furqon</span></p>
 
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, saepe soluta quae deserunt facilis dolorum iste excepturi sed unde laboriosam esse, rem cumque tenetur vero obcaecati totam natus delectus beatae. Maiores laudantium modi aperiam quo eum, quod quam officia ratione expedita esse tempora saepe ipsa iusto quis, numquam aliquam consectetur?</p>
+                    <p><?= $data['ruangan']['deskripsi'] ?></p>
                 </div>
             </div>
 

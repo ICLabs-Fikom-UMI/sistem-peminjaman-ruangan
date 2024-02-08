@@ -27,29 +27,18 @@ class Mahasiswa_model {
         return $this->db->single();
     }
 
-    // public function tambahDataMahasiswa($data)
-    // {
-    //     $query = "INSERT INTO mst_user VALUES (null,:nama_lengkap, :nim, :email)";
-
-    //     $this->db->query($query);
-    //     $this->db->bind('nama_lengkap', $data['nama_lengkap']);
-    //     $this->db->bind('nim', $data['nim']);
-    //     $this->db->bind('email', $data['email']);
-
-    //     $this->db->execute();
-
-    //     return $this->db->rowCount();
-    // }
-
     public function tambahDataMahasiswa($data)
     {
+        try {
+            // if (!$this->validasiRegistrasi($data)) {
+            //     return false;
+            // }
 
-       try {
             $query = "INSERT INTO mst_user (id_role, id_jurusan, nama_lengkap, nim, email, password, no_telp) 
-          VALUES (?, ?, ?, ?, ?, ?, ?)";
+                  VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             $this->db->query($query);
-            $this->db->bind(1, $data['id_role']);
+            $this->db->bind(1, $data['id_role']?? null);
             $this->db->bind(2, $data['id_jurusan'] ?? null);
             $this->db->bind(3, $data['nama_lengkap']);
             $this->db->bind(4, $data['nim'] ?? null);
@@ -60,11 +49,69 @@ class Mahasiswa_model {
             $this->db->execute();
 
             return $this->db->rowCount();
-       } catch (Exception $e) {
-        echo $e;
-       }
+        } catch (Exception $e) {
+            echo $e;
+        }
     }
 
+    public function validasiRegistrasi($data)
+    {
+        $email = strtolower(stripslashes($data["email"]));
+        $password = $this->db->get_connection()->quote($data["password"]);
+        $password2 = $this->db->get_connection()->quote($data["confirm_password"]);
+
+        // cek email sudah ada atau belum
+        $query = "SELECT email FROM mst_user WHERE email = ?";
+        $this->db->query($query);
+        $this->db->bind(1, $email);
+        $result = $this->db->single();
+
+        if ($result) {
+            echo "<script>
+        alert('username yang dipilih sudah terdaftar!')
+        </script>";
+            return false;
+        }
+
+        // cek konfirmasi password
+        if ($password !== $password2) {
+            echo "<script>
+        alert('konfirmasi password tidak sesuai!');
+        </script>";
+            return false;
+        }
+
+        // enkripsi password
+        $data["password"] = password_hash($password, PASSWORD_DEFAULT);
+
+        return true;
+    }
+
+
+
+    // public function tambahDataMahasiswa($data)
+    // {
+
+    //    try {
+    //         $query = "INSERT INTO mst_user (id_role, id_jurusan, nama_lengkap, nim, email, password, no_telp) 
+    //       VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    //         $this->db->query($query);
+    //         $this->db->bind(1, $data['id_role']);
+    //         $this->db->bind(2, $data['id_jurusan'] ?? null);
+    //         $this->db->bind(3, $data['nama_lengkap']);
+    //         $this->db->bind(4, $data['nim'] ?? null);
+    //         $this->db->bind(5, $data['email']);
+    //         $this->db->bind(6, $data['password']);
+    //         $this->db->bind(7, $data['no_telp'] ?? null);
+
+    //         $this->db->execute();
+
+    //         return $this->db->rowCount();
+    //    } catch (Exception $e) {
+    //     echo $e;
+    //    }
+    // }
 
     public function hapusDataMahasiswa($id)
     {
