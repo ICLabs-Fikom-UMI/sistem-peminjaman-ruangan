@@ -30,9 +30,9 @@ class Mahasiswa_model {
     public function tambahDataMahasiswa($data)
     {
         try {
-            // if (!$this->validasiRegistrasi($data)) {
-            //     return false;
-            // }
+            if (!$this->validasiRegistrasi()) {
+                return false;
+            }
 
             $query = "INSERT INTO mst_user (id_role, id_jurusan, nama_lengkap, nim, email, password, no_telp) 
                   VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -54,11 +54,11 @@ class Mahasiswa_model {
         }
     }
 
-    public function validasiRegistrasi($data)
+    public function validasiRegistrasi()
     {
-        $email = strtolower(stripslashes($data["email"]));
-        $password = $this->db->get_connection()->quote($data["password"]);
-        $password2 = $this->db->get_connection()->quote($data["confirm_password"]);
+        $email = strtolower(stripslashes($_POST["email"]));
+        $password = $this->db->get_connection()->quote($_POST["password"]);
+        $password2 = $this->db->get_connection()->quote($_POST["confirm_password"]);
 
         // cek email sudah ada atau belum
         $query = "SELECT email FROM mst_user WHERE email = ?";

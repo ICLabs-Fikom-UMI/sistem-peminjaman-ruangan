@@ -1,8 +1,3 @@
-    <div class="row">
-        <div class="col-12">
-            <?php Flasher::flash(); ?>
-        </div>
-    </div>
     <div class="row mb-3">
         <div class="col-8">
             <div class="form-container-1">

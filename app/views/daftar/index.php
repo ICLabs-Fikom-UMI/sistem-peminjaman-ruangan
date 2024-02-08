@@ -39,21 +39,26 @@
                         <h4>Daftar Akun</h4>
                         <p>Buat peminjaman mu mudah dan menyenangkan!</p>
                     </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <?php Flasher::flash(); ?>
+                        </div>
+                    </div>
                     <div class="form-group mb-3">
                         <label for="nama_lengkap" class="form-label">Nama Lengkap:</label>
-                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
                     </div>
                     <div class="form-group mb-3">
                         <label for="email" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="email" name="nim" required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="nim" class="form-label">NIM:</label>
-                        <input type="text" class="form-control" id="nim" name="nim" required>
+                        <input type="text" class="form-control" id="nim" name="nim">
                     </div>
                     <div class="form-group mb-3">
                         <label for="no_telp" class="form-label">No Handphone:</label>
-                        <input type="tel" class="form-control" id="no_telp" name="no_telp" required>
+                        <input type="tel" class="form-control" id="no_telp" name="no_telp">
                     </div>
                     <div class="form-group mb-3">
                         <label for="password" class="form-label">Kata Sandi:</label>
