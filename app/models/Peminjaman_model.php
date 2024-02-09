@@ -29,7 +29,7 @@ class Peminjaman_model
         return $this->db->single();
     }
 
-    public function tambahDataPeminjaman($data)
+    public function tambahDataPeminjaman($data, $id_user)
     {
 
         try {
@@ -41,17 +41,18 @@ class Peminjaman_model
             }
 
 
-            $query = "INSERT INTO trx_peminjaman (id_ruangan, tanggal_pinjam, waktu_mulai, waktu_selesai, keperluan, jumlah_peserta, file) 
-          VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO trx_peminjaman (id_user, id_ruangan, tanggal_pinjam, waktu_mulai, waktu_selesai, keperluan, jumlah_peserta, file) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             $this->db->query($query);
-            $this->db->bind(1, $data['id_ruangan']);
-            $this->db->bind(2, $data['tanggal_pinjam']);
-            $this->db->bind(3, $data['waktu_mulai']);
-            $this->db->bind(4, $data['waktu_selesai']);
-            $this->db->bind(5, $data['kegiatan']);
-            $this->db->bind(6, $data['jumlah_peserta']);
-            $this->db->bind(7, $file);
+            $this->db->bind(1, $id_user);
+            $this->db->bind(2, $data['id_ruangan']);
+            $this->db->bind(3, $data['tanggal_pinjam']);
+            $this->db->bind(4, $data['waktu_mulai']);
+            $this->db->bind(5, $data['waktu_selesai']);
+            $this->db->bind(6, $data['kegiatan']);
+            $this->db->bind(7, $data['jumlah_peserta']);
+            $this->db->bind(8, $file);
 
             $this->db->execute();
 

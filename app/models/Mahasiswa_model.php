@@ -13,7 +13,7 @@ class Mahasiswa_model {
     {
         $query = 'SELECT *
         FROM mst_user mu
-        JOIN mst_role mr ON mu.id_role = mr.id_role
+        LEFT JOIN mst_role mr ON mu.id_role = mr.id_role
         LEFT JOIN mst_jurusan mj ON mu.id_jurusan = mj.id_jurusan';
 
         $this->db->query($query);
@@ -30,9 +30,18 @@ class Mahasiswa_model {
     public function tambahDataMahasiswa($data)
     {
         try {
-            if (!$this->validasiRegistrasi()) {
+
+            // Set nilai default untuk peran
+            $data['id_role'] = 'User';
+
+            $validasiResult = $this->validasiRegistrasi();
+            if (!$validasiResult) {
                 return false;
             }
+
+
+            $password = $validasiResult;
+
 
             $query = "INSERT INTO mst_user (id_role, id_jurusan, nama_lengkap, nim, email, password, no_telp) 
                   VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -43,7 +52,7 @@ class Mahasiswa_model {
             $this->db->bind(3, $data['nama_lengkap']);
             $this->db->bind(4, $data['nim'] ?? null);
             $this->db->bind(5, $data['email']);
-            $this->db->bind(6, $data['password']);
+            $this->db->bind(6, $password);
             $this->db->bind(7, $data['no_telp'] ?? null);
 
             $this->db->execute();
@@ -82,9 +91,9 @@ class Mahasiswa_model {
         }
 
         // enkripsi password
-        $data["password"] = password_hash($password, PASSWORD_DEFAULT);
+        $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        return true;
+        return $encryptedPassword;
     }
 
 

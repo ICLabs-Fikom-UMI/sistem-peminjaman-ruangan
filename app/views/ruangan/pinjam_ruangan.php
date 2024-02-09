@@ -8,7 +8,6 @@
                     <div class="line"></div>
                 </div>
                 <form action="<?= BASEURL ?>/peminjaman/tambah" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id_user" id="id_user" value="<?= $data['user']['id_user'] ?>">
                     <input type="hidden" name="id_ruangan" id="id_ruangan" value="<?= $data['ruangan']['id_ruangan'] ?>">
                     <div class="row mt-4">
                         <div class="form-group col-md-6 mb-3">

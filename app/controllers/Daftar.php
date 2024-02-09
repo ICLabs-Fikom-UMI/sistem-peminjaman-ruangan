@@ -11,7 +11,7 @@ class Daftar extends Controller {
 
 
         if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger', 'Daftar');
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success', 'Daftar');
             header('Location: ' . BASEURL . '/daftar');
         } else {
             Flasher::setFlash('gagal', 'ditambahkan', 'danger', 'Daftar');
