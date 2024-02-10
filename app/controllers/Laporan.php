@@ -6,7 +6,7 @@ class Laporan extends Controller {
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
-        $this->view('laporan/index');
+        $this->view('laporan/index',$data);
         $this->view('templates/footer');
     }
 }

@@ -317,3 +317,24 @@ h5 {
                 th, td{
                     vertical-align: middle;
                 }
+
+        .status-background {
+            padding: 2px 10px;
+            /* Tambahkan padding agar background terlihat */
+            border-radius: 5px;
+            color: white;
+            /* Tambahkan border-radius untuk sudut yang lebih lembut */
+        }
+    
+        /* Atur warna latar belakang untuk setiap status peminjaman */
+        .status-background.disetujui {
+            background-color: #28a745;
+        }
+    
+        .status-background.pending {
+            background-color: #ffc107;
+        }
+    
+        .status-background.ditolak {
+            background-color: #dc3545;
+        }

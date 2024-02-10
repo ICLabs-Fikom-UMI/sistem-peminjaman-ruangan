@@ -14,15 +14,6 @@ class Peminjaman extends Controller {
 
     public function tambah()
     {
-        // if ($this->model('Peminjaman_model')->tambahDataPeminjaman($_POST) > 0) {
-        //     Flasher::setFlash('berhasil', 'ditambahkan', 'success', 'Meminjam');
-        //     header('Location: ' . BASEURL . '/pinjam');
-        //     exit;
-        // } else {
-        //     Flasher::setFlash('gagal', 'ditambahkan', 'danger', 'Meminjam');
-        //     header('Location: ' . BASEURL . '/pinjam');
-        //     exit;
-        // }
 
         // Pastikan ID pengguna sudah disimpan dalam sesi setelah login
         if (isset($_SESSION['id_user'])) {
@@ -44,6 +35,30 @@ class Peminjaman extends Controller {
             header('Location: ' . BASEURL . '/pinjam');
             exit;
         }
+    }
+
+    public function setujui($idPeminjaman)
+    {
+        // Panggil model untuk mengubah status peminjaman menjadi "Disetujui"
+        if ($this->model('Peminjaman_model')->setujuiPeminjaman($idPeminjaman)) {
+            Flasher::setFlash('berhasil', 'disetujui', 'success', 'Peminjaman');
+        } else {
+            Flasher::setFlash('gagal', 'disetujui', 'danger', 'Peminjaman');
+        }
+        // Redirect kembali ke halaman data peminjaman
+        header('Location: ' . BASEURL . '/peminjaman');
+    }
+
+    public function tolak($idPeminjaman)
+    {
+        // Panggil model untuk mengubah status peminjaman menjadi "Ditolak"
+        if ($this->model('Peminjaman_model')->tolakPeminjaman($idPeminjaman)) {
+            Flasher::setFlash('berhasil', 'ditolak', 'success', 'Peminjaman');
+        } else {
+            Flasher::setFlash('gagal', 'ditolak', 'danger', 'Peminjaman');
+        }
+        // Redirect kembali ke halaman data peminjaman
+        header('Location: ' . BASEURL . '/peminjaman');
     }
 
 }

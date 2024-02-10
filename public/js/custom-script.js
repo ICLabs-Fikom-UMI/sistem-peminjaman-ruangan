@@ -1,21 +1,26 @@
-// $(document).ready(function() {
-//     // Ambil path halaman saat ini
-//     var currentPath = window.location.pathname;
+function hitungMundur(waktuMulai, waktuSelesai, elemenSisaWaktu, statusPeminjaman) {
+    var waktuSekarang = new Date();
+    var sisaWaktu;
 
-//     console.log(currentPath)
+    if (statusPeminjaman === "Disetujui" && waktuSekarang >= waktuMulai) {
+        sisaWaktu = waktuSelesai - waktuSekarang;
+    } else if (statusPeminjaman === "Disetujui" && waktuSekarang < waktuMulai) {
+        sisaWaktu = waktuSelesai - waktuMulai;
+    } else {
+        // Jika status peminjaman "Pending" atau waktu selesai telah lewat, tampilkan "Waktu Habis"
+        $(elemenSisaWaktu).html("Waktu Habis");
+        return;
+    }
 
-//     // Cari elemen menu yang sesuai dengan path halaman saat ini
-//     $('.sidebar-nav a').each(function() {
-//         var menuPath = $(this).attr('href');
+    if (sisaWaktu <= 0) {
+        $(elemenSisaWaktu).html("Waktu Habis");
+    } else {
+        var jam = Math.floor(sisaWaktu / (1000 * 60 * 60));
+        var menit = Math.floor((sisaWaktu % (1000 * 60 * 60)) / (1000 * 60));
+        var detik = Math.floor((sisaWaktu % (1000 * 60)) / 1000);
 
-//         // Bandingkan path menu dengan path halaman saat ini
-//         if (currentPath === menuPath) {
-//             // Tambahkan kelas 'active' jika path sesuai
-//             $(this).closest('li').addClass('active');
-//         }
-//     });
-// });
-
-
-
-
+        // Format waktu
+        var sisaWaktuText = jam + ":" + (menit < 10 ? "0" : "") + menit + ":" + (detik < 10 ? "0" : "") + detik;
+        $(elemenSisaWaktu).html(sisaWaktuText);
+    }
+}

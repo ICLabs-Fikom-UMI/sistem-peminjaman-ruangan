@@ -91,10 +91,14 @@
                            <td><?= $pj['waktu_mulai']; ?></td>
                            <td><?= $pj['waktu_selesai']; ?></td>
                            <td><?= $pj['keperluan']; ?></td>
-                           <td><?= $pj['status_peminjaman']; ?></td>
+                           <td>
+                               <div class="status-background <?= strtolower($pj['status_peminjaman']); ?>">
+                                   <?= $pj['status_peminjaman'] ?>
+                               </div>
+                           </td>
                            <td class="icon-container text-center">
-                               <a href="<?= BASEURL; ?>/ruangan/ubah/<?= $ruangan['id_ruangan']; ?>"><i class="fa-solid fa-check" style="color: #00ff00; font-size: 24px; line-height: 50px;"></i></a>
-                               <a href="<?= BASEURL; ?>/ruangan/hapus/<?= $ruangan['id_ruangan']; ?>"><i class="fa-solid fa-x" style="color: #ff0000; font-size: 24px; line-height: 50px;"></i></a>
+                               <a href="<?= BASEURL ?>/peminjaman/setujui/<?= $pj['id_peminjaman'] ?>"><i class="fa-solid fa-check" style="color: #00ff00; font-size: 24px; line-height: 50px;"></i></a>
+                               <a href="<?= BASEURL ?>/peminjaman/tolak/<?= $pj['id_peminjaman'] ?>"><i class="fa-solid fa-x" style="color: #ff0000; font-size: 24px; line-height: 50px;"></i></a>
                            </td>
                        </tr>
                    <?php endforeach; ?>

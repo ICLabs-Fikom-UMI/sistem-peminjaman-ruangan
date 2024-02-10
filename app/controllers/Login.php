@@ -18,26 +18,6 @@ class Login extends Controller
 
     public function login()
     {
-        // $email = $_POST['email'];
-        // $password = $_POST['password'];
-
-        // $data['login'] = $this->model('User_model')->getUser($email, $password);
-
-        // if(!$data['login']){
-
-        //     $id_user = $data['login']['id_user'];
-
-        //     // Simpan email dan ID pengguna dalam sesi
-        //     $_SESSION['email'] = $email;
-        //     $_SESSION['id_user'] = $id_user;
-
-        //     header("Location:" . BASEURL . "/login" );
-        // }else{
-        //     foreach($data['login'] as $row):
-        //         $_SESSION['email'] = $row['email'];
-        //         header("Location:" . BASEURL);
-        //     endforeach;
-        // }
 
         $email = $_POST['email'];
         $password = $_POST['password'];

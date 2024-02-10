@@ -40,9 +40,11 @@ class Peminjaman_model
                 return false;
             }
 
+            $status_peminjaman = 'Pending';
 
-            $query = "INSERT INTO trx_peminjaman (id_user, id_ruangan, tanggal_pinjam, waktu_mulai, waktu_selesai, keperluan, jumlah_peserta, file) 
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            $query = "INSERT INTO trx_peminjaman (id_user, id_ruangan, tanggal_pinjam, waktu_mulai, waktu_selesai, keperluan, jumlah_peserta, file, status_peminjaman) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $this->db->query($query);
             $this->db->bind(1, $id_user);
@@ -53,6 +55,7 @@ class Peminjaman_model
             $this->db->bind(6, $data['kegiatan']);
             $this->db->bind(7, $data['jumlah_peserta']);
             $this->db->bind(8, $file);
+            $this->db->bind(9, $status_peminjaman);
 
             $this->db->execute();
 
@@ -117,5 +120,31 @@ class Peminjaman_model
         return $result['total_peminjaman'];
     }
 
+    // Fungsi untuk mengubah status peminjaman menjadi "Disetujui"
+    public function setujuiPeminjaman($idPeminjaman)
+    {
+        $this->db->query('UPDATE trx_peminjaman SET status_peminjaman = "Disetujui" WHERE id_peminjaman = :id');
+        $this->db->bind(':id', $idPeminjaman);
+
+        return $this->db->execute();
+    }
+
+    // Fungsi untuk mengubah status peminjaman menjadi "Ditolak"
+    public function tolakPeminjaman($idPeminjaman)
+    {
+        $this->db->query('UPDATE trx_peminjaman SET status_peminjaman = "Ditolak" WHERE id_peminjaman = :id');
+        $this->db->bind(':id', $idPeminjaman);
+
+        return $this->db->execute();
+    }
+
+    // Fungsi untuk membatalkan peminjaman
+    public function cancelPeminjaman($idPeminjaman)
+    {
+        $this->db->query('UPDATE trx_peminjaman SET status_peminjaman = "Dibatalkan" WHERE id_peminjaman = :id');
+        $this->db->bind(':id', $idPeminjaman);
+
+        return $this->db->execute();
+    }
 
 }

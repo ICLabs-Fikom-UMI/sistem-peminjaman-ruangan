@@ -49,21 +49,23 @@
             <tbody>
                 <?php
                 $no = 0;
-                foreach ($data['mhs'] as $mahasiswa) :
+                foreach ($data['peminjaman'] as $pj) :
                     $no++;
                 ?>
-                    <tr>
-                        <td><?= $no; ?></td>
-                        <td><?= $mahasiswa['nama']; ?></td>
-                        <td><?= $mahasiswa['email']; ?></td>
-                        <td>-</td>
-                        <td><?= $mahasiswa['jurusan']; ?></td>
-                        <td>-</td>
-                        <td class="icon-container" style="text-align: center;">
-                            <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
-                            <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can"></i></a>
-                            <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>"><i class=" fa-solid fa-ellipsis-vertical"></i></a>
-                        </td>
+                    <td><?= $no; ?></td>
+                    <td><?= $pj['nama_lengkap']; ?></td>
+                    <td><?= $pj['nama_ruangan']; ?></td>
+                    <td><?= $pj['tanggal_pinjam']; ?></td>
+                    <td><?= $pj['waktu_mulai']; ?></td>
+                    <td><?= $pj['waktu_selesai']; ?></td>
+                    <td><?= $pj['keperluan']; ?></td>
+                    <td>
+                        <div class="status-background <?= strtolower($pj['status_peminjaman']); ?>">
+                            <?= $pj['status_peminjaman'] ?>
+                        </div>
+                    </td>
+                    <td class=" text-center">-
+                    </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
