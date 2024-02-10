@@ -95,7 +95,19 @@
                                 <td class="icon-container text-center">
                                     <a href="<?= BASEURL; ?>/ruangan/ubah/<?= $ruangan['id_ruangan']; ?>" class="tampilEditRuangan" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-pen-to-square"></i></a>
                                     <a href="<?= BASEURL; ?>/ruangan/hapus/<?= $ruangan['id_ruangan']; ?>" onclick="return confirm('yakin?');"> <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i></a>
-                                    <a href="<?= BASEURL; ?>/ruangan/detail/<?= $ruangan['id_ruangan']; ?>"><i class=" fa-solid fa-ellipsis-vertical" < class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" data-bs-toggle="dropdown">
+                                            <i class=" fa-solid fa-ellipsis-vertical" style="color: #000000;"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                            <li>
+                                                <a class="dropdown-item" href="<?= BASEURL; ?>/ruangan/detail/<?= $ruangan['id_ruangan']; ?>">Details</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="<?= BASEURL; ?>/ruangan/foto_ruangan/<?= $ruangan['id_ruangan']; ?>">Tambah foto slider</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -49,7 +49,7 @@
             <tbody>
                 <?php
                 $no = 0;
-                foreach ($data['peminjaman'] as $pj) :
+                foreach ($data['peminjaman_ditolak'] as $pj) :
                     $no++;
                 ?>
                     <td><?= $no; ?></td>
@@ -68,6 +68,29 @@
                     </td>
                     </tr>
                 <?php endforeach; ?>
+
+                <?php
+                $no = 0;
+                foreach ($data['peminjaman_disetujui'] as $pj) :
+                    $no++;
+                ?>
+                    <td><?= $no; ?></td>
+                    <td><?= $pj['nama_lengkap']; ?></td>
+                    <td><?= $pj['nama_ruangan']; ?></td>
+                    <td><?= $pj['tanggal_pinjam']; ?></td>
+                    <td><?= $pj['waktu_mulai']; ?></td>
+                    <td><?= $pj['waktu_selesai']; ?></td>
+                    <td><?= $pj['keperluan']; ?></td>
+                    <td>
+                        <div class="status-background <?= strtolower($pj['status_peminjaman']); ?>">
+                            <?= $pj['status_peminjaman'] ?>
+                        </div>
+                    </td>
+                    <td class=" text-center">-
+                    </td>
+                    </tr>
+                <?php endforeach; ?>
+                
             </tbody>
         </table>
     </div>

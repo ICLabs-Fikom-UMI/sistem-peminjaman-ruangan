@@ -64,4 +64,15 @@ class Role_model {
     {
         return $this->getCountByRole('kepala lab');
     }
+
+    public function getLevel($role)
+    {
+        // Lakukan query ke tabel role untuk mendapatkan level berdasarkan peran (role)
+        $this->db->query('SELECT level FROM mst_role WHERE nama_role = :role');
+        $this->db->bind(':role', $role);
+        $result = $this->db->single();
+
+        // Kembalikan level jika query berhasil, atau kembalikan null jika tidak ditemukan
+        return $result ? $result['level'] : null;
+    }
 }

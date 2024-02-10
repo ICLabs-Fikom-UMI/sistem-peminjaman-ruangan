@@ -24,61 +24,108 @@ $(function() {
         const id = $(this).data('id');
 
         
-        // Menggunakan AJAX 
+        // Menggunakan AJAX baru
+        $.ajax({
+    type: "post",
+    url: "http://localhost/peminjaman-lab/public/mahasiswa/getubah",
+    data: {id_user : id},
+    dataType: "json",
+    success: function (data) {
+        $('#nama_lengkap').val(data.nama_lengkap);
+        $('#nim').val(data.nim);
+        $('#email').val(data.email);
+        $('#no_telp').val(data.no_telp);
+        $('#password').val(data.password);
+        $('#confirm_password').val(data.password);
+        $('#id_user').val(data.id_user);
+
+        //Menampilkan jurusan berdasarkan ID
         $.ajax({
             type: "post",
-            url: "http://localhost/peminjaman-lab/public/mahasiswa/getubah",
-            data: {id_user : id},
+            url: "http://localhost/peminjaman-lab/public/mahasiswa/getJurusanById",
+            data: {id_jurusan : data.id_jurusan},
             dataType: "json",
-            success: function (data) {
-                $('#nama_lengkap').val(data.nama_lengkap);
-                $('#nim').val(data.nim);
-                $('#email').val(data.email);
-                $('#no_telp').val(data.no_telp);
-                $('#password').val(data.password);
-                $('#confirm_password').val(data.password);
-                $('#id_user').val(data.id_user);
-
-                            // Menampilkan jurusan berdasarkan ID
-            $.ajax({
-                type: "post",
-                url: "http://localhost/peminjaman-lab/public/mahasiswa/getJurusanById",
-                data: {id_jurusan : data.id_jurusan},  // Mengirim ID jurusan ke backend
-                dataType: "json",
-                success: function (jurusanData) {
-
-        if (jurusanData) {
-            // Jika ada data, tambahkan opsi dengan data yang diterima
-            $('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
-        } else {
-            // Jika tidak ada data, tambahkan opsi default
-            $('#nama_jurusan').append('<option value="#">-- Pilih Jurusan --</option>');
-        }
-                    // Mengisikan data jurusan ke dalam opsi select nama_jurusan
-                    //$('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
+            success: function (jurusanData) {
+                if (jurusanData) {
+                    $('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
+                } else {
+                    $('#nama_jurusan').append('<option value="#">-- Pilih Jurusan --</option>');
                 }
-            });
-
-                $.ajax({
-                type: "post",
-                url: "http://localhost/peminjaman-lab/public/mahasiswa/getRoleById",
-                data: {id_role : data.id_role},  // Mengirim ID jurusan ke backend
-                dataType: "json",
-                success: function (roleData) {
-
-        if (roleData) {
-            // Jika ada data, tambahkan opsi dengan data yang diterima
-            $('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
-        } else {
-            // Jika tidak ada data, tambahkan opsi default
-            $('#nama_role').append('<option value="#">-- Pilih Role --</option>');
-        }
-                    // Mengisikan data jurusan ke dalam opsi select nama_jurusan
-                    //$('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
-                }
-            });
             }
         });
+
+        $.ajax({
+            type: "post",
+            url: "http://localhost/peminjaman-lab/public/mahasiswa/getRoleById",
+            data: {id_role : data.id_role},
+            dataType: "json",
+            success: function (roleData) {
+                if (roleData) {
+                    $('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
+                } else {
+                    $('#nama_role').append('<option value="#">-- Pilih Role --</option>');
+                }
+            }
+        });
+    }
+});
+
+
+        // Menggunakan AJAX lama
+        // $.ajax({
+        //     type: "post",
+        //     url: "http://localhost/peminjaman-lab/public/mahasiswa/getubah",
+        //     data: {id_user : id},
+        //     dataType: "json",
+        //     success: function (data) {
+        //         $('#nama_lengkap').val(data.nama_lengkap);
+        //         $('#nim').val(data.nim);
+        //         $('#email').val(data.email);
+        //         $('#no_telp').val(data.no_telp);
+        //         $('#password').val(data.password);
+        //         $('#confirm_password').val(data.password);
+        //         $('#id_user').val(data.id_user);
+
+        //                     //Menampilkan jurusan berdasarkan ID
+        //     $.ajax({
+        //         type: "post",
+        //         url: "http://localhost/peminjaman-lab/public/mahasiswa/getJurusanById",
+        //         data: {id_jurusan : data.id_jurusan},  // Mengirim ID jurusan ke backend
+        //         dataType: "json",
+        //         success: function (jurusanData) {
+
+        // if (jurusanData) {
+        //     // Jika ada data, tambahkan opsi dengan data yang diterima
+        //     $('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
+        // } else {
+        //     // Jika tidak ada data, tambahkan opsi default
+        //     $('#nama_jurusan').append('<option value="#">-- Pilih Jurusan --</option>');
+        // }
+        //             // Mengisikan data jurusan ke dalam opsi select nama_jurusan
+        //             //$('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
+        //         }
+        //     });
+
+        //         $.ajax({
+        //         type: "post",
+        //         url: "http://localhost/peminjaman-lab/public/mahasiswa/getRoleById",
+        //         data: {id_role : data.id_role},  // Mengirim ID jurusan ke backend
+        //         dataType: "json",
+        //         success: function (roleData) {
+
+        // if (roleData) {
+        //     // Jika ada data, tambahkan opsi dengan data yang diterima
+        //     $('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
+        // } else {
+        //     // Jika tidak ada data, tambahkan opsi default
+        //     $('#nama_role').append('<option value="#">-- Pilih Role --</option>');
+        // }
+        //             // Mengisikan data jurusan ke dalam opsi select nama_jurusan
+        //             //$('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
+        //         }
+        //     });
+        //     }
+        // });
     });
 
     $('.tombolEditJurusan').on('click', function(){

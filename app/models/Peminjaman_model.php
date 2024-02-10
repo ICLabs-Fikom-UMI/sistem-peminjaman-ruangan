@@ -22,6 +22,15 @@ class Peminjaman_model
         return $this->db->resultSet();
     }
 
+    public function getAllPeminjamanByUserId($id_user)
+    {
+        $query = "SELECT * FROM trx_peminjaman WHERE id_user = :id_user";
+        $this->db->query($query);
+        $this->db->bind(':id_user', $id_user);
+        return $this->db->resultSet();
+    }
+
+
     public function getPeminjamanById($id)
     {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_peminjaman=:id_peminjaman');
@@ -145,6 +154,31 @@ class Peminjaman_model
         $this->db->bind(':id', $idPeminjaman);
 
         return $this->db->execute();
+    }
+
+    // Fungsi untuk mengambil data peminjaman berdasarkan status
+    public function getPeminjamanByStatus($status)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE status_peminjaman = :status');
+        $this->db->bind(':status', $status);
+        return $this->db->resultSet();
+    }
+
+    public function countApprovedPeminjaman()
+    {
+        $query = "SELECT COUNT(*) AS total FROM trx_peminjaman WHERE status_peminjaman = 'Disetujui'";
+        $this->db->query($query);
+        $this->db->execute();
+        return $this->db->single()['total'];
+    }
+
+    public function countApprovedPeminjamanPerUser($id_user)
+    {
+        $query = "SELECT COUNT(*) AS total FROM trx_peminjaman WHERE id_user = :id_user AND status_peminjaman = 'Disetujui'";
+        $this->db->query($query);
+        $this->db->bind(':id_user', $id_user);
+        $this->db->execute();
+        return $this->db->single()['total'];
     }
 
 }

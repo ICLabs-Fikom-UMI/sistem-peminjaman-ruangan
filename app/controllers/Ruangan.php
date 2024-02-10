@@ -27,6 +27,16 @@ class Ruangan extends Controller {
         $this->view('templates/footer');
     }
 
+    public function foto_ruangan($id){
+        $data['judul'] = 'Foto Ruangan';
+        $data['ruangan'] = $this->model('Ruangan_model')->getRuanganById($id);
+        $this->view('templates/header', $data);
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
+        $this->view('ruangan/foto_ruangan',$data);
+        $this->view('templates/footer');
+    }
+
     public function pinjam_ruangan($id)
     {
         $data['judul'] = 'Pinjam Ruangan';

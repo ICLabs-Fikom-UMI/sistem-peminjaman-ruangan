@@ -13,33 +13,52 @@ class Login extends Controller
     {
         $data['judul'] = 'Login';
         $this->view('login/index', $data);
-
     }
 
     public function login()
     {
+        // Validasi input
+        if (empty($_POST['email']) || empty($_POST['password'])) {
+            Flasher::setFlash('password', 'salah', 'danger', 'Email atau password tidak boleh kosong');
+            header('Location: ' . BASEURL . '/login');
+            exit;
+        }
 
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $data['login'] = $this->model('User_model')->getUser($email, $password);
+        try {
+            // Mendapatkan data pengguna berdasarkan email
+            $data['login'] = $this->model('User_model')->getUserByEmail($email);
 
-        // Periksa apakah kredensial valid
-        if ($data['login']) {
-            foreach ($data['login'] as $row) {
-                // Simpan email dan ID pengguna dalam sesi
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['id_user'] = $row['id_user'];
+            //Memverifikasi kata sandi
+            if ($data['login']) {
+                foreach ($data['login'] as $row) {
+                    if (password_verify($password, $row['password'])) {
+                        // Kata sandi cocok, simpan informasi pengguna dalam sesi
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['id_user'] = $row['id_user'];
+                        $_SESSION['role'] = $row['nama_role'];
 
-                // Redirect ke halaman setelah login berhasil
-                header("Location: " . BASEURL);
-                exit;
+                        // Mendapatkan level pengguna
+                        $level = $this->model('Role_model')->getLevel($row['nama_role']);
+                        $_SESSION['level'] = $level;
+
+                        // Redirect ke halaman setelah login berhasil
+                        header("Location: " . BASEURL);
+                        exit;
+                    }
+                }
             }
-        } else {
-            // Jika kredensial tidak valid, tampilkan pesan kesalahan
-            echo "Username atau password salah.";
-            Flasher::setFlash('password', 'salah', 'danger', 'Username');
+
+            //Jika kredensial tidak valid, tampilkan pesan kesalahan
+            Flasher::setFlash('password', 'salah', 'danger', 'Kredensial tidak valid');
             header('Location: ' . BASEURL . '/login');
+            exit;
+        } catch (Exception $e) {
+            // Tangani eksepsi atau kesalahan yang terjadi
+            // Catat pesan kesalahan atau lakukan tindakan yang sesuai
+            echo "Terjadi kesalahan: " . $e->getMessage();
             exit;
         }
     }

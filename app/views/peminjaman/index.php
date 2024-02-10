@@ -20,7 +20,7 @@
                <div class="card-block d-flex justify-content-between">
                    <div>
                        <h6>Disetujui</h6>
-                       <h2><span>0</span></h2>
+                       <h2><span><?php echo $data['total_disetujui']; ?></span></h2>
                        <p>Peminjaman Disetujui</p>
                    </div>
                    <div>
@@ -98,7 +98,7 @@
                            </td>
                            <td class="icon-container text-center">
                                <a href="<?= BASEURL ?>/peminjaman/setujui/<?= $pj['id_peminjaman'] ?>"><i class="fa-solid fa-check" style="color: #00ff00; font-size: 24px; line-height: 50px;"></i></a>
-                               <a href="<?= BASEURL ?>/peminjaman/tolak/<?= $pj['id_peminjaman'] ?>"><i class="fa-solid fa-x" style="color: #ff0000; font-size: 24px; line-height: 50px;"></i></a>
+                               <a href="<?= BASEURL ?>/peminjaman/batalkan/<?= $pj['id_peminjaman'] ?>"><i class="fa-solid fa-x" style="color: #ff0000; font-size: 24px; line-height: 50px;"></i></a>
                            </td>
                        </tr>
                    <?php endforeach; ?>

@@ -13,7 +13,7 @@
                         <p class="text-info"><?= $data['ruangan']['kapasitas'] ?> Orang</p>
                     </div>
 
-                    <p>Koordinator Ruangan: <span>Furqon</span></p>
+                    <p>Koordinator Ruangan: <span><?= $data['ruangan']['id_user']?></span></p>
 
                     <p><?= $data['ruangan']['deskripsi'] ?></p>
                 </div>

@@ -7,10 +7,11 @@ Class User_model {
         $this->db = new Database;
     }
     
-    public function getUser($email, $password){
-        $this->db->query("SELECT * FROM mst_user WHERE email = :email AND password = :password");
+    public function getUserByEmail($email){
+        $this->db->query("SELECT * FROM mst_user tu
+        JOIN mst_role tr ON tu.id_role = tr.id_role
+        WHERE email = :email");
         $this->db->bind('email', $email);
-        $this->db->bind('password', $password);
         return $this->db->resultSet();
     }
 }

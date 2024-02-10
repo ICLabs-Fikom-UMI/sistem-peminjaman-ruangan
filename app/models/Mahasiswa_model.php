@@ -30,10 +30,6 @@ class Mahasiswa_model {
     public function tambahDataMahasiswa($data)
     {
         try {
-
-            // Set nilai default untuk peran
-            $data['id_role'] = 'User';
-
             $validasiResult = $this->validasiRegistrasi();
             if (!$validasiResult) {
                 return false;
@@ -134,13 +130,14 @@ class Mahasiswa_model {
         return $this->db->rowCount();
     }
 
-    public function ubahDataMahasiswa($data)
+    public function ubahDataMahasiswa($data, $newPassword)
     {
         try {
             $query = "UPDATE mst_user SET 
         nama_lengkap = :nama_lengkap, 
         nim =:nim, 
         email=:email, 
+        password = :password,
         no_telp =:no_telp,
         id_jurusan = :id_jurusan,
         id_role = :id_role
@@ -151,6 +148,7 @@ class Mahasiswa_model {
             $this->db->bind('nim', $data['nim']);
             $this->db->bind('email', $data['email']);
             $this->db->bind('no_telp', $data['no_telp']);
+            $this->db->bind('password', $newPassword);
             $this->db->bind('id_jurusan', $data['id_jurusan']);
             $this->db->bind('id_role', $data['id_role']);
             $this->db->bind('id_user', $data['id_user']);
