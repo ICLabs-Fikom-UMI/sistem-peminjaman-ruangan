@@ -181,4 +181,13 @@ class Peminjaman_model
         return $this->db->single()['total'];
     }
 
+    public function countPeminjamanPerUser($id_user)
+    {
+        $query = "SELECT COUNT(*) AS total FROM trx_peminjaman WHERE id_user = :id_user";
+        $this->db->query($query);
+        $this->db->bind(':id_user', $id_user);
+        $this->db->execute();
+        return $this->db->single()['total'];
+    }
+
 }
