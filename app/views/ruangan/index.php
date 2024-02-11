@@ -25,7 +25,7 @@
                     <div class="card-block d-flex justify-content-between">
                         <div>
                             <h6>Tersedia</h6>
-                            <h2><span>0</span></h2>
+                            <h2><span><?php echo $data['ruanganTersedia']; ?></span></h2>
                             <p>Ruangan yang tersedia</p>
                         </div>
                         <div>
@@ -39,7 +39,7 @@
                     <div class="card-block d-flex justify-content-between">
                         <div>
                             <h6>Tidak Tersedia</h6>
-                            <h2><span>0</span></h2>
+                            <h2><span><?php echo $data['ruanganTidakTersedia']; ?></span></h2>
                             <p>Ruangan yang sedang dipinjam</p>
                         </div>
                         <div>

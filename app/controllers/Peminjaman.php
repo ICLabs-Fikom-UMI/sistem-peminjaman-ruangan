@@ -38,10 +38,11 @@ class Peminjaman extends Controller {
         }
     }
 
-    public function setujui($idPeminjaman)
+    public function setujui($id_peminjaman)
     {
+        //$id_ruangan = $this->model('Peminjaman_model')->getRuanganIdByPeminjamanId($id_peminjaman);
         // Panggil model untuk mengubah status peminjaman menjadi "Disetujui"
-        if ($this->model('Peminjaman_model')->setujuiPeminjaman($idPeminjaman)) {
+        if ($this->model('Peminjaman_model')->setujuiPeminjaman($id_peminjaman)) {
             Flasher::setFlash('berhasil', 'disetujui', 'success', 'Peminjaman');
         } else {
             Flasher::setFlash('gagal', 'disetujui', 'danger', 'Peminjaman');

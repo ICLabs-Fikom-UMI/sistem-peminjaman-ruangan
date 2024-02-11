@@ -24,7 +24,9 @@ class Peminjaman_model
 
     public function getAllPeminjamanByUserId($id_user)
     {
-        $query = "SELECT * FROM trx_peminjaman WHERE id_user = :id_user";
+        $query = "SELECT * FROM trx_peminjaman tp
+        LEFT JOIN mst_ruangan tr ON tp.id_ruangan = tr.id_ruangan
+         WHERE tp.id_user = :id_user";
         $this->db->query($query);
         $this->db->bind(':id_user', $id_user);
         return $this->db->resultSet();
@@ -130,12 +132,18 @@ class Peminjaman_model
     }
 
     // Fungsi untuk mengubah status peminjaman menjadi "Disetujui"
-    public function setujuiPeminjaman($idPeminjaman)
+    public function setujuiPeminjaman($id_peminjaman)
     {
-        $this->db->query('UPDATE trx_peminjaman SET status_peminjaman = "Disetujui" WHERE id_peminjaman = :id');
-        $this->db->bind(':id', $idPeminjaman);
-
+        $query = 'UPDATE trx_peminjaman SET status_peminjaman = "Disetujui" WHERE id_peminjaman = :id';
+        $this->db->query($query);
+        $this->db->bind(':id', $id_peminjaman);
         return $this->db->execute();
+
+        // Update status ruangan menjadi tidak tersedia
+        // $query2 = "UPDATE mst_ruangan SET status_ruangan = 'Tidak Tersedia' WHERE id_ruangan = :id_ruangan";
+        // $this->db->query($query2);
+        // $this->db->bind(':id_ruangan', $id_ruangan);
+        // $this->db->execute();
     }
 
     // Fungsi untuk mengubah status peminjaman menjadi "Ditolak"
@@ -188,6 +196,14 @@ class Peminjaman_model
         $this->db->bind(':id_user', $id_user);
         $this->db->execute();
         return $this->db->single()['total'];
+    }
+
+    public function getRuanganIdByPeminjamanId($id_peminjaman)
+    {
+        $query = "SELECT id_ruangan FROM trx_peminjaman WHERE id_peminjaman = :id_peminjaman";
+        $this->db->query($query);
+        $this->db->bind(':id_peminjaman', $id_peminjaman);
+        return $this->db->single()['id_ruangan'];
     }
 
 }

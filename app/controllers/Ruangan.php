@@ -6,6 +6,8 @@ class Ruangan extends Controller {
         $data['ruangan'] = $this->model('Ruangan_model')->getAllRuangan();
         $data['jumlahTotalRuangan'] = $this->model('Ruangan_model')->hitungTotalRuangan();
         $data['korlab'] = $this->model('Role_model')->getKoordinatorLabUsers();
+        $data['ruanganTersedia'] = $this->model('Ruangan_model')->countTotalRuanganTersedia();
+        $data['ruanganTidakTersedia'] = $this->model('Ruangan_model')->countTotalRuanganTidakTersedia();
         
         //$data['jumlahRuanganTersedia'] = $this->model('Ruangan_model')->hitungRuanganTersedia();
         // $data['jumlahRuanganTidakTersedia'] = $this->model('Ruangan_model')->hitungRuanganTidakTersedia()['ruangan_tidak_tersedia'];

@@ -45,10 +45,10 @@ class Pinjam extends Controller{
     }
 
     // Fungsi untuk membatalkan peminjaman
-    public function batalkan_peminjaman($idPeminjaman)
+    public function batalkan_peminjaman($id_peminjaman)
     {
         // Panggil model untuk memperbarui status peminjaman menjadi "Dibatalkan"
-        $this->model('Peminjaman_model')->cancelPeminjaman($idPeminjaman);
+        $this->model('Peminjaman_model')->cancelPeminjaman($id_peminjaman);
 
         // Redirect kembali ke halaman peminjaman pengguna
         header('Location: ' . BASEURL . '/pinjam/peminjaman_saya');

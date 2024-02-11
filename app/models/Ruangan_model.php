@@ -144,20 +144,31 @@ class Ruangan_model{
         return $result['total_ruangan'];
     }
 
-    public function hitungRuanganTersedia()
-    {
-        $query = 'SELECT COUNT(*) as ruangan_tersedia FROM mst_ruangan WHERE status = "Tersedia"';
-        $this->db->query($query);
-        $result = $this->db->single();
 
-        return $result['ruangan_tersedia'];
+    public function countTotalRuanganTersedia()
+    {
+        // Query untuk menghitung jumlah total ruangan yang memiliki status tersedia
+        $query = "SELECT COUNT(*) AS total_ruangan FROM mst_ruangan WHERE status_ruangan = 'Tersedia'";
+
+        // Eksekusi query
+        $this->db->query($query);
+        $total_ruangan = $this->db->single()['total_ruangan'];
+
+        return $total_ruangan;
     }
 
-    // public function hitungRuanganTidakTersedia()
-    // {
-    //     $this->db->query('SELECT COUNT(*) as ruangan_tidak_tersedia FROM mst_ruangan WHERE status = "Tidak Tersedia"');
-    //     return $this->db->single();
-    // }
+    public function countTotalRuanganTidakTersedia()
+    {
+        // Query untuk menghitung jumlah total ruangan yang memiliki status tersedia
+        $query = "SELECT COUNT(*) AS total_ruangan FROM mst_ruangan WHERE status_ruangan = 'Tidak Tersedia'";
+
+        // Eksekusi query
+        $this->db->query($query);
+        $total_ruangan = $this->db->single()['total_ruangan'];
+
+        return $total_ruangan;
+    }
+
 
     public function ubahDataRuangan($data)
     {
