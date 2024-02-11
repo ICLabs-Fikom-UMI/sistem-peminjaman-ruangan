@@ -189,6 +189,15 @@ class Ruangan_model{
         }
     }
 
+    public function cariDataRuangan()
+    {
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM mst_ruangan WHERE nama_ruangan LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+        return $this->db->resultSet();
+    }
+
 
 
 

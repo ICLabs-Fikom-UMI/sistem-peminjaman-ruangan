@@ -12,6 +12,15 @@ class Pinjam extends Controller{
         $this->view('templates/footer');
     }
 
+    public function dashboard(){
+        $data['judul'] = 'dashboard';
+        $this->view('templates/header', $data);
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
+        $this->view('pinjam/dashboard');
+        $this->view('templates/footer');
+    }
+
     public function peminjaman_saya(){
         $data['judul'] = 'Peminjaman Saya';
         $id_user = $_SESSION['id_user'];
@@ -43,6 +52,17 @@ class Pinjam extends Controller{
 
         // Redirect kembali ke halaman peminjaman pengguna
         header('Location: ' . BASEURL . '/pinjam/peminjaman_saya');
+    }
+
+    public function cari()
+    {
+        $data['judul'] = 'Pinjam Ruangan';
+        $data['ruangan'] = $this->model('Ruangan_model')->cariDataRuangan();
+        $this->view('templates/header', $data);
+        $this->view('templates/sidebar');
+        $this->view('templates/topbar');
+        $this->view('pinjam/index', $data);
+        $this->view('templates/footer');
     }
 
 }

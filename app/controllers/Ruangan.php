@@ -93,4 +93,5 @@ class Ruangan extends Controller {
             exit;
         }
     }
+
 }
