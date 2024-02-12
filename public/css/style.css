@@ -196,12 +196,12 @@ h5 {
     align-items: center;
 }
 
-.sidebar-nav li a .active {
-        text-decoration: none;
-            color: #51A8B1;
-            font-weight: 600;
-            background: #E7F4EF;
+.sidebar-nav .active {
+    color: #51A8B1;
+    background: #E7F4EF;
+    font-weight: 600;
 }
+
 
 .sidebar-nav li a {
     text-decoration: none;
@@ -211,13 +211,6 @@ h5 {
     width: 100%;
     padding: 0 10px;
     font-size: 14px;
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: #51A8B1;
-    font-weight: 600;
-    background: #E7F4EF;
 }
 
 .sidebar-nav li a:active,

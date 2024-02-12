@@ -9,7 +9,7 @@
             <?php if ($_SESSION['level'] == 0) : ?>
                 <!-- Jika level adalah 0, hanya tampilkan menu berikut -->
                 <li>
-                    <a href="<?= BASEURL; ?>/pinjam/dashboard">
+                    <a href="<?= BASEURL; ?>/pinjam/dashboard" class="nav-link">
                         <span class="material-symbols-outlined">
                             home
                         </span> Beranda
@@ -19,7 +19,7 @@
                     Peminjaman
                 </li>
                 <li>
-                    <a href="<?= BASEURL; ?>/pinjam" class="nav-link active">
+                    <a href="<?= BASEURL; ?>/pinjam" class="nav-link">
                         <span class="material-symbols-outlined">
                             event_available
                         </span>
@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= BASEURL ?>/pinjam/peminjaman_saya">
+                    <a href="<?= BASEURL ?>/pinjam/peminjaman_saya" class="nav-link">
                         <span class="material-symbols-outlined">
                             user_attributes
                         </span>
@@ -38,7 +38,7 @@
                     Lainnya
                 </li>
                 <li>
-                    <a href="<?= BASEURL; ?>/pengaturan">
+                    <a href="<?= BASEURL; ?>/pengaturan" class="nav-link">
                         <span class="material-symbols-outlined">
                             settings
                         </span>
@@ -48,7 +48,7 @@
             <?php else : ?>
                 <!-- Jika level tidak sama dengan 0, tampilkan semua menu -->
                 <li>
-                    <a href="<?= BASEURL; ?>">
+                    <a href="<?= BASEURL; ?>" class="nav-link">
                         <span class="material-symbols-outlined">
                             home
                         </span> Beranda
@@ -59,7 +59,7 @@
                 </li>
                 <?php if ($_SESSION['level'] != 2) : ?>
                     <li>
-                        <a href="<?= BASEURL; ?>/jurusan">
+                        <a href="<?= BASEURL; ?>/jurusan" class="nav-link">
                             <span class="material-symbols-outlined">
                                 apartment
                             </span>
@@ -68,7 +68,7 @@
                     </li>
                 <?php endif; ?>
                 <li>
-                    <a href="<?= BASEURL; ?>/ruangan">
+                    <a href="<?= BASEURL; ?>/ruangan" class="nav-link">
                         <span class="material-symbols-outlined">
                             domain
                         </span>
@@ -77,7 +77,7 @@
                 </li>
                 <?php if ($_SESSION['level'] != 2) : ?>
                     <li>
-                        <a href="<?= BASEURL; ?>/mahasiswa">
+                        <a href="<?= BASEURL; ?>/mahasiswa" class="nav-link">
                             <span class="material-symbols-outlined">
                                 person
                             </span>
@@ -86,7 +86,7 @@
                     </li>
                 <?php endif; ?>
                 <li>
-                    <a href="<?= BASEURL; ?>/peminjaman">
+                    <a href="<?= BASEURL; ?>/peminjaman" class="nav-link">
                         <span class="material-symbols-outlined">
                             calendar_month
                         </span>
@@ -94,7 +94,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= BASEURL; ?>/laporan">
+                    <a href="<?= BASEURL; ?>/laporan" class="nav-link">
                         <span class="material-symbols-outlined">
                             lab_profile
                         </span>
@@ -105,7 +105,7 @@
                     Peminjaman
                 </li>
                 <li>
-                    <a href="<?= BASEURL; ?>/pinjam" class="nav-link active">
+                    <a href="<?= BASEURL; ?>/pinjam" class="nav-link">
                         <span class="material-symbols-outlined">
                             event_available
                         </span>
@@ -113,8 +113,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= BASEURL ?>/pinjam/peminjaman_saya">
-                        <span class="material-symbols-outlined">
+                    <a href="<?= BASEURL ?>/pinjam/peminjaman_saya" class="nav-link">
+                        <span class=" material-symbols-outlined">
                             user_attributes
                         </span>
                         Peminjaman Saya
@@ -124,7 +124,7 @@
                     Lainnya
                 </li>
                 <li>
-                    <a href="<?= BASEURL; ?>/pengaturan">
+                    <a href="<?= BASEURL; ?>/pengaturan" class="nav-link">
                         <span class="material-symbols-outlined">
                             settings
                         </span>
@@ -135,6 +135,8 @@
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
+
+    <script src="<?= BASEURL?>/js/custom-script.js"></script>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
