@@ -54,6 +54,18 @@ class Pinjam extends Controller{
         header('Location: ' . BASEURL . '/pinjam/peminjaman_saya');
     }
 
+    // Fungsi untuk membatalkan peminjaman
+    public function kembalikan($id_peminjaman)
+    {
+        // Panggil model untuk memperbarui status peminjaman menjadi "Dibatalkan"
+        $this->model('Peminjaman_model')->cancelPeminjaman($id_peminjaman);
+
+        // Redirect kembali ke halaman peminjaman pengguna
+        header('Location: ' . BASEURL . '/pinjam/peminjaman_saya');
+    }
+
+
+
     public function cari()
     {
         $data['judul'] = 'Pinjam Ruangan';

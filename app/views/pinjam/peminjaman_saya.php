@@ -109,11 +109,10 @@
                            </td>
                            <td class=" icon-container" style="text-align: center;">
                                <?php if ($pinjam['status_peminjaman'] === 'Disetujui') : ?>
-                                   <a href="<?= BASEURL; ?>/pinjam/kembalikan/<?= $pinjam['id_peminjaman']; ?>" class="btn btn-warning">Kembalikan</a>
+                                   <a href="<?= BASEURL; ?>/pinjam/kembalikan/<?= $pinjam['id_peminjaman']; ?>" class="btn btn-warning" onclick=" kembalikan(this)">Kembalikan</a>
                                <?php else : ?>
                                    <a href="<?= BASEURL; ?>/pinjam/batalkan_peminjaman/<?= $pinjam['id_peminjaman']; ?>" class="btn btn-danger">Batalkan</a>
                                <?php endif; ?>
-                               <!-- <a href="<?= BASEURL ?>/pinjam/batalkan_peminjaman/<?= $pinjam['id_peminjaman'] ?>" class="btn btn-danger">Batalkan</a> -->
                            </td>
                        </tr>
                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

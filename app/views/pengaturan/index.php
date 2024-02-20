@@ -61,22 +61,35 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
+                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="<?= $data['dataUser']['nama_lengkap'] ?>">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" value="<?= $data['dataUser']['email'] ?>">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="nim" class="form-label">Nim</label>
-                        <input type="number" class="form-control" id="nim" name="nim">
+                        <input type="number" class="form-control" id="nim" name="nim" value="<?= $data['dataUser']['nim'] ?>">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="no_telp" class="form-label">No.Telepon</label>
-                        <input type="tel" class="form-control" id="no_telp" name="no_telp">
+                        <input type="tel" class="form-control" id="no_telp" name="no_telp" value="<?= $data['dataUser']['no_telp'] ?>">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nama_jurusan" class="form-label">Jurusan</label>
+                        <select id="nama_jurusan" class="form-control" name="id_jurusan">
+                            <option value="#">-- Pilih Jurusan --</option>
+                            <?php foreach ($data['dataJurusan'] as $jurusan) : ?>
+                                <option value="<?= $jurusan['id_jurusan']; ?>" <?php if ($data['dataUser']['id_jurusan'] == $jurusan['id_jurusan']) echo 'selected="selected"'; ?>>
+                                    <?= $jurusan['nama_jurusan']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">

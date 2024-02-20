@@ -27,6 +27,9 @@
     <!-- my style -->
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css">
 
+    <!-- my Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>

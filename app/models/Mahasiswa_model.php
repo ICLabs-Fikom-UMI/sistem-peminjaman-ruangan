@@ -22,7 +22,10 @@ class Mahasiswa_model {
 
     public function getMahasiswaById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_user=:id');
+        $query = 'SELECT * FROM ' . $this->table . '
+        JOIN mst_jurusan mj ON mst_user.id_jurusan = mj.id_jurusan
+        WHERE id_user=:id';
+        $this->db->query($query);
         $this->db->bind('id', $id);
         return $this->db->single();
     }

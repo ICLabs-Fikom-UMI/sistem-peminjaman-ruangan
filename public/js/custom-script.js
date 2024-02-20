@@ -14,3 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+function kembalikan(button) {
+    // Mengubah teks tombol menjadi "Dikembalikan"
+    button.innerHTML = "Dikembalikan";
+    
+    // Mengubah warna latar belakang tombol menjadi hijau
+    button.style.backgroundColor = "green";
+}
+
+

@@ -206,4 +206,13 @@ class Peminjaman_model
         return $this->db->single()['id_ruangan'];
     }
 
+    // Fungsi untuk mendapatkan data peminjaman yang telah dikembalikan
+    public function getPeminjamanDikembalikan($userId)
+    {
+        $query = "SELECT * FROM trx_peminjaman WHERE id_user = :userId AND status = 'Disetujui'";
+        $this->db->query($query);
+        $this->db->bind(":userId", $userId);
+        return $this->db->resultSet();
+    }
+
 }
