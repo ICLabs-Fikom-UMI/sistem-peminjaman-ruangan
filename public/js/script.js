@@ -35,38 +35,11 @@ $(function() {
         $('#nim').val(data.nim);
         $('#email').val(data.email);
         $('#no_telp').val(data.no_telp);
+        $('#nama_jurusan').val(data.id_jurusan);
+        $('#nama_role').val(data.id_role);
         $('#password').val(data.password);
         $('#confirm_password').val(data.password);
         $('#id_user').val(data.id_user);
-
-        //Menampilkan jurusan berdasarkan ID
-        $.ajax({
-            type: "post",
-            url: "http://localhost/peminjaman-lab/public/mahasiswa/getJurusanById",
-            data: {id_jurusan : data.id_jurusan},
-            dataType: "json",
-            success: function (jurusanData) {
-                if (jurusanData) {
-                    $('#nama_jurusan').append('<option value="' + jurusanData.id_jurusan + '" selected>' + jurusanData.nama_jurusan + '</option>');
-                } else {
-                    $('#nama_jurusan').append('<option value="#">-- Pilih Jurusan --</option>');
-                }
-            }
-        });
-
-        $.ajax({
-            type: "post",
-            url: "http://localhost/peminjaman-lab/public/mahasiswa/getRoleById",
-            data: {id_role : data.id_role},
-            dataType: "json",
-            success: function (roleData) {
-                if (roleData) {
-                    $('#nama_role').append('<option value="' + roleData.id_role + '" selected>' + roleData.nama_role + '</option>');
-                } else {
-                    $('#nama_role').append('<option value="#">-- Pilih Role --</option>');
-                }
-            }
-        });
     }
 });
 

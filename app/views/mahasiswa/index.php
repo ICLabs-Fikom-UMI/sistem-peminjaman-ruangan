@@ -233,7 +233,7 @@
                                 <select id="nama_jurusan" class="form-control" name="id_jurusan">
                                     <option value="#">-- Pilih Jurusan --</option>
                                     <?php foreach ($data['dataJurusan'] as $jurusan) : ?>
-                                        <option value="<?= $jurusan['id_jurusan']; ?>"><?= $jurusan['nama_jurusan']; ?></option>
+                                        <option value="<?= $jurusan['id_jurusan']; ?>" <?php echo 'selected="selected"'; ?>><?= $jurusan['nama_jurusan']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -242,7 +242,7 @@
                                 <select id="nama_role" class="form-control" name="id_role">
                                     <option value="#">-- Pilih Role --</option>
                                     <?php foreach ($data['dataRole'] as $role) : ?>
-                                        <option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
+                                        <option value="<?= $role['id_role']; ?>" <?php echo 'selected="selected"'; ?>><?= $role['nama_role']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
