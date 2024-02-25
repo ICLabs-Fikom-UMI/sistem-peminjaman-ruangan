@@ -66,6 +66,19 @@ class Ruangan extends Controller {
 
     public function tambah()
     {
+        $targetDirectory = 'thumbnail';
+        $thumbnail = ImageUpload::upload('thumbnail', $targetDirectory);
+
+        // Memeriksa apakah upload gambar thumbnail berhasil
+        if ($thumbnail === false) {
+            // Jika gagal upload, tampilkan pesan kesalahan dan redirect kembali ke halaman ruangan
+            Flasher::setFlash('gagal', 'upload gambar', 'danger', 'ruangan');
+            header('Location: ' . BASEURL . '/ruangan');
+            exit;
+        }
+
+        $_POST['thumbnail'] = $thumbnail;
+
         if ($this->model('Ruangan_model')->tambahDataRuangan($_POST) > 0) {
             Flasher::setFlash('berhasil', 'ditambahkan', 'success', 'Ruangan');
             header('Location: ' . BASEURL . '/ruangan');

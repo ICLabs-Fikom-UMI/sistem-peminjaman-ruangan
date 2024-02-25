@@ -113,8 +113,17 @@
                                    </div>
                                </td>
                                <td class=" icon-container" style="text-align: center;">
-                                   <?php if ($pinjam['status_peminjaman'] === 'Disetujui') : ?>
+                                   <!-- <?php if ($pinjam['status_peminjaman'] === 'Disetujui') : ?>
                                        <a href="<?= BASEURL; ?>/pinjam/kembalikan/<?= $pinjam['id_peminjaman']; ?>" class="btn btn-warning" onclick=" kembalikan(this)">Kembalikan</a>
+                                   <?php else : ?>
+                                       <a href="<?= BASEURL; ?>/pinjam/batalkan_peminjaman/<?= $pinjam['id_peminjaman']; ?>" class="btn btn-danger">Batalkan</a>
+                                   <?php endif; ?> -->
+                                   <?php if ($pinjam['status_peminjaman'] === 'Disetujui') : ?>
+                                       <?php if ($pinjam['status_pengembalian'] === 'selesai') : ?>
+                                           <span class="btn btn-success">Dikembalikan</span>
+                                       <?php else : ?>
+                                           <a href="<?= BASEURL; ?>/pinjam/kembalikan/<?= $pinjam['id_peminjaman']; ?>" class="btn btn-warning" onclick="kembalikan(this)">Kembalikan</a>
+                                       <?php endif; ?>
                                    <?php else : ?>
                                        <a href="<?= BASEURL; ?>/pinjam/batalkan_peminjaman/<?= $pinjam['id_peminjaman']; ?>" class="btn btn-danger">Batalkan</a>
                                    <?php endif; ?>

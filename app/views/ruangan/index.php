@@ -86,7 +86,7 @@
                         ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td style="width:100px;"><img src="img/<?= $ruangan['thumbnail']; ?>" alt="" style="max-width:100%; object-fit:cover;"></td>
+                                <td style="width:100px;"><img src="img/thumbnail/<?= $ruangan['thumbnail']; ?>" alt="" style="max-width:100%; object-fit:cover;"></td>
                                 <td><?= $ruangan['nama_ruangan']; ?></td>
                                 <td><?= $ruangan['kapasitas']; ?></td>
                                 <td><?= $ruangan['lokasi']; ?></td>
