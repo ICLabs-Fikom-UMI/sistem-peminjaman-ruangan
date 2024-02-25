@@ -71,7 +71,7 @@
 
                 <?php
                 $no = 0;
-                foreach ($data['peminjaman_disetujui'] as $pj) :
+                foreach ($data['dikembalikan'] as $pj) :
                     $no++;
                 ?>
                     <td><?= $no; ?></td>

@@ -12,10 +12,12 @@ class Peminjaman_model
 
     public function getAllPeminjaman()
     {
-        $query = 'SELECT *
+        $query =
+        'SELECT *
                   FROM trx_peminjaman tp
                   LEFT JOIN mst_user mu ON tp.id_user = mu.id_user
-                  LEFT JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan;';
+                  LEFT JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan 
+                  WHERE status_peminjaman != "Ditolak"';
 
         $this->db->query($query);
 
@@ -148,7 +150,8 @@ class Peminjaman_model
         $this->db->query('UPDATE trx_peminjaman SET status_peminjaman = "Ditolak" WHERE id_peminjaman = :id');
         $this->db->bind(':id', $idPeminjaman);
 
-        return $this->db->execute();
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 
     // Fungsi untuk membatalkan peminjaman
@@ -156,8 +159,8 @@ class Peminjaman_model
     {
         $this->db->query('UPDATE trx_peminjaman SET status_peminjaman = "Dibatalkan" WHERE id_peminjaman = :id');
         $this->db->bind(':id', $idPeminjaman);
-
-        return $this->db->execute();
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 
     // Fungsi untuk mengambil data peminjaman berdasarkan status
@@ -171,6 +174,14 @@ class Peminjaman_model
     public function countApprovedPeminjaman()
     {
         $query = "SELECT COUNT(*) AS total FROM trx_peminjaman WHERE status_peminjaman = 'Disetujui'";
+        $this->db->query($query);
+        $this->db->execute();
+        return $this->db->single()['total'];
+    }
+
+    public function countRejectedPeminjaman()
+    {
+        $query = "SELECT COUNT(*) AS total FROM trx_peminjaman WHERE status_peminjaman = 'Ditolak'";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->single()['total'];
@@ -194,20 +205,25 @@ class Peminjaman_model
         return $this->db->single()['total'];
     }
 
-    public function getRuanganIdByPeminjamanId($id_peminjaman)
-    {
-        $query = "SELECT id_ruangan FROM trx_peminjaman WHERE id_peminjaman = :id_peminjaman";
-        $this->db->query($query);
-        $this->db->bind(':id_peminjaman', $id_peminjaman);
-        return $this->db->single()['id_ruangan'];
+    // public function getRuanganIdByPeminjamanId($id_peminjaman)
+    // {
+    //     $query = "SELECT id_ruangan FROM trx_peminjaman WHERE id_peminjaman = :id_peminjaman";
+    //     $this->db->query($query);
+    //     $this->db->bind(':id_peminjaman', $id_peminjaman);
+    //     return $this->db->single()['id_ruangan'];
+    // }
+
+    public function kembalikanPeminjaman($id_peminjaman){
+        $this->db->query('UPDATE trx_peminjaman SET status_pengembalian = "selesai" WHERE id_peminjaman = :id');
+        $this->db->bind(':id', $id_peminjaman);
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 
-    // Fungsi untuk mendapatkan data peminjaman yang telah dikembalikan
-    public function getPeminjamanDikembalikan($userId)
+    public function getPeminjamanDikembalikan()
     {
-        $query = "SELECT * FROM trx_peminjaman WHERE id_user = :userId AND status = 'Disetujui'";
+        $query = 'SELECT * FROM trx_peminjaman WHERE status_pengembalian = "selesai"';
         $this->db->query($query);
-        $this->db->bind(":userId", $userId);
         return $this->db->resultSet();
     }
 

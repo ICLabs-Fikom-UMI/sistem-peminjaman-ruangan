@@ -48,18 +48,44 @@ class Pinjam extends Controller{
     public function batalkan_peminjaman($id_peminjaman)
     {
         // Panggil model untuk memperbarui status peminjaman menjadi "Dibatalkan"
-        $this->model('Peminjaman_model')->cancelPeminjaman($id_peminjaman);
+        if ($this->model('Peminjaman_model')->cancelPeminjaman($id_peminjaman)) {
+            Flasher::setFlash('berhasil', 'dibatalkan', 'success', 'Peminjaman');
+        } else {
+            Flasher::setFlash('gagal', 'dibatalkan', 'danger', 'Peminjaman');
+        }
 
         // Redirect kembali ke halaman peminjaman pengguna
         header('Location: ' . BASEURL . '/pinjam/peminjaman_saya');
     }
 
-    // Fungsi untuk membatalkan peminjaman
     public function kembalikan($id_peminjaman)
     {
-        // Panggil model untuk memperbarui status peminjaman menjadi "Dibatalkan"
-        $this->model('Peminjaman_model')->cancelPeminjaman($id_peminjaman);
+        // Panggil model untuk membatalkan peminjaman
+        $peminjamanModel = $this->model('Peminjaman_model');
+        // $result = $peminjamanModel->kembalikanPeminjaman($id_peminjaman);
 
+        // if ($result) {
+        //     // Jika pengembalian berhasil, set flash message berhasil
+        //     Flasher::setFlash('berhasil', 'dikembalikan', 'success', 'Peminjaman');
+        // } else {
+        //     // Jika terjadi kesalahan, set flash message gagal
+        //     Flasher::setFlash('gagal', 'dikembalikan', 'danger', 'Peminjaman');
+        // }
+
+        // Memperbarui status peminjaman
+        if ($peminjamanModel->kembalikanPeminjaman($id_peminjaman)) {
+            // Mengambil ID ruangan yang dipinjam dari data peminjaman
+            $peminjaman = $peminjamanModel->getPeminjamanById($id_peminjaman);
+            $id_ruangan = $peminjaman['id_ruangan'];
+
+            // Memperbarui status ruangan
+            if ($this->model('Ruangan_model')->ubahStatusRuangan($id_ruangan, 'Tersedia') > 0) {
+                Flasher::setFlash('berhasil', 'dikembalikan', 'success', 'Peminjaman');
+            }
+        } else {
+            Flasher::setFlash('gagal', 'dikembalikan', 'danger', 'Peminjaman');
+        }
+        
         // Redirect kembali ke halaman peminjaman pengguna
         header('Location: ' . BASEURL . '/pinjam/peminjaman_saya');
     }

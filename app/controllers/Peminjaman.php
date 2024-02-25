@@ -6,6 +6,7 @@ class Peminjaman extends Controller {
         $data['peminjaman'] = $this->model('Peminjaman_model')->getAllPeminjaman();
         $data['total_peminjaman'] = $this->model('Peminjaman_model')->getTotalPeminjaman();
         $data['total_disetujui'] = $this->model('Peminjaman_model')->countApprovedPeminjaman();
+        $data['total_ditolak'] = $this->model('Peminjaman_model')->countRejectedPeminjaman();
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
