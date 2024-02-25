@@ -38,18 +38,27 @@ class Peminjaman extends Controller {
         }
     }
 
-    public function setujui($id_peminjaman)
-    {
-        //$id_ruangan = $this->model('Peminjaman_model')->getRuanganIdByPeminjamanId($id_peminjaman);
-        // Panggil model untuk mengubah status peminjaman menjadi "Disetujui"
-        if ($this->model('Peminjaman_model')->setujuiPeminjaman($id_peminjaman)) {
-            Flasher::setFlash('berhasil', 'disetujui', 'success', 'Peminjaman');
+   public function setujui($id_peminjaman)
+   {
+        $peminjamanModel = $this->model('Peminjaman_model');
+
+        // Memperbarui status peminjaman
+        if ($peminjamanModel->setujuiPeminjaman($id_peminjaman) > 0) {
+            // Mengambil ID ruangan yang dipinjam dari data peminjaman
+            $peminjaman = $peminjamanModel->getPeminjamanById($id_peminjaman);
+            $id_ruangan = $peminjaman['id_ruangan'];
+
+            // Memperbarui status ruangan
+            if ($this->model('Ruangan_model')->ubahStatusRuangan($id_ruangan, 'Tidak Tersedia')> 0 ) {
+                Flasher::setFlash('berhasil', 'disetujui', 'success', 'Peminjaman');
+            }
         } else {
             Flasher::setFlash('gagal', 'disetujui', 'danger', 'Peminjaman');
         }
-        // Redirect kembali ke halaman data peminjaman
+        //Redirect kembali ke halaman data peminjaman
         header('Location: ' . BASEURL . '/peminjaman');
     }
+
 
     public function tolak($idPeminjaman)
     {

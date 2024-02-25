@@ -209,9 +209,13 @@ class Ruangan_model{
         return $this->db->resultSet();
     }
 
+    public function ubahStatusRuangan($id_ruangan, $status){
+        $query = "UPDATE mst_ruangan SET status_ruangan = :status WHERE id_ruangan = :id";
+        $this->db->query($query);
+        $this->db->bind('status', $status);
+        $this->db->bind('id', $id_ruangan);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 
-
-
-
-    
 }

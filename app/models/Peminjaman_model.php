@@ -137,13 +137,9 @@ class Peminjaman_model
         $query = 'UPDATE trx_peminjaman SET status_peminjaman = "Disetujui" WHERE id_peminjaman = :id';
         $this->db->query($query);
         $this->db->bind(':id', $id_peminjaman);
-        return $this->db->execute();
+        $this->db->execute();
 
-        // Update status ruangan menjadi tidak tersedia
-        // $query2 = "UPDATE mst_ruangan SET status_ruangan = 'Tidak Tersedia' WHERE id_ruangan = :id_ruangan";
-        // $this->db->query($query2);
-        // $this->db->bind(':id_ruangan', $id_ruangan);
-        // $this->db->execute();
+        return $this->db->rowCount();
     }
 
     // Fungsi untuk mengubah status peminjaman menjadi "Ditolak"
