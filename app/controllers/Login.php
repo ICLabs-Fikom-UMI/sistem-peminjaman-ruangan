@@ -7,8 +7,10 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
     exit;
 }
 
+
 class Login extends Controller
 {
+
     public function index()
     {
         $data['judul'] = 'Login';
@@ -17,6 +19,7 @@ class Login extends Controller
 
     public function login()
     {
+
         // Validasi input
         if (empty($_POST['email']) || empty($_POST['password'])) {
             Flasher::setFlash('password', 'salah', 'danger', 'Email atau password tidak boleh kosong');

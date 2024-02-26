@@ -85,17 +85,7 @@
 
                     <button type="submit" class="signin mb-3" style="background-color: #51A8B1;">Daftar</button>
 
-                    <span>Sudah memiliki akun? <a href=" <?= BASEURL; ?>/login" class="signup text-decoration-none">Kembali ke Login</a></span>
-
-                    <p class="text-center">Login dengan:</p>
-                    <div class="text-center">
-                        <div class="icon-box" style="background-color: #DFE9FF; width: 50px; height: 50px; display: inline-block; margin-right: 10px; border-radius: 8px;">
-                            <i class="fab fa-facebook-f" style="color: #3B5998; font-size: 24px; line-height: 50px;"></i>
-                        </div>
-                        <div class="icon-box" style="background-color: #FFDEDB; width: 50px; height: 50px; display: inline-block; border-radius: 8px;">
-                            <i class="fab fa-google" style="color: #DB4437; font-size: 24px; line-height: 50px;"></i>
-                        </div>
-                    </div>
+                    <span>Sudah memiliki akun? <a href=" <?= BASEURL; ?>/login" class="signup text-decoration-none"> Kembali ke Login</a></span>
                 </form>
             </div>
         </div>

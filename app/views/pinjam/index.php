@@ -8,7 +8,7 @@
         foreach ($data['ruangan'] as $ruangan) : ?>
             <div class="col-md-3 mb-3 mb-sm-0">
                 <div class="card">
-                    <img src="<?= BASEURL; ?>/img/<?= $ruangan['thumbnail']; ?>" class="card-img-top" style="width:100%; height:150px; object-fit: cover" alt="multimedia">
+                    <img src="<?= BASEURL; ?>/img/thumbnail/<?= $ruangan['thumbnail']; ?>" class="card-img-top" style="width:100%; height:150px; object-fit: cover" alt="multimedia">
                     <div class="card-body">
                         <h5 class="card-title mb-3"><?= $ruangan['nama_ruangan'] ?></h5>
                         <div class="card-info d-flex justify-content-between mb-3">

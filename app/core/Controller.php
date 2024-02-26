@@ -9,11 +9,8 @@ class Controller
 {
     public function view($view, $data = [])
     {
-        if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
-            require_once '../app/views/login/index.php';
-        } else {
-            require_once '../app/views/' . $view . '.php';
-        }
+        require_once '../app/views/' . $view . '.php';
+
     }
 
     public function model($model)

@@ -206,6 +206,20 @@
                         <input type="hidden" name="id_user" id="id_user">
 
                         <div class="row">
+                            <div class="col d-flex">
+                                <div>
+                                    <img src="<?= BASEURL ?>/img/robot.jpg" alt="" width="100">
+                                </div>
+                                <div class="form-gourp">
+                                    <button class="btn btn-primary">Unggah foto baru</button>
+                                    <button class="btn btn-secondary">Reset</button>
+                                    <p>Gambar Profile Anda sebaiknya memiliki rasio 1:1
+                                        dan berukuran tidak lebih dari 2MB.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
@@ -233,7 +247,7 @@
                                 <select id="nama_jurusan" class="form-control" name="id_jurusan">
                                     <option value="#">-- Pilih Jurusan --</option>
                                     <?php foreach ($data['dataJurusan'] as $jurusan) : ?>
-                                        <option value="<?= $jurusan['id_jurusan']; ?>" <?php echo 'selected="selected"'; ?>><?= $jurusan['nama_jurusan']; ?></option>
+                                        <option value="<?= $jurusan['id_jurusan']; ?>" ><?= $jurusan['nama_jurusan']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -242,7 +256,7 @@
                                 <select id="nama_role" class="form-control" name="id_role">
                                     <option value="#">-- Pilih Role --</option>
                                     <?php foreach ($data['dataRole'] as $role) : ?>
-                                        <option value="<?= $role['id_role']; ?>" <?php echo 'selected="selected"'; ?>><?= $role['nama_role']; ?></option>
+                                        <option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

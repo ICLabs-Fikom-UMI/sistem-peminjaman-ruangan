@@ -1,4 +1,11 @@
-<?php 
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
+    // Jika tidak ada sesi email, redirect ke halaman login
+    header("Location: " . BASEURL . "/login");
+    exit;
+}
 
 class Peminjam extends Controller {
     public function index(){

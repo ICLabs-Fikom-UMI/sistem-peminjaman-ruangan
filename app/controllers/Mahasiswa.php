@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
+    // Jika tidak ada sesi email, redirect ke halaman login
+    header("Location: " . BASEURL . "/login");
+    exit;
+}
 
 
 class Mahasiswa extends Controller
@@ -66,6 +73,19 @@ class Mahasiswa extends Controller
 
     public function ubah()
     {
+        // $targetDirectory = 'profile';
+        // $profile = ImageUpload::upload('uploadFoto', $targetDirectory);
+
+        // // Memeriksa apakah upload gambar thumbnail berhasil
+        // if ($profile === false) {
+        //     // Jika gagal upload, tampilkan pesan kesalahan dan redirect kembali ke halaman ruangan
+        //     Flasher::setFlash('gagal', 'upload gambar', 'danger', 'Profile');
+        //     header('Location: ' . BASEURL . '/pengaturan');
+        //     exit;
+        // }
+
+        // $_POST['uploadFoto'] = $profile;
+
         $password =  $_POST["password"];
         $password2 = $_POST["confirm_password"];
         // cek konfirmasi password

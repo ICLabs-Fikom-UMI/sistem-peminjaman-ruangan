@@ -34,7 +34,7 @@ $isPinjamPage = strpos($currentURL, '/pinjam') !== false;
                     <a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i> My profile</a>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Pengaturan</a>
+                    <a class="dropdown-item" href="<?= BASEURL; ?>/pengaturan"><i class="bi bi-gear"></i> Pengaturan</a>
                 </li>
                 <div class="divider dropdown-divider"></div>
                 <li>
