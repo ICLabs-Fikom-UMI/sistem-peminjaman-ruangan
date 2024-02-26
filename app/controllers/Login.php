@@ -19,8 +19,7 @@ class Login extends Controller
 
     public function login()
     {
-
-        // Validasi input
+       // Validasi input
         if (empty($_POST['email']) || empty($_POST['password'])) {
             Flasher::setFlash('password', 'salah', 'danger', 'Email atau password tidak boleh kosong');
             header('Location: ' . BASEURL . '/login');

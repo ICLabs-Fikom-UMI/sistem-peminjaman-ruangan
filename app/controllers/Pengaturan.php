@@ -19,4 +19,42 @@ class Pengaturan extends Controller {
         $this->view('pengaturan/index',$data);
         $this->view('templates/footer');
     }
+
+    public function ubahprofile()
+    {
+        $id_user = $_SESSION['id_user'];
+        if ($this->model('Mahasiswa_model')->update_profile($_POST, $id_user) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success', 'Profile');
+            header('Location: ' . BASEURL . '/pengaturan');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger', 'Profile');
+            header('Location: ' . BASEURL . '/pengaturan');
+        }
+    }
+
+    public function ubahpassword(){
+        $id_user = $_SESSION['id_user'];
+        if ($this->model('Mahasiswa_model')->update_profile($_POST, $id_user) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success', 'Profile');
+            header('Location: ' . BASEURL . '/pengaturan');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger', 'Profile');
+            header('Location: ' . BASEURL . '/pengaturan');
+        }
+    }
+
+    public function ubahemail(){
+        $id_user = $_SESSION['id_user'];
+        $new_email = $_POST['email'];
+        if ($this->model('Mahasiswa_model')->update_email($new_email, $id_user) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success', 'email');
+            header('Location: ' . BASEURL . '/pengaturan');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger', 'email');
+            header('Location: ' . BASEURL . '/pengaturan');
+        }
+    }
 }

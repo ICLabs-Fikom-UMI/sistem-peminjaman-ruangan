@@ -48,8 +48,18 @@
                         <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" name="email" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Masukkan password Anda" name="password" required>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <label for="password" class="form-label">Kata Sandi:</label>
+                            <a href="<?= BASEURL; ?>/passwordreset" class="forgot-password-link">Lupa Kata Sandi?</a>
+                        </div>
+                        <div class="position-relative">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password Anda" required>
+                            <div class="position-absolute top-50 end-0 translate-middle">
+                                <span class="p-0 input-group-text" style="cursor:pointer; background-color: transparent; border: none;">
+                                    <i class="fas fa-eye" id="togglePassword" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -62,6 +72,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Toggle icon
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>
+
+
 </body>
 
 </html>

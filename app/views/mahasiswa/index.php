@@ -247,7 +247,7 @@
                                 <select id="nama_jurusan" class="form-control" name="id_jurusan">
                                     <option value="#">-- Pilih Jurusan --</option>
                                     <?php foreach ($data['dataJurusan'] as $jurusan) : ?>
-                                        <option value="<?= $jurusan['id_jurusan']; ?>" ><?= $jurusan['nama_jurusan']; ?></option>
+                                        <option value="<?= $jurusan['id_jurusan']; ?>"><?= $jurusan['nama_jurusan']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -264,11 +264,25 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="password" class="form-label">Kata Sandi</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <div class="position-relative">
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <div class="position-absolute top-50 end-0 translate-middle">
+                                        <span class="p-0 input-group-text" style="cursor:pointer; background-color: transparent; border: none;">
+                                            <i class="fas fa-eye" id="togglePassword1" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="confirm_password" class="form-label">Konfirmasi Kata Sandi</label>
-                                <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                                <div class="position-relative">
+                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                    <div class="position-absolute top-50 end-0 translate-middle">
+                                        <span class="p-0 input-group-text" style="cursor:pointer; background-color: transparent; border: none;">
+                                            <i class="fas fa-eye" id="togglePassword2" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -283,3 +297,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const togglePassword1 = document.getElementById('togglePassword1');
+        const password = document.getElementById('password');
+
+        togglePassword1.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Toggle icon
+            togglePassword1.classList.toggle('fa-eye');
+            togglePassword1.classList.toggle('fa-eye-slash');
+        });
+
+        const togglePassword2 = document.getElementById('togglePassword2');
+        const confirm_password = document.getElementById('confirm_password');
+
+        togglePassword2.addEventListener('click', function() {
+            const type = confirm_password.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirm_password.setAttribute('type', type);
+
+            // Toggle icon
+            togglePassword2.classList.toggle('fa-eye');
+            togglePassword2.classList.toggle('fa-eye-slash');
+        });
+    </script>
