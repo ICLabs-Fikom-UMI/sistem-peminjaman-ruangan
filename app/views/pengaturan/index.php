@@ -10,17 +10,22 @@
                 <h5>Detail Profil</h5>
                 <form action="<?= BASEURL ?>/pengaturan/ubahprofile" method="post" enctype="multipart/form-data">
                     <div class="row">
-                        <!-- <div class="col d-flex">
-                            <div>
-                                <img src="<?= BASEURL ?>/img/robot.jpg" alt="" width="100">
-                            </div>
+                        <div class="col-2">
+                            <img src="<?= BASEURL; ?>/img/profile/<?= $data['dataUser']['image']; ?>" alt=" foto profile" class="rounded" style="width: 100px; height:100px; object-fit: cover;">
+                        </div>
+                        <div class="col">
                             <div class="form-group">
-                                <input type="file" id="uploadFoto" name="uploadFoto" style="display: none;">
-                                <label for="uploadFoto" class="btn btn-primary">Unggah foto baru</label>
+                                <input type="file" id="image" name="image" style="display: none;">
+                                <label for="image" class="btn btn-primary">Unggah foto baru</label>
                                 <button class="btn btn-secondary">Reset</button>
                                 <p>Gambar Profile Anda sebaiknya memiliki rasio 1:1
                                     dan berukuran tidak lebih dari 2MB.</p>
-                            </div> -->
+                            </div>
+                        </div>
+
+                        <!-- <input type="file" id="image" name="image" style="display: none;">
+                        <label for="image" class="btn btn-primary">Unggah foto baru</label> -->
+
                     </div>
                     <div class="horizontal-line"></div>
                     <div class="row">

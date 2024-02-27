@@ -6,6 +6,7 @@
             <li class="sidebar-brand">
                 SIPIRA
             </li>
+
             <?php if ($_SESSION['level'] == 0) : ?>
                 <!-- Jika level adalah 0, hanya tampilkan menu berikut -->
                 <li>
@@ -136,7 +137,7 @@
     </div>
     <!-- /#sidebar-wrapper -->
 
-    <script src="<?= BASEURL?>/js/custom-script.js"></script>
+    <script src="<?= BASEURL ?>/js/custom-script.js"></script>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">

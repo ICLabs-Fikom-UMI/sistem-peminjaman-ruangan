@@ -20,7 +20,9 @@ class Ruangan_model{
 
     public function getRuanganById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_ruangan=:id_ruangan');
+        $this->db->query('SELECT * FROM mst_ruangan mr
+        JOIN mst_user tu ON mr.id_user = tu.id_user
+        WHERE id_ruangan=:id_ruangan');
         $this->db->bind('id_ruangan', $id);
         return $this->db->single();
     }

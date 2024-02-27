@@ -205,12 +205,12 @@
                     <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
                         <input type="hidden" name="id_user" id="id_user">
 
-                        <div class="row">
+                        <div class="row" id="formFoto">
                             <div class="col d-flex">
                                 <div>
                                     <img src="<?= BASEURL ?>/img/robot.jpg" alt="" width="100">
                                 </div>
-                                <div class="form-gourp">
+                                <div class="form-group">
                                     <button class="btn btn-primary">Unggah foto baru</button>
                                     <button class="btn btn-secondary">Reset</button>
                                     <p>Gambar Profile Anda sebaiknya memiliki rasio 1:1
@@ -261,7 +261,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="password" class="form-label">Kata Sandi</label>
                                 <div class="position-relative">
@@ -284,7 +284,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Add additional fields and columns as needed -->
 

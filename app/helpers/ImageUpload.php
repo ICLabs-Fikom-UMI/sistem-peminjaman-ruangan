@@ -26,7 +26,7 @@ class ImageUpload{
         }
 
         // cek jika ukurannya terlalu besar 
-        if ($ukuranFile > 100000) {
+        if ($ukuranFile > 2097152) {
             echo "<script>
             alert('ukuran gambar terlalu besar!');
             </script>";

@@ -41,7 +41,6 @@ class Mahasiswa_model {
 
             $id_role = $data['id_role'] ?? 4;
 
-
             $query = "INSERT INTO mst_user (id_role, id_jurusan, nama_lengkap, nim, email, password, no_telp) 
                   VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -198,6 +197,7 @@ class Mahasiswa_model {
         email=:email, 
         no_telp =:no_telp,
         alamat = :alamat,
+        image = :image,
         id_jurusan = :id_jurusan
         WHERE id_user= :id_user";
 
@@ -207,6 +207,7 @@ class Mahasiswa_model {
             $this->db->bind('email', $data['email']);
             $this->db->bind('no_telp', $data['no_telp']);
             $this->db->bind('alamat', $data['alamat']);
+            $this->db->bind('image', $data['image']);
             $this->db->bind('id_jurusan', $data['id_jurusan']);
             $this->db->bind('id_user', $id_user);
 

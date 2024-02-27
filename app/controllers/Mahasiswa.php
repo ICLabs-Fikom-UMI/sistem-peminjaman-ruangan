@@ -43,12 +43,19 @@ class Mahasiswa extends Controller
     {
         $password =  $_POST["password"];
         $password2 = $_POST["confirm_password"];
+
         // cek konfirmasi password
         if ($password !== $password2) {
             echo "<script>
         alert('konfirmasi password tidak sesuai!');
         </script>";
             return false;
+        }
+
+        // Set password default jika $newPassword kosong
+        if (empty($password)) {
+            // Misalnya, Anda dapat mengatur password default sebagai 'password123'
+            $password = 'iclabs123';
         }
 
 

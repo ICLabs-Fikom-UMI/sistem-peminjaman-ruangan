@@ -1,7 +1,7 @@
         <div class="container-user rounded">
             <div class="row mb-4">
                 <div class="col-md-4">
-                    <img src="<?= BASEURL; ?>/img/<?= $data['ruangan']['thumbnail'] ?>" alt="Thumbnail" class="img-fluid rounded" style="width:100%; height:230px; object-fit:cover">
+                    <img src="<?= BASEURL; ?>/img/thumbnail/<?= $data['ruangan']['thumbnail'] ?>" alt="Thumbnail" class="img-fluid rounded" style="width:100%; height:230px; object-fit:cover">
                 </div>
 
                 <div class="col-8">
@@ -13,7 +13,7 @@
                         <p class="text-info"><?= $data['ruangan']['kapasitas'] ?> Orang</p>
                     </div>
 
-                    <p>Koordinator Ruangan: <span><?= $data['ruangan']['id_user']?></span></p>
+                    <p>Koordinator Ruangan: <span><?= $data['ruangan']['nama_lengkap']?></span></p>
 
                     <p><?= $data['ruangan']['deskripsi'] ?></p>
                 </div>

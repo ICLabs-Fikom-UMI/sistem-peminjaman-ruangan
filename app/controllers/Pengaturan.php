@@ -22,7 +22,20 @@ class Pengaturan extends Controller {
 
     public function ubahprofile()
     {
+        $targetDirectory = 'profile';
+        $image = ImageUpload::upload('image', $targetDirectory);
+
+        // Memeriksa apakah upload gambar thumbnail berhasil
+        if ($image === false) {
+            // Jika gagal upload, tampilkan pesan kesalahan dan redirect kembali ke halaman ruangan
+            Flasher::setFlash('gagal', 'upload gambar', 'danger', 'profile');
+            header('Location: ' . BASEURL . '/pengaturan');
+            exit;
+        }
+
+        $_POST['image'] = $image;
         $id_user = $_SESSION['id_user'];
+        
         if ($this->model('Mahasiswa_model')->update_profile($_POST, $id_user) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'success', 'Profile');
             header('Location: ' . BASEURL . '/pengaturan');

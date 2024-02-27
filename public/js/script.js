@@ -1,7 +1,10 @@
 $(function() {
-    $('.tombolTambahData').on('click', function(){
+
+    
+    $('.tombolTambahData').on('click', function(){   
         $('#formModalLabel').html('Tambah Pengguna');
         $('.modal-footer button[type=submit]').html('Submit');
+
     });
 
     $('.tombolTambahJurusan').on('click', function(){
