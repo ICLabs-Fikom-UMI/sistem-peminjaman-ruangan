@@ -33,16 +33,12 @@ class Mahasiswa_model {
     public function tambahDataMahasiswa($data, $newPassword)
     {
         try {
-            // $validasiResult = $this->validasiRegistrasi($data);
-            // if (!$validasiResult) {
-            //     return false;
-            // }
-            // $password = $validasiResult;
 
             $id_role = $data['id_role'] ?? 4;
+            $image = 'pp.jpg';
 
-            $query = "INSERT INTO mst_user (id_role, id_jurusan, nama_lengkap, nim, email, password, no_telp) 
-                  VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO mst_user (id_role, id_jurusan, nama_lengkap, nim, email, password, no_telp, image) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             $this->db->query($query);
             $this->db->bind(1, $id_role);
@@ -52,6 +48,7 @@ class Mahasiswa_model {
             $this->db->bind(5, $data['email']);
             $this->db->bind(6, $newPassword);
             $this->db->bind(7, $data['no_telp'] ?? null);
+            $this->db->bind(8, $image);
 
             $this->db->execute();
 
@@ -225,6 +222,22 @@ class Mahasiswa_model {
 
             $this->db->query($query);
             $this->db->bind('email', $new_email);
+            $this->db->bind('id_user', $id_user);
+
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+
+    public function update_password($newPassword, $id_user){
+        try {
+            $query = "UPDATE mst_user SET password = :password WHERE id_user = :id_user";
+
+            $this->db->query($query);
+            $this->db->bind('password', $newPassword);
             $this->db->bind('id_user', $id_user);
 
             $this->db->execute();

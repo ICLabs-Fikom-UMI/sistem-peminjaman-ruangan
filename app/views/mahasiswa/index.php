@@ -205,20 +205,6 @@
                     <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
                         <input type="hidden" name="id_user" id="id_user">
 
-                        <div class="row" id="formFoto">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="<?= BASEURL ?>/img/robot.jpg" alt="" width="100">
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary">Unggah foto baru</button>
-                                    <button class="btn btn-secondary">Reset</button>
-                                    <p>Gambar Profile Anda sebaiknya memiliki rasio 1:1
-                                        dan berukuran tidak lebih dari 2MB.</p>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
@@ -298,28 +284,3 @@
         </div>
     </div>
 
-    <script>
-        const togglePassword1 = document.getElementById('togglePassword1');
-        const password = document.getElementById('password');
-
-        togglePassword1.addEventListener('click', function() {
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-
-            // Toggle icon
-            togglePassword1.classList.toggle('fa-eye');
-            togglePassword1.classList.toggle('fa-eye-slash');
-        });
-
-        const togglePassword2 = document.getElementById('togglePassword2');
-        const confirm_password = document.getElementById('confirm_password');
-
-        togglePassword2.addEventListener('click', function() {
-            const type = confirm_password.getAttribute('type') === 'password' ? 'text' : 'password';
-            confirm_password.setAttribute('type', type);
-
-            // Toggle icon
-            togglePassword2.classList.toggle('fa-eye');
-            togglePassword2.classList.toggle('fa-eye-slash');
-        });
-    </script>

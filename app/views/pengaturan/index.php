@@ -8,26 +8,22 @@
         <div class="row">
             <div class="col-9">
                 <h5>Detail Profil</h5>
+                <hr>
                 <form action="<?= BASEURL ?>/pengaturan/ubahprofile" method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-2">
-                            <img src="<?= BASEURL; ?>/img/profile/<?= $data['dataUser']['image']; ?>" alt=" foto profile" class="rounded" style="width: 100px; height:100px; object-fit: cover;">
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <img src="<?= BASEURL; ?>/img/profile/<?= $data['dataUser']['image']; ?>" alt=" foto profile" class="img-fluid rounded" style="width: 100px; height:100px; object-fit: cover;">
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <input type="file" id="image" name="image" style="display: none;">
-                                <label for="image" class="btn btn-primary">Unggah foto baru</label>
+                                <label for="image" class="btn btn-primary">Pilih Foto</label>
                                 <button class="btn btn-secondary">Reset</button>
-                                <p>Gambar Profile Anda sebaiknya memiliki rasio 1:1
+                                <p class="mt-2">Gambar Profile Anda sebaiknya memiliki rasio 1:1 <br>
                                     dan berukuran tidak lebih dari 2MB.</p>
                             </div>
                         </div>
-
-                        <!-- <input type="file" id="image" name="image" style="display: none;">
-                        <label for="image" class="btn btn-primary">Unggah foto baru</label> -->
-
                     </div>
-                    <div class="horizontal-line"></div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
@@ -77,12 +73,12 @@
     <div class="form-container-1 mb-4">
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-4">
                 <h5>Ubah Email</h5>
                 <form action="<?= BASEURL ?>/pengaturan/ubahemail" method="post">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="email" class="form-label">Email Baru</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email@domain.com">
                         <div class="form-text small font-weight-medium">
                             Email akan berubah ketika Anda
                         </div>
@@ -97,20 +93,61 @@
 
     <div class="form-container-1 ">
         <div class="row">
-            <div class="col-md-9">
-                <h5>Ubah Password</h5>
-                <form action="" method="post">
-                    <div class="form-group">
-                        <label for="" class="form-label">Email Baru</label>
-                        <input type="email" class="form-control">
-                        <div class="form-text small font-weight-medium">
-                            Email akan berubah ketika Anda
+            <div class="col-md-4">
+                <h5>Ubah Kata Sandi</h5>
+                <form action="<?= BASEURL ?>/pengaturan/ubahpassword" method="post">
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Kata Sandi Baru</label>
+                        <div class="position-relative">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan kata sandi baru" required>
+                            <div class="position-absolute top-50 end-0 translate-middle">
+                                <span class="p-0 input-group-text" style="cursor:pointer; background-color: transparent; border: none;">
+                                    <i class="fas fa-eye" id="togglePassword1" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="confirm_password" class="form-label">Konfirmasi Kata Sandi Baru</label>
+                        <div class="position-relative">
+                            <input type="password" class="form-control" id="confirm_password" placeholder="Konfirmasi kata sandi" name="confirm_password" required>
+                            <div class="position-absolute top-50 end-0 translate-middle">
+                                <span class="p-0 input-group-text" style="cursor:pointer; background-color: transparent; border: none;">
+                                    <i class="fas fa-eye" id="togglePassword2" aria-hidden="true"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary font-weight-bold">Ubah Email</button>
+                        <button type='submit' class="btn btn-primary font-weight-bold">Simpan Password</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        const togglePassword1 = document.getElementById('togglePassword1');
+        const password = document.getElementById('password');
+
+        togglePassword1.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Toggle icon
+            togglePassword1.classList.toggle('fa-eye');
+            togglePassword1.classList.toggle('fa-eye-slash');
+        });
+
+        const togglePassword2 = document.getElementById('togglePassword2');
+        const confirm_password = document.getElementById('confirm_password');
+
+        togglePassword2.addEventListener('click', function() {
+            const type = confirm_password.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirm_password.setAttribute('type', type);
+
+            // Toggle icon
+            togglePassword2.classList.toggle('fa-eye');
+            togglePassword2.classList.toggle('fa-eye-slash');
+        });
+    </script>

@@ -13,7 +13,7 @@ class Laporan extends Controller {
         $data['dikembalikan'] = $this->model('Peminjaman_model')->getPeminjamanDikembalikan();
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
-        $this->view('templates/topbar');
+        $this->view('templates/topbar', $data);
         $this->view('laporan/index',$data);
         $this->view('templates/footer');
     }

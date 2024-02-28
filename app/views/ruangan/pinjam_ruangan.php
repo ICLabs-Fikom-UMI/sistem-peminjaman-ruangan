@@ -58,7 +58,7 @@
 
                 <div class="row mt-4">
                     <div class="col">
-                        <img src="<?= BASEURL; ?>/img/<?= $data['ruangan']['thumbnail'] ?>" style="width:100%; height:200px; object-fit:cover" class="rounded img-fluid" alt="">
+                        <img src="<?= BASEURL; ?>/img/thumbnail/<?= $data['ruangan']['thumbnail'] ?>" style="width:100%; height:200px; object-fit:cover" class="rounded img-fluid" alt="">
                     </div>
                 </div>
 

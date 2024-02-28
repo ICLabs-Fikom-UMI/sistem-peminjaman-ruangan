@@ -47,13 +47,28 @@ class Pengaturan extends Controller {
     }
 
     public function ubahpassword(){
+        $password =  $_POST["password"];
+        $password2 = $_POST["confirm_password"];
+
+        //cek konfirmasi password
+        if ($password !== $password2) {
+            echo "<script>
+        alert('konfirmasi password tidak sesuai!');
+        </script>";
+            return false;
+        }
+
+
+        // enkripsi password
+        $newPassword = password_hash($password, PASSWORD_DEFAULT);
+
         $id_user = $_SESSION['id_user'];
-        if ($this->model('Mahasiswa_model')->update_profile($_POST, $id_user) > 0) {
-            Flasher::setFlash('berhasil', 'diubah', 'success', 'Profile');
+        if ($this->model('Mahasiswa_model')->update_password($newPassword, $id_user) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success', 'Password');
             header('Location: ' . BASEURL . '/pengaturan');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger', 'Profile');
+            Flasher::setFlash('gagal', 'diubah', 'danger', 'Password');
             header('Location: ' . BASEURL . '/pengaturan');
         }
     }

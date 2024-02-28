@@ -222,7 +222,10 @@ class Peminjaman_model
 
     public function getPeminjamanDikembalikan()
     {
-        $query = 'SELECT * FROM trx_peminjaman WHERE status_pengembalian = "selesai"';
+        $query = 'SELECT * FROM trx_peminjaman  tp
+        JOIN mst_user mt ON tp.id_user = mt.id_user
+        JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan
+        WHERE status_pengembalian = "selesai"';
         $this->db->query($query);
         return $this->db->resultSet();
     }

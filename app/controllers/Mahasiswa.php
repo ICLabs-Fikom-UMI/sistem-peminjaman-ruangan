@@ -23,7 +23,7 @@ class Mahasiswa extends Controller
         $data['dataJurusan']= $this->model('Jurusan_model')->getAllJurusan();
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
-        $this->view('templates/topbar');
+        $this->view('templates/topbar', $data);
         $this->view('mahasiswa/index', $data);
         $this->view('templates/footer');
     }
@@ -34,7 +34,7 @@ class Mahasiswa extends Controller
         $data['user'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
-        $this->view('templates/topbar');
+        $this->view('templates/topbar', $data);
         $this->view('mahasiswa/detail', $data);
         $this->view('templates/footer');
     }
@@ -61,7 +61,7 @@ class Mahasiswa extends Controller
 
         // enkripsi password
         $newPassword = password_hash($password, PASSWORD_DEFAULT);
-
+        
         if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST, $newPassword) > 0) {
             Flasher::setFlash('berhasil', 'ditambahkan','success', 'Mahasiswa');
             header('Location: ' . BASEURL . '/mahasiswa');

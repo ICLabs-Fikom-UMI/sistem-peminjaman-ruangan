@@ -14,7 +14,7 @@ class Jurusan extends Controller {
         $data['jumlahJurusan'] = $this->model('jurusan_Model')->hitungJumlahJurusan()['jumlah'];
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
-        $this->view('templates/topbar');
+        $this->view('templates/topbar', $data);
         $this->view('jurusan/index', $data);
         $this->view('templates/footer');
     }
