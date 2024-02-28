@@ -196,6 +196,15 @@ class Peminjaman_model
         return $this->db->single()['total'];
     }
 
+    public function countRejectedPeminjamanByUser($id_user)
+    {
+        $query = "SELECT COUNT(*) AS total FROM trx_peminjaman WHERE id_user = :id_user AND status_peminjaman = 'Ditolak'";
+        $this->db->query($query);
+        $this->db->bind(':id_user', $id_user);
+        $this->db->execute();
+        return $this->db->single()['total'];
+    }
+
     public function countPeminjamanPerUser($id_user)
     {
         $query = "SELECT COUNT(*) AS total FROM trx_peminjaman WHERE id_user = :id_user";
@@ -238,6 +247,33 @@ class Peminjaman_model
 
         $this->db->query($query);
         $this->db->bind('id_user', $id_user);
+        return $this->db->resultSet();
+    }
+
+    public function countPeminjamanByRoom($id_ruangan)
+    {
+        $query = "SELECT COUNT(*) AS total_peminjaman FROM trx_peminjaman tp
+        JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan 
+        WHERE tp.id_ruangan = :id_ruangan AND status_pengembalian = 'selesai'";
+
+        $this->db->query($query);
+        $this->db->bind('id_ruangan', $id_ruangan);
+        $this->db->execute();
+        $result = $this->db->single();
+        return $result['total_peminjaman'];
+    }
+
+    public function getPeminjamanBydate($start_date, $end_date)
+    {
+        $query = "SELECT * FROM trx_peminjaman tp
+        JOIN mst_user mu ON tp.id_user = mu.id_user
+        JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan
+        WHERE tp.tanggal_pinjam BETWEEN :start_date AND :end_date";
+        $this->db->query($query);
+        $this->db->bind(':start_date', $start_date);
+        $this->db->bind(':end_date', $end_date);
+        $this->db->execute();
+
         return $this->db->resultSet();
     }
 

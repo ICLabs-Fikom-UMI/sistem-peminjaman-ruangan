@@ -13,6 +13,9 @@ class Pinjam extends Controller{
     {
         $data['judul'] = 'Pinjam Ruangan';
         $data['ruangan'] = $this->model('Ruangan_model')->getAllRuangan();
+        foreach ($data['ruangan'] as &$ruangan) {
+            $ruangan['countReservation'] = $this->model('Peminjaman_model')->countPeminjamanByRoom($ruangan['id_ruangan']);
+        }
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
@@ -21,11 +24,16 @@ class Pinjam extends Controller{
     }
 
     public function dashboard(){
+        $id_user = $_SESSION['id_user'];
         $data['judul'] = 'dashboard';
+        $data['Peminjaman'] = $this->model('Peminjaman_Model')->countPeminjamanPerUser($id_user);
+        $data['Tersedia'] = $this->model('Ruangan_model')->countTotalRuanganTersedia();
+        $data['Disetujui'] = $this->model('Peminjaman_Model')->countApprovedPeminjamanPerUser($id_user);
+        $data['Ditolak'] = $this->model('Peminjaman_Model')->countRejectedPeminjamanByUser($id_user);
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');
-        $this->view('pinjam/dashboard');
+        $this->view('pinjam/dashboard', $data);
         $this->view('templates/footer');
     }
 
@@ -35,6 +43,7 @@ class Pinjam extends Controller{
         $data['total_peminjaman']= $this->model('Peminjaman_Model')->countPeminjamanPerUser($id_user);
         $data['total_disetujui']= $this->model('Peminjaman_Model')->countApprovedPeminjamanPerUser($id_user);
         $data['peminjaman'] = $this->model('Peminjaman_model')->getAllPeminjamanByUserId($id_user);
+        $data['Ditolak'] = $this->model('Peminjaman_Model')->countRejectedPeminjamanByUser($id_user);
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');
         $this->view('templates/topbar');

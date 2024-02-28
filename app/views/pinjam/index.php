@@ -6,7 +6,7 @@
     <div class="row mb-3">
         <?php
         foreach ($data['ruangan'] as $ruangan) : ?>
-            <div class="col-md-3 mb-3 mb-sm-0">
+            <div class="col-md-3 mb-4 ">
                 <div class="card">
                     <img src="<?= BASEURL; ?>/img/thumbnail/<?= $ruangan['thumbnail']; ?>" class="card-img-top" style="width:100%; height:150px; object-fit: cover" alt="multimedia">
                     <div class="card-body">
@@ -26,7 +26,7 @@
                             <a href="<?= BASEURL; ?>/ruangan/pinjam_ruangan/<?= $ruangan['id_ruangan'] ?>" class=" btn btn-primary me-3">Pinjam Sekarang</a>
                             <a href="<?= BASEURL; ?>/ruangan/detail/<?= $ruangan['id_ruangan'] ?>" class="btn btn-secondary">Detail</a>
                         </div>
-                        <p><i class="fa-regular fa-calendar-check"></i> 0x dipinjam</p>
+                        <p><i class="fa-regular fa-calendar-check"></i> <?= $ruangan['countReservation']?>x dipinjam</p>
                     </div>
                 </div>
             </div>

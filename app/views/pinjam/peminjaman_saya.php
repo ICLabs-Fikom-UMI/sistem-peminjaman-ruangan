@@ -39,7 +39,7 @@
                    <div class="card-block d-flex justify-content-between">
                        <div>
                            <h6>Tidak Disetujui</h6>
-                           <h2><span>0</span></h2>
+                           <h2><span><?= $data['Ditolak']?></span></h2>
                            <p>Peminjaman tidak disetujui</p>
                        </div>
                        <div>

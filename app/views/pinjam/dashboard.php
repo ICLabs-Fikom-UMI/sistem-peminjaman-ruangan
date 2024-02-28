@@ -6,7 +6,7 @@
                   <div>
                       <img src="<?= BASEURL ?>/img/ruangan.svg" alt="Total ruangan" class="mb-3">
                       <h6>Ruangan Tersedia</h6>
-                      <h2><span>0</span></h2>
+                      <h2><span><?= $data['Tersedia'] ?></span></h2>
                       <p>Total Tersedia saat ini</p>
                   </div>
                   <div>
@@ -21,7 +21,7 @@
                   <div>
                       <img src="<?= BASEURL ?>/img/pengguna.svg" alt="Total pengguna" class="mb-3">
                       <h6>Total Peminjaman</h6>
-                      <h2><span>0</span></h2>
+                      <h2><span><?= $data['Peminjaman'] ?></span></h2>
                       <p>Total Peminjaman</p>
                   </div>
                   <div>
@@ -36,7 +36,7 @@
                   <div>
                       <img src="<?= BASEURL ?>/img/jurusan.svg" alt="Total jurusan" class="mb-3">
                       <h6>Peminjaman Disetujui</h6>
-                      <h2><span>0</span>
+                      <h2><span><?= $data['Disetujui'] ?></span>
                       </h2>
                       <p>Total Peminjaman disetujui</p>
                   </div>
@@ -52,7 +52,8 @@
                   <div>
                       <img src="<?= BASEURL ?>/img/peminjaman.svg" alt="Total peminjaman" class="mb-3">
                       <h6>Peminjaman Ditolak</h6>
-                      <h2><span>0</span></h2>
+                      <h2><span><?= $data['Ditolak'] ?></span>
+                      </h2>
                       <p>Total peminjaman ditolak</p>
                   </div>
                   <div>
