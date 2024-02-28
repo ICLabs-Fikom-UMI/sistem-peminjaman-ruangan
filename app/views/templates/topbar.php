@@ -27,7 +27,7 @@ $isPinjamPage = strpos($currentURL, '/pinjam') !== false;
         <!-- Avatar -->
         <div class="dropdown">
             <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" data-bs-toggle="dropdown">
-                <img src="<?= BASEURL; ?>/img/profile.png" class="rounded-circle" height="35" alt="foto profile" loading="lazy" />
+                <img src="<?= BASEURL; ?>/img/profile/<?= $_SESSION['image'] ?>" alt=" foto profile" class="rounded-circle" style="width: 35px; height:35px; object-fit: cover;">
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                 <li>

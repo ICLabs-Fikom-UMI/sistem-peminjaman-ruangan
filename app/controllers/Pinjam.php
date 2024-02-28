@@ -44,6 +44,8 @@ class Pinjam extends Controller{
     }
 
     public function riwayat(){
+        $id_user = $_SESSION['id_user'];
+        $data['riwayat'] = $this->model('Peminjaman_Model')->getRiwayatPeminjaman($id_user);
         $data['judul'] = 'Riwayat Peminjaman';
         $this->view('templates/header', $data);
         $this->view('templates/sidebar');

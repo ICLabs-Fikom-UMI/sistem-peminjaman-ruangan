@@ -19,7 +19,7 @@ class Login extends Controller
 
     public function login()
     {
-       // Validasi input
+        // Validasi input
         if (empty($_POST['email']) || empty($_POST['password'])) {
             Flasher::setFlash('password', 'salah', 'danger', 'Email atau password tidak boleh kosong');
             header('Location: ' . BASEURL . '/login');
@@ -41,6 +41,8 @@ class Login extends Controller
                         $_SESSION['email'] = $row['email'];
                         $_SESSION['id_user'] = $row['id_user'];
                         $_SESSION['role'] = $row['nama_role'];
+                        $_SESSION['image'] = $row['image'];
+
 
                         // Mendapatkan level pengguna
                         $level = $this->model('Role_model')->getLevel($row['nama_role']);

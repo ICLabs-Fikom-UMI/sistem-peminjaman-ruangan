@@ -230,4 +230,15 @@ class Peminjaman_model
         return $this->db->resultSet();
     }
 
+    public function getRiwayatPeminjaman($id_user){
+        $query = 'SELECT * FROM trx_peminjaman tp 
+        JOIN mst_user mu ON tp.id_user = mu.id_user
+        JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan
+        WHERE tp.id_user = :id_user';
+
+        $this->db->query($query);
+        $this->db->bind('id_user', $id_user);
+        return $this->db->resultSet();
+    }
+
 }
