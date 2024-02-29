@@ -28,10 +28,10 @@
 
         <div class="row mb-3">
             <div class="col-lg-6">
-                <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
+                <a href="<?= BASEURL?>/laporan/cetak" target="_blank" class="btn btn-primary">
                     <i class="fa-solid fa-file-export"></i>
                     Ekspor Semua
-                </button>
+                </a>
             </div>
         </div>
 
@@ -49,7 +49,6 @@
                         <th>Waktu <br>Selesai</th>
                         <th>Keperluan</th>
                         <th>Status</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,8 +69,6 @@
                                 <?= $pj['status_peminjaman'] ?>
                             </div>
                         </td>
-                        <td class=" text-center">-
-                        </td>
                         </tr>
                     <?php endforeach; ?>
 
@@ -90,12 +87,4 @@
             // Submit form
             document.getElementById('filterForm').submit();
         }
-
-        new DataTable('#example', {
-            layout: {
-                topStart: {
-                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-                }
-            }
-        });
     </script>

@@ -38,4 +38,10 @@ class Laporan extends Controller {
         $this->view('laporan/index', $data);
         $this->view('templates/footer');
     }
+
+    public function cetak(){
+        $data['judul'] = 'Data Peminjaman';
+        $data['dikembalikan'] = $this->model('Peminjaman_model')->getPeminjamanDikembalikan();
+        $this->view('laporan/cetak', $data);
+    }
 }
