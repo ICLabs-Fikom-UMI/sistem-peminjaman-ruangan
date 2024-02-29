@@ -127,17 +127,25 @@
         new Chart(ctp, {
             type: 'pie',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: [<?php foreach ($data['dataJurusanPengguna'] as $user) : ?> '<?= $user['nama_jurusan'] ?>', <?php endforeach; ?>],
                 datasets: [{
-                    label: 'Ruangan Yang Dipinjam',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Pengguna',
+                    data: [<?php foreach ($data['dataJurusanPengguna'] as $user) : ?><?= $user['jumlah_pengguna'] ?>, <?php endforeach; ?>],
                     borderWidth: 1
                 }]
             },
             options: {
                 plugins: {
                     legend: {
-                        display: false
+                        display: true,
+                        labels: {
+                            usePointStyle: true,
+                            boxHeight: 8,
+                            padding: 20
+
+                        },
+                        position: 'right'
+
                     }
                 }
             }

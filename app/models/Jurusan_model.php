@@ -76,4 +76,17 @@ class Jurusan_model {
         $this->db->query('SELECT COUNT(*) as jumlah FROM ' . $this->table);
         return $this->db->single();
     } 
+
+    
+
+    public function getJurusanAndUserCount()
+    {
+        $query = "SELECT j.nama_jurusan, COUNT(u.id_user) AS jumlah_pengguna
+              FROM mst_jurusan j
+              LEFT JOIN mst_user u ON j.id_jurusan = u.id_jurusan
+              GROUP BY j.id_jurusan";
+
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
 }
