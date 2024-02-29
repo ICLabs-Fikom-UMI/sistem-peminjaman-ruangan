@@ -97,10 +97,16 @@
         new Chart(ctb, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: [
+                    <?php foreach ($data['dataRuanganPeminjaman'] as $item) : ?> '<?= $item['nama_ruangan'] ?>',
+                    <?php endforeach; ?>
+                ],
                 datasets: [{
                     label: 'Ruangan Yang Dipinjam',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: [<?php foreach ($data['dataRuanganPeminjaman'] as $item) : ?>
+                            <?= $item['jumlah_peminjaman'] ?>,
+                        <?php endforeach; ?>
+                    ],
                     borderWidth: 1
                 }]
             },

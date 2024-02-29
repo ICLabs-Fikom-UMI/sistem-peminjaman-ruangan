@@ -17,6 +17,7 @@ class Home extends Controller {
         $data['totalPengguna'] = $this->model('Mahasiswa_Model')->getTotalUsers();
         $data['jumlahTotalRuangan'] = $this->model('Ruangan_model')->hitungTotalRuangan();
         $data['total_peminjaman'] = $this->model('Peminjaman_model')->getTotalPeminjaman();
+        $data['dataRuanganPeminjaman'] = $this->model('Ruangan_model')->getRuanganAndPeminjamanCount();
         $this->view('templates/sidebar');
         $this->view('templates/topbar', $data);
         $this->view('home/index',$data);

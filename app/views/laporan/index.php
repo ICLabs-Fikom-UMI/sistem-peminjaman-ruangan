@@ -38,7 +38,7 @@
         <div class="horizontal-line"></div>
 
         <div class="card-body mt-3 table-responsive">
-            <table id="example" class="table" style="width:100%">
+            <table id="example" class="table display nowrap" style="width:100%">
                 <thead>
                     <tr style="vertical-align: middle;">
                         <th>No</th>
@@ -91,4 +91,11 @@
             document.getElementById('filterForm').submit();
         }
 
+        new DataTable('#example', {
+            layout: {
+                topStart: {
+                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                }
+            }
+        });
     </script>

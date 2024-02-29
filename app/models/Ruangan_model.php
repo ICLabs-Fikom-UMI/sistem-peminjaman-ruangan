@@ -147,4 +147,15 @@ class Ruangan_model{
         return $this->db->rowCount();
     }
 
+    public function getRuanganAndPeminjamanCount()
+    {
+        $query = "SELECT r.nama_ruangan, COUNT(p.id_peminjaman) AS jumlah_peminjaman
+              FROM mst_ruangan r
+              LEFT JOIN trx_peminjaman p ON r.id_ruangan = p.id_ruangan
+              GROUP BY r.id_ruangan";
+
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
+
 }

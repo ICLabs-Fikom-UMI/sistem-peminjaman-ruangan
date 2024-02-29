@@ -27,9 +27,7 @@ class Laporan extends Controller {
             $end_date = $_POST['tanggalAkhir'];
 
             $data['dikembalikan'] = $this->model('Peminjaman_model')->getPeminjamanBydate($start_date, $end_date);
-            // Jika ada, ambil data berdasarkan filter
-            // $data['dikembalikan'] = $this->filter();
-        } else {
+        }else{
             // Jika tidak, ambil semua data
             $data['dikembalikan'] = $this->model('Peminjaman_model')->getPeminjamanDikembalikan();
         }
@@ -39,15 +37,5 @@ class Laporan extends Controller {
         $this->view('templates/topbar');
         $this->view('laporan/index', $data);
         $this->view('templates/footer');
-    }
-
-    public function filter(){
-
-        $start_date = $_POST['tanggalAwal'];
-        $end_date = $_POST['tanggalAkhir'];
-
-        $filterData = $this->model('Peminjaman_model')->getPeminjamanBydate($start_date, $end_date);
-        header('Location: ' . BASEURL . '/laporan');
-        return $filterData;
     }
 }
