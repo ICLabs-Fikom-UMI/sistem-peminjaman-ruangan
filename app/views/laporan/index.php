@@ -28,7 +28,7 @@
 
         <div class="row mb-3">
             <div class="col-lg-6">
-                <a href="<?= BASEURL?>/laporan/cetak" target="_blank" class="btn btn-primary">
+                <a href="<?= BASEURL?>/laporan/cetak" class="btn btn-primary">
                     <i class="fa-solid fa-file-export"></i>
                     Ekspor Semua
                 </a>
