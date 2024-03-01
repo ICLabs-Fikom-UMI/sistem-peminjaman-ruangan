@@ -16,38 +16,7 @@
                         </span> Beranda
                     </a>
                 </li>
-                <li class="header">
-                    Peminjaman
-                </li>
-                <li>
-                    <a href="<?= BASEURL; ?>/pinjam" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            event_available
-                        </span>
-                        Pinjam Sekarang
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= BASEURL ?>/pinjam/peminjaman_saya" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            user_attributes
-                        </span>
-                        Peminjaman Saya
-                    </a>
-                </li>
-                <li class="header">
-                    Lainnya
-                </li>
-                <li>
-                    <a href="<?= BASEURL; ?>/pengaturan" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            settings
-                        </span>
-                        Pengaturan
-                    </a>
-                </li>
             <?php else : ?>
-                <!-- Jika level tidak sama dengan 0, tampilkan semua menu -->
                 <li>
                     <a href="<?= BASEURL; ?>" class="nav-link">
                         <span class="material-symbols-outlined">
@@ -102,37 +71,38 @@
                         Laporan
                     </a>
                 </li>
-                <li class="header">
-                    Peminjaman
-                </li>
-                <li>
-                    <a href="<?= BASEURL; ?>/pinjam" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            event_available
-                        </span>
-                        Pinjam Ruangan
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= BASEURL ?>/pinjam/peminjaman_saya" class="nav-link">
-                        <span class=" material-symbols-outlined">
-                            user_attributes
-                        </span>
-                        Peminjaman Saya
-                    </a>
-                </li>
-                <li class="header">
-                    Lainnya
-                </li>
-                <li>
-                    <a href="<?= BASEURL; ?>/pengaturan" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            settings
-                        </span>
-                        Pengaturan
-                    </a>
-                </li>
             <?php endif; ?>
+            
+            <li class="header">
+                Peminjaman
+            </li>
+            <li>
+                <a href="<?= BASEURL; ?>/pinjam" class="nav-link">
+                    <span class="material-symbols-outlined">
+                        event_available
+                    </span>
+                    Pinjam Ruangan
+                </a>
+            </li>
+            <li>
+                <a href="<?= BASEURL ?>/pinjam/peminjaman_saya" class="nav-link">
+                    <span class=" material-symbols-outlined">
+                        user_attributes
+                    </span>
+                    Peminjaman Saya
+                </a>
+            </li>
+            <li class="header">
+                Lainnya
+            </li>
+            <li>
+                <a href="<?= BASEURL; ?>/pengaturan" class="nav-link">
+                    <span class="material-symbols-outlined">
+                        settings
+                    </span>
+                    Pengaturan
+                </a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->

@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.0.1/b-3.0.0/b-html5-3.0.0/b-print-3.0.0/datatables.min.css">
 
-
-
     <style>
         .data_table {
             background: #fff;
@@ -34,7 +32,7 @@
         <div class="row mt-4">
             <div class="col-12">
                 <div class="data_table">
-                    <table id="example" class="table table-striped table-bordered">
+                    <table id="table" class="table table-striped table-bordered">
                         <thead>
                             <tr style="vertical-align: middle;">
                                 <th>No</th>
@@ -73,8 +71,8 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
     <!-- export datatables -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
@@ -83,7 +81,7 @@
 
     <script>
         $(document).ready(function() {
-            new DataTable('#example', {
+            new DataTable('#table', {
                 layout: {
                     topStart: {
                         buttons: ['copy', 'csv', 'excel', 'pdf', 'print']

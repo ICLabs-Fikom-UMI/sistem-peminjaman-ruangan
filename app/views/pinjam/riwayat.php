@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col d-flex justify-content-between">
                         <div>
-                            <h6>Peminjaman Disetujui</h6>
+                            <h6>Peminjaman <?= $riwayat["status_peminjaman"]?></h6>
                             <p class="m-0">Peminjaman Anda telah disetujui oleh pihak SIPERU</p>
                         </div>
                         <span><?= $riwayat['tanggal_pinjam'] ?></span>

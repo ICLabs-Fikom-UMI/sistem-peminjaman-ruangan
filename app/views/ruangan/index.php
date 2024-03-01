@@ -163,7 +163,7 @@
                                     <div class="form-group mb-3">
                                         <label for="thumbnail" class="form-label">Thumbnail</label>
                                         <div class="custom-upload-btn">
-                                            <input type="file" id="thumbnail" name="thumbnail">
+                                            <input type="file" id="thumbnail" class="form-control" name="thumbnail">
                                             <label for="gambar">Upload File</label>
                                         </div>
                                     </div>
