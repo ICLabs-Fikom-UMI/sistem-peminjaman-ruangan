@@ -44,9 +44,9 @@
                         <th>No</th>
                         <th>Peminjam</th>
                         <th>Ruangan</th>
-                        <th>Tanggal <br>Peminjaman</th>
-                        <th>Waktu <br>Mulai</th>
-                        <th>Waktu <br>Selesai</th>
+                        <th>Tanggal Peminjaman</th>
+                        <th>Waktu Mulai</th>
+                        <th>Waktu Selesai</th>
                         <th>Keperluan</th>
                         <th>Status</th>
                     </tr>

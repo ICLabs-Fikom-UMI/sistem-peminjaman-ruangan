@@ -24,55 +24,61 @@
                         </span> Beranda
                     </a>
                 </li>
-                <li class="header">
-                    Data Master
-                </li>
-                <?php if ($_SESSION['level'] != 2) : ?>
+                <?php if ($_SESSION['level'] == 3 or $_SESSION['level'] == 2) : ?>
+                    <li class="header">
+                        Data Master
+                    </li>
+                    <?php if ($_SESSION['level'] != 2) : ?>
+                        <li>
+                            <a href="<?= BASEURL; ?>/jurusan" class="nav-link">
+                                <span class="material-symbols-outlined">
+                                    apartment
+                                </span>
+                                Data Jurusan
+                            </a>
+                        </li>
+                    <?php endif; ?>
                     <li>
-                        <a href="<?= BASEURL; ?>/jurusan" class="nav-link">
+                        <a href="<?= BASEURL; ?>/ruangan" class="nav-link">
                             <span class="material-symbols-outlined">
-                                apartment
+                                domain
                             </span>
-                            Data Jurusan
+                            Data Ruangan
                         </a>
                     </li>
-                <?php endif; ?>
-                <li>
-                    <a href="<?= BASEURL; ?>/ruangan" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            domain
-                        </span>
+                    <?php if ($_SESSION['level'] != 2) : ?>
+                        <li>
+                            <a href="<?= BASEURL; ?>/mahasiswa" class="nav-link">
+                                <span class="material-symbols-outlined">
+                                    person
+                                </span>
+                                Data Pengguna
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <li>
+                        <a href="<?= BASEURL; ?>/peminjaman" class="nav-link">
+                            <span class="material-symbols-outlined">
+                                calendar_month
+                            </span>
+                            Data Peminjaman
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= BASEURL; ?>/laporan" class="nav-link">
+                            <span class="material-symbols-outlined">
+                                lab_profile
+                            </span>
+                            Laporan
+                        </a>
+                    </li>
+                <?php else : ?>
+                    <li class="header">
                         Data Ruangan
-                    </a>
-                </li>
-                <?php if ($_SESSION['level'] != 2) : ?>
-                    <li>
-                        <a href="<?= BASEURL; ?>/mahasiswa" class="nav-link">
-                            <span class="material-symbols-outlined">
-                                person
-                            </span>
-                            Data Pengguna
-                        </a>
                     </li>
                 <?php endif; ?>
-                <li>
-                    <a href="<?= BASEURL; ?>/peminjaman" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            calendar_month
-                        </span>
-                        Data Peminjaman
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= BASEURL; ?>/laporan" class="nav-link">
-                        <span class="material-symbols-outlined">
-                            lab_profile
-                        </span>
-                        Laporan
-                    </a>
-                </li>
             <?php endif; ?>
-            
+
             <li class="header">
                 Peminjaman
             </li>

@@ -139,13 +139,16 @@ $(function() {
             data: {id_ruangan: id},
             dataType: "json",
             success: function (data) {
+                var imagePath = "img/thumbnail/" + data.thumbnail;
+                $('#img').attr('src', imagePath);
                 console.log(data);
                 $('#nama_ruangan').val(data.nama_ruangan);
                 $('#kapasitas').val(data.kapasitas);
                 $('#lokasi').val(data.lokasi);
-                $('#korlab').val(data.id_user);
+                $('#korlab').val(data.id_user)
                 $('#deskripsi').val(data.deskripsi);
                 $('#id_ruangan').val(data.id_ruangan);
+
             }
         });
     });

@@ -86,7 +86,7 @@
                         ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td style="width:100px;"><img src="img/thumbnail/<?= $ruangan['thumbnail']; ?>" alt="" style="max-width:100%; object-fit:cover;"></td>
+                                <td style="width:100px;"><img src="img/thumbnail/<?= $ruangan['thumbnail']; ?>" alt="thumbnail" style="max-width:100%; object-fit:cover;"></td>
                                 <td><?= $ruangan['nama_ruangan']; ?></td>
                                 <td><?= $ruangan['kapasitas']; ?></td>
                                 <td><?= $ruangan['lokasi']; ?></td>
@@ -133,7 +133,7 @@
                                 <div class="col-6">
 
                                     <div class="form-group mb-3">
-                                        <label for="namaRuangan" class="form-label">Nama Ruangan</label>
+                                        <label for="nama_ruangan" class="form-label">Nama Ruangan</label>
                                         <input type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" placeholder="Masukkan Nama Ruangan">
                                     </div>
 
@@ -148,8 +148,6 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="col-6">
                                     <div class="form-group mb-3">
                                         <label for="korlab" class="form-label">Koordinator Lab</label>
                                         <select id="korlab" class="form-control" name="id_user">
@@ -160,11 +158,24 @@
                                         </select>
                                     </div>
 
+                                </div>
+                                <div class="col-6">
+                                    <!-- <div class="form-group mb-3">
+                                        <label for="korlab" class="form-label">Koordinator Lab</label>
+                                        <select id="korlab" class="form-control" name="id_user">
+                                            <option value="#">-- Pilih Koordinator Lab --</option>
+                                            <?php foreach ($data['korlab'] as $user) : ?>
+                                                <option value="<?= $user['id_user']; ?>"><?= $user['nama_lengkap']; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div> -->
+
                                     <div class="form-group mb-3">
                                         <label for="thumbnail" class="form-label">Thumbnail</label>
-                                        <div class="custom-upload-btn">
-                                            <input type="file" id="thumbnail" class="form-control" name="thumbnail">
-                                            <label for="gambar">Upload File</label>
+                                        <div class="preview rounded">
+                                            <img src="<?= BASEURL ?>/img/thumbnail/default_image.png" id="img" alt="Preview Thumbnail" class="rounded img-fluid" style="width:100%; height: 227px; object-fit:cover">
+                                            <input type="file" id="thumbnail" class="form-control d-none" name="thumbnail">
+                                            <!-- <label class="upload-button" for="thumbnail">UPLOAD FILE</label> -->
                                         </div>
                                     </div>
                                 </div>
@@ -188,3 +199,22 @@
             </div>
         </div>
         <!-- End Card Data Ruangan-->
+
+
+        <script>
+            document.getElementById('img').addEventListener('click', function() {
+                document.getElementById('thumbnail').click();
+            });
+
+            document.getElementById('thumbnail').addEventListener('change', function() {
+                var input = this;
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        console.log("File berhasil dibaca"); // Pesan log untuk memeriksa apakah file berhasil dibaca
+                        document.getElementById('img').setAttribute('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            });
+        </script>

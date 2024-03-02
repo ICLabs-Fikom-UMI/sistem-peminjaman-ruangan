@@ -261,42 +261,48 @@ h5 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.preview{
+    box-shadow: 0 2px 4px rgb(201, 201, 201);
+
+}
+
+
           /* Gaya tambahan untuk tombol upload */
-          .custom-upload-btn {
+          /* .custom-upload-btn {
               position: relative;
               overflow: hidden;
-              width: 100%;
+              width: 100%; */
               /* Lebar 100% dari elemen induknya */
-          }
+          /* } */
     
-          .custom-upload-btn input[type=file] {
+          /* .custom-upload-btn input[type=file] {
               position: absolute;
-              top: 0;
+              top: 50%;
               left: 0;
-              width: 100%;
+              width: 50%;
               height: 100%;
               margin: 0;
               padding: 0;
               font-size: 20px;
               cursor: pointer;
               opacity: 0;
-              filter: alpha(opacity=0);
+              filter: alpha(opacity=0); */
               /* Untuk IE */
-              z-index: 2;
+              /* z-index: 2; */
               /* Letakkan di atas tombol label */
-          }
+          /* } */
     
-          .custom-upload-btn label {
+          /* .custom-upload-btn label {
               display: block;
-              padding: 10px;
+              padding: 10px; */
               /* Sesuaikan dengan kebutuhan */
-              border: 2px dashed #ccc;
+              /* border: 2px dashed #ccc;
               text-align: center;
               border-radius: 5px;
               cursor: pointer;
-              z-index: 1;
+              z-index: 1; */
               /* Letakkan di bawah input file */
-          }
+          /* } */
 
                 .line {
                     flex-grow: 1;
