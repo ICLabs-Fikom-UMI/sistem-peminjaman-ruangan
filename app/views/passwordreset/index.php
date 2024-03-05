@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-5 p-3 mt-5 mb-5">
-                <form action="<?= BASEURL; ?>/passwordreset/" method="post">
+                <form action="<?= BASEURL; ?>/passwordreset/send" method="post">
                     <div class="header">
                         <h4>Lupa Kata Sandi</h4>
                     </div>
@@ -43,7 +43,7 @@
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" name="email" required>
                     </div>
-                    <button type="submit" class="signin mb-3">Kirim Permintaan</button>
+                    <button >Kirim Permintaan</button>
                     <span>Pengguna baru? <a href=" <?= BASEURL; ?>/login" class="signup text-decoration-none"> Kembali ke login</a></span>
                 </form>
             </div>

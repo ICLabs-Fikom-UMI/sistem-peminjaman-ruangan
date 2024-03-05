@@ -23,7 +23,7 @@ $isPinjamPage = strpos($currentURL, '/pinjam') !== false;
     <?php endif; ?>
 
     <!-- Topbar Navbar -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto d-flex align-items-center">
         <!-- Avatar -->
         <div class="dropdown">
             <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" data-bs-toggle="dropdown">
@@ -41,6 +41,11 @@ $isPinjamPage = strpos($currentURL, '/pinjam') !== false;
                     <a class="dropdown-item" href=" <?= BASEURL; ?>/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
                 </li>
             </ul>
+        </div>
+
+
+        <div class="notifikasi ms-3">
+            <i class="fa-regular fa-bell" style="font-size: 24px;"></i>
         </div>
     </ul>
 </nav>

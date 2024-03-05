@@ -61,15 +61,20 @@ class Ruangan extends Controller {
 
     public function hapus($id)
     {
+        $ruangan = $this->model('Ruangan_model')->getRuanganById($id);
+
+        $imagePath = 'C:\xampp\htdocs\peminjaman-lab\public\img\thumbnail\\' . $ruangan["thumbnail"];
+
+        unlink($imagePath);
+
         if ($this->model('Ruangan_model')->hapusDataRuangan($id) > 0) {
             Flasher::setFlash('berhasil', 'dihapus', 'success', 'Ruangan');
-            header('Location: ' . BASEURL . '/ruangan');
-            exit;
+
         } else {
             Flasher::setFlash('gagal', 'dihapus', 'danger', 'Ruangan');
-            header('Location: ' . BASEURL . '/ruangan');
-            exit;
         }
+        header('Location: ' . BASEURL . '/ruangan');
+        exit;
     }
 
     public function tambah()
