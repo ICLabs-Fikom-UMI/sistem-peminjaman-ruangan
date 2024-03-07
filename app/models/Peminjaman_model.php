@@ -277,4 +277,19 @@ class Peminjaman_model
         return $this->db->resultSet();
     }
 
+    public function getPeminjamanByRuangan($nama_ruangan){
+        // $query =
+        // "SELECT * FROM trx_peminjaman tp
+        //  WHERE tp.id_ruangan IN (SELECT id_ruangan FROM mst_ruangan WHERE nama_ruangan = :nama_ruangan) AND tp.status_peminjaman = 'Disetujui'";
+
+        $query = "SELECT *
+                  FROM trx_peminjaman tp
+                  LEFT JOIN mst_user mu ON tp.id_user = mu.id_user
+                  LEFT JOIN mst_ruangan mr ON tp.id_ruangan = mr.id_ruangan 
+                  WHERE mr.nama_ruangan = :nama_ruangan AND tp.status_peminjaman = 'Disetujui'";
+        $this->db->query($query);
+        $this->db->bind(':nama_ruangan', $nama_ruangan);
+        return $this->db->resultSet();
+    }
+
 }

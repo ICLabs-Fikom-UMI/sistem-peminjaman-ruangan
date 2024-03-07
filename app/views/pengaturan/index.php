@@ -12,13 +12,13 @@
                 <form action="<?= BASEURL ?>/pengaturan/ubahprofile" method="post" enctype="multipart/form-data">
                     <div class="row mb-3">
                         <div class="col-md-2">
-                            <img src="<?= BASEURL; ?>/img/profile/<?= $data['dataUser']['image']; ?>" alt=" foto profile" class="img-fluid rounded" style="width: 100px; height:100px; object-fit: cover;">
+                            <img id="preview-image" src="<?= BASEURL; ?>/img/profile/<?= $data['dataUser']['image']; ?>" alt=" foto profile" class="img-fluid rounded" style="width: 100px; height:100px; object-fit: cover;">
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <input type="file" id="image" name="image" style="display: none;">
                                 <label for="image" class="btn btn-primary">Pilih Foto</label>
-                                <button class="btn btn-secondary">Reset</button>
+                                <button type="button" id="reset-image" class="btn btn-secondary">Reset</button>
                                 <p class="mt-2">Gambar Profile Anda sebaiknya memiliki rasio 1:1 <br>
                                     dan berukuran tidak lebih dari 2MB.</p>
                             </div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary font-weight-bold me-2">Simpan Perubahan</button>
+                        <button id="submit-form" type="submit" class="btn btn-primary font-weight-bold me-2">Simpan Perubahan</button>
                     </div>
                 </form>
             </div>
@@ -149,5 +149,30 @@
             // Toggle icon
             togglePassword2.classList.toggle('fa-eye');
             togglePassword2.classList.toggle('fa-eye-slash');
+        });
+
+
+        // menampilkan gambar
+        document.getElementById('image').addEventListener('change', function() {
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    console.log("File berhasil dibaca"); // Pesan log untuk memeriksa apakah file berhasil dibaca
+                    document.getElementById('preview-image').setAttribute('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+
+
+        // Mereset gambar ke gambar default saat tombol reset ditekan
+        document.getElementById('reset-image').addEventListener('click', function() {
+            // Atur nilai input gambar kembali ke null atau kosong
+            document.getElementById('image').value = ''; // jika menggunakan input file, atur nilainya menjadi null
+
+            // Ganti URL default gambar sesuai dengan URL gambar default yang kamu miliki
+            var defaultImageURL = '<?= BASEURL; ?>/img/profile/pp.jpg';
+            document.getElementById('preview-image').setAttribute('src', defaultImageURL);
         });
     </script>

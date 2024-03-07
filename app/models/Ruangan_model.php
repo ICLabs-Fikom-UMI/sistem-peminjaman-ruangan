@@ -158,4 +158,19 @@ class Ruangan_model{
         return $this->db->resultSet();
     }
 
+    public function getRuanganByUserId($id_user)
+    {
+        $query = "SELECT ru.nama_ruangan 
+                  FROM mst_ruangan ru
+                  JOIN mst_user usr ON ru.id_user = usr.id_user
+                  JOIN mst_role ur ON usr.id_role = ur.id_role
+                  WHERE usr.id_user = :id_user
+                  AND ur.nama_role = 'Koordinator Lab'";
+
+        $this->db->query($query);
+        $this->db->bind(':id_user', $id_user);
+
+        return $this->db->single();
+    }
+
 }

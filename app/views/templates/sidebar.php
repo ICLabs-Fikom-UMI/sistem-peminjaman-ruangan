@@ -76,6 +76,14 @@
                     <li class="header">
                         Data Ruangan
                     </li>
+                    <li>
+                        <a href="<?= BASEURL; ?>/koordinator/data_ruangan" class="nav-link">
+                            <span class=" material-symbols-outlined">
+                                user_attributes
+                            </span>
+                            Daftar Ruangan
+                        </a>
+                    </li>
                 <?php endif; ?>
             <?php endif; ?>
 
